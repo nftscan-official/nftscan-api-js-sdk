@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    // 指定 ECMAScript 目标版本 "ES3"（默认）， "ES5"， "ES6" / "ES2015"， "ES2016"， "ES2017" 或 "ESNext"。
+    "target": "ES5",
+    // 构建的目标代码删除所有注释，但是不会删除以 /!* 开头的版权信息
+    "removeComments": false,
+    // 启用所有严格类型检查选项。
+    "strict": true,
+    // 禁止对同一个文件的不一致的引用
+    "forceConsistentCasingInFileNames": true,
+    // 生成相应的 .d.ts文件
+    "declaration": true,
+    // 生成的 .d.ts文件路径，这里统一生成到types文件夹下
+    "declarationDir": "dist/src",
+    // 报错时不生成输出文件
+    "noEmitOnError": true,
+    "resolveJsonModule": true
+  },
+  // 编译器默认包含的编译文件，src是源代码文件夹，test是jest测试代码文件夹
+  "include": ["src/**/*", "test/**/*"],
+  // 编译器默认排除的编译文件
+  "exclude": ["node_modules"]
+}
