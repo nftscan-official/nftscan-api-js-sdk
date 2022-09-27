@@ -5,7 +5,7 @@ name: buildAndDeployLibrary
 on:
   push:
     branches:
-      - main
+      - master
 
 # jobs 也就是任务的意思
 jobs:
@@ -29,15 +29,15 @@ jobs:
       - name: Build
         run: npm run build # 打包
 
-      - name: Docs
-        run: npm run docs-build # 打包文档
+      # - name: Docs
+      #   run: npm run docs-build # 打包文档
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
-        with:
-          publish_dir: ./docs/.vuepress/dist # 部署打包后的 dist 目录
-          github_token: ${{ secrets.NFTSCAN_DEPLOY }} # secret 名
-          commit_message: release # 部署时的 git 提交信息，根据自身需要填写即可
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
+      #   with:
+      #     publish_dir: ./docs/.vuepress/dist # 部署打包后的 dist 目录
+      #     github_token: ${{ secrets.NFTSCAN_DEPLOY }} # secret 名
+      #     commit_message: release # 部署时的 git 提交信息，根据自身需要填写即可
 
       - name: Publish to NPM # 推送到 NPM 上
         run: |
