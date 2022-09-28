@@ -56,8 +56,8 @@ export function initHttpConfig() {
 }
 
 /**
- * NFTScan SDK's wrapper function of send get http request
- * @param nftscanConfig NFTScan SDK Initialization parameters {@link NftscanConfig}
+ * NFTScan API SDK's wrapper function of send get http request
+ * @param nftscanConfig NFTScan API SDK Initialization parameters {@link NftscanConfig}
  * @param url The API url
  * @param params The axios get params
  * @returns Promise
@@ -80,8 +80,8 @@ export function nftscanGet<T, V>(nftscanConfig: NftscanConfig, url: string, para
 }
 
 /**
- * NFTScan SDK's wrapper function of send post http request
- * @param nftscanConfig NFTScan SDK Initialization parameters {@link NftscanConfig}
+ * NFTScan API SDK's wrapper function of send post http request
+ * @param nftscanConfig NFTScan API SDK Initialization parameters {@link NftscanConfig}
  * @param url The API url
  * @param data The axios post data
  * @returns Promise

@@ -2,7 +2,7 @@ import { defaultTheme, defineUserConfig } from "vuepress";
 
 export default defineUserConfig({
   lang: "zh-CN",
-  title: "NFTScan SDK Docs",
+  title: "NFTScan API SDK Docs",
   description: "Quick access to Web3 via NFTScan",
   base:'/nftscan-api/',
   theme: defaultTheme({

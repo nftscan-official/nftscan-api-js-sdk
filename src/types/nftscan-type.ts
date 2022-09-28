@@ -1,6 +1,6 @@
 /* eslint-disable no-shadow */
 /**
- * The NFTScan SDK supported chains
+ * The NFTScan API SDK supported chains
  */
 export enum EvmChain {
   ETH = 'eth',
@@ -55,7 +55,7 @@ export enum RangeType {
 }
 
 /**
- * NFTScan SDK's error code
+ * NFTScan API SDK's error code
  */
 export enum NsError {
   API_KEY_ERROR = 'api_key_error',
@@ -67,14 +67,14 @@ export enum NsError {
 }
 
 /**
- * NFTScan SDK's common object
+ * NFTScan API SDK's common object
  */
 export interface NsObject {
   [key: string]: unknown;
 }
 
 /**
- * NFTScan SDK's EVM-like blockchain config properties.
+ * NFTScan API SDK's EVM-like blockchain config properties.
  * To use our SDK, You need to register an account on NFTScan open platform({@link https://developer.nftscan.com/}) and get your API-KEY for making calls to API services.
  */
 export interface NftscanConfig {
@@ -90,7 +90,7 @@ export interface NftscanConfig {
 }
 
 /**
- * NFTScan SDK's Solana blockchain config properties.
+ * NFTScan API SDK's Solana blockchain config properties.
  * To use our SDK, You need to register an account on NFTScan open platform({@link https://developer.nftscan.com/}) and get your API-KEY for making calls to API services.
  */
 export interface NftscanSolanaConfig {

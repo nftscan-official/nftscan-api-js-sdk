@@ -13,7 +13,7 @@ import NftscanEvmTransaction from './transaction';
  * The NFTScan API helps developers build new experiences retrieving NFTs and data analysis. We provide a set of endpoints that
  * enable you to fetch ERC721 and ERC1155 NFT assets as well as transactions, collections, marketplace statistics and more.
  * To use our APIs, You need to register an account on NFTScan open platform OpenAPI Platform({@link https://developer.nftscan.com/})
- * and get your API key for NFTScan SDK initialize config.
+ * and get your API key for NFTScan API SDK initialize config.
  */
 export default class NftscanEvm extends BaseApi<NftscanConfig> {
   /**
