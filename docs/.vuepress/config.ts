@@ -4,7 +4,7 @@ export default defineUserConfig({
   lang: "zh-CN",
   title: "NFTScan SDK Docs",
   description: "Quick access to Web3 via NFTScan",
-  base:'/nftscan-sdk/',
+  base:'/nftscan-api/',
   theme: defaultTheme({
     // navbar: [
     //   { text: "bar1", link: "/guide/" },
