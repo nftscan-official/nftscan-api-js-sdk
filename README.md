@@ -25,19 +25,19 @@ The SDK currently supports the following chains:
 via `npm`:
 
 ```shell
-npm install nftscan-sdk
+npm install nftscan-api
 ```
 
 or `yarn`:
 
 ```shell
-yarn add nftscan-sdk
+yarn add nftscan-api
 ```
 
 Then you can import and use the SDK:
 
 ```ts
-import { ErcType, EvmChain, NftscanEvm } from "nftscan-sdk";
+import { ErcType, EvmChain, NftscanEvm } from "nftscan-api";
 
 const config = {
   apiKey: "<YOUR_API_KEY>", // Replace with your NFTScan API key.
