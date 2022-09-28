@@ -1,0 +1,94 @@
+{
+  "name": "nftscan-sdk",
+  "version": "1.0.0",
+  "description": "js/ts SDK for NFTScan APIs",
+  "main": "dist/cjs/index.js",
+  "main-es": "dist/es/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    "node": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/cjs/index.js"
+    },
+    "package.json": "./package.json",
+    "default": "./dist/esm/index.js"
+  },
+  "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "rimraf dist types && rollup -c rollup.config.dev.js -w",
+    "build": "npm run lint && rimraf dist types && rollup -c rollup.config.prod.js",
+    "docs-dev": "vuepress dev docs",
+    "docs-build": "vuepress build docs",
+    "lint": "eslint src",
+    "prepare": "husky install",
+    "release": "standard-version",
+    "release-major": "standard-version --release-as major",
+    "release-minor": "standard-version --release-as minor",
+    "release-patch": "standard-version --release-as patch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nftscan2022/nftscan-api-js-sdk.git"
+  },
+  "keywords": [
+    "nftscan",
+    "NFTScan",
+    "API"
+  ],
+  "author": "nftscan2022",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.19.0",
+    "@babel/plugin-transform-runtime": "^7.18.10",
+    "@babel/preset-env": "^7.19.0",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "babel-loader": "^8.2.5",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-n": "^15.2.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.1",
+    "eslint-plugin-react": "^7.31.7",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.70.1",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-serve": "^2.0.1",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "standard-version": "^9.5.0",
+    "typescript": "^4.8.2",
+    "vuepress": "^2.0.0-beta.51"
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "eslint"
+    ]
+  },
+  "standard-version": {
+    "skip": {
+      "commit": true
+    }
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}

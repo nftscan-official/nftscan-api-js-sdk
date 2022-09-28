@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nftscan</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../dist/umd/index.js"></script>
+  </head>
+  <body>
+    <div>本地测试</div>
+  </body>
+  <script>
+    async function test() {
+      const evm = new NftscanSDK.NftscanEvm({
+        apiKey: 'GBQfJugR',
+        chain: NftscanSDK.EvmChain.ETH,
+      });
+      const result = await evm.asset.getAccountMinted('0xE6d884c5195Aa6187b554E542DEaDcF0C91a431a');
+      console.log(result);
+
+      const sol = new NftscanSDK.NftscanSolana({ apiKey: 'GBQfJugR' });
+      const result1 = await sol.asset.getAccountMinted('HrpADsnPdmbaxBDPHiJbd2kUoKqSXkyMBd71uFqc7BHS');
+      console.log(result1);
+    }
+
+    window.onload = () => {
+      console.log('---本地测试---', NftscanSDK.EvmChain);
+      test();
+    };
+  </script>
+</html>

@@ -1,0 +1,47 @@
+# name，也就是当前 workflow 的名称
+name: buildAndDeployLibrary
+
+# 下文的意思是：当监听到tag的变更时，执行脚本，比如我们在 github 内新建一个tag
+on:
+  push:
+    branches:
+      - master
+
+# jobs 也就是任务的意思
+jobs:
+  docs_and_publish:
+    # name: 在 Github 中显示的 job 名称
+    name: buildAndDeployLibrary
+    runs-on: ubuntu-latest
+    steps:
+      # name:  当前 step 的名字
+      - name: Checkout # 获取分支的代码和提交记录
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js v16.x # 设置 Node.js 的环境
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+
+      - name: Install
+        run: npm install # 安装依赖
+
+      - name: Build
+        run: npm run build # 打包
+
+      # - name: Docs
+      #   run: npm run docs-build # 打包文档
+
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action
+      #   with:
+      #     publish_dir: ./docs/.vuepress/dist # 部署打包后的 dist 目录
+      #     github_token: ${{ secrets.NFTSCAN_DEPLOY }} # secret 名
+      #     commit_message: release # 部署时的 git 提交信息，根据自身需要填写即可
+
+      - name: Publish to NPM # 推送到 NPM 上
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          npm publish
+        env:
+          NPM_TOKEN: ${{ secrets.NFTSCAN_NPM_PUBLISH }}
