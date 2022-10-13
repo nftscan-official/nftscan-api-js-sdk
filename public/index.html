@@ -9,24 +9,24 @@
     <script src="../dist/umd/index.js"></script>
   </head>
   <body>
-    <div>本地测试</div>
+    <div>NftscanSDK Test</div>
   </body>
   <script>
     async function test() {
       const evm = new NftscanSDK.NftscanEvm({
-        apiKey: 'GBQfJugR',
-        chain: NftscanSDK.EvmChain.ETH,
+        apiKey: '',
+        chain: NftscanSDK.EvmChain.AVAX,
       });
       const result = await evm.asset.getAccountMinted('0xE6d884c5195Aa6187b554E542DEaDcF0C91a431a');
       console.log(result);
 
-      const sol = new NftscanSDK.NftscanSolana({ apiKey: 'GBQfJugR' });
+      const sol = new NftscanSDK.NftscanSolana({ apiKey: '' });
       const result1 = await sol.asset.getAccountMinted('HrpADsnPdmbaxBDPHiJbd2kUoKqSXkyMBd71uFqc7BHS');
       console.log(result1);
     }
 
     window.onload = () => {
-      console.log('---本地测试---', NftscanSDK.EvmChain);
+      console.log('---the support chain--->', NftscanSDK.EvmChain);
       test();
     };
   </script>

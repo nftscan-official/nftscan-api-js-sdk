@@ -14,7 +14,7 @@ import NftscanSolanaTransaction from './transaction';
  * marketplace statistics and more.
  *
  * To use our APIs, You need to register an account on NFTScan open platform OpenAPI Platform({@link https://developer.nftscan.com/})
- * and get your API key for NFTScan SDK initialize config.
+ * and get your API key for NFTScan API SDK initialize config.
  */
 export default class NftscanSolana extends BaseApi<NftscanConfig> {
   constructor(config: NftscanSolanaConfig) {

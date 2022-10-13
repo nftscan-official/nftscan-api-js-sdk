@@ -1,7 +1,7 @@
 import { NsError } from './nftscan-type';
 
 /**
- * NFTScan SDK's wrapper error object
+ * NFTScan API SDK's wrapper error object
  */
 export class NftscanError {
   /**

@@ -11,6 +11,7 @@ export default class NftscanConst {
     optimism: 'https://optimismapi.nftscan.com/api',
     platon: 'https://platonapi.nftscan.com/api',
     solana: 'https://solanaapi.nftscan.com/api',
+    avax: 'https://avaxapi.nftscan.com/api',
   };
 
   /**

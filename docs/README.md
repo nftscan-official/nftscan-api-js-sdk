@@ -1,6 +1,6 @@
 ---
 home: true
-heroText: NFTScan SDK
+heroText: NFTScan API SDK
 tagline: Quick access to Web3 via NFTScan
 
 # 配置首页按钮
