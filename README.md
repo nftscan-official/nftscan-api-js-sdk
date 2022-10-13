@@ -17,6 +17,7 @@ The SDK currently supports the following chains:
 | Optimism   | optimismapi.nftscan.com | optimism     |
 | PlatON     | platonapi.nftscan.com   | platon       |
 | Solana     | solanaapi.nftscan.com   | solana       |
+| Avalanche  | avaxapi.nftscan.com     | avax         |
 
 *The value of **Abbreviation** is used in the SDK as an initialization configuration parameter.*
 
