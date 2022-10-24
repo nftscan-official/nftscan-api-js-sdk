@@ -59,6 +59,7 @@ export enum EvmChain {
   MATIC = 'matic',
   OPTIMISM = 'optimism',
   PLATON = 'platon',
+  AVAX = 'avax',
 }
 ```
 
