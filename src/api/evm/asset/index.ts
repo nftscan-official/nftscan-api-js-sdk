@@ -63,15 +63,11 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
    */
   getAllAssets(
     accountAddress: string,
-    ercType: ErcType,
+    ercType?: ErcType,
     showAttribute?: boolean,
   ): Promise<Array<QueryAllAssetsResponse>> {
     if (isEmpty(accountAddress)) {
       return missingParamError('accountAddress');
-    }
-
-    if (isEmpty(ercType)) {
-      return missingParamError('ercType');
     }
 
     const params: NsObject = {

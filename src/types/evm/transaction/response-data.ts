@@ -41,7 +41,7 @@ export interface Transaction {
   erc_type: string;
 
   /**
-   * The NFT event type of the transaction (Mint, Transfer, Sale)
+   * The NFT event type of the transaction (Mint, Transfer, Sale, Burn)
    */
   event_type: string;
 

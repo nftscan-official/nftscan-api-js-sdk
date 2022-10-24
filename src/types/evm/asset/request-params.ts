@@ -33,6 +33,11 @@ export interface AccountMintParams extends CommonAssetParams {
    * The NFT contract address for the assets
    */
   contract_address?: string;
+
+  /**
+   * Can be erc721 or erc1155. Default is erc721
+   */
+  erc_type?: ErcType;
 }
 
 /**
