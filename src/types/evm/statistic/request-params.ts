@@ -8,14 +8,14 @@ export interface QueryTradeRankingParams {
    * The time range (15m 30m 1h 6h 12h 1d 7d 30d). 1d for default
    */
   time?:
-    | RangeType.m15
-    | RangeType.m30
-    | RangeType.h1
-    | RangeType.h6
-    | RangeType.h12
-    | RangeType.d1
-    | RangeType.d7
-    | RangeType.d30;
+    | RangeType.M15
+    | RangeType.M30
+    | RangeType.H1
+    | RangeType.H6
+    | RangeType.H12
+    | RangeType.D1
+    | RangeType.D7
+    | RangeType.D30;
 
   /**
    * Can be volume or sales. volume for default
@@ -67,7 +67,7 @@ export interface QueryMarketplaceRankingParams {
   /**
    * The time range (1d 7d 30d all). 1d for default
    */
-  time?: RangeType.d1 | RangeType.d7 | RangeType.d30 | RangeType.all;
+  time?: RangeType.D1 | RangeType.D7 | RangeType.D30 | RangeType.ALL;
 
   /**
    * Can be volume or sales or wallet. volume for default

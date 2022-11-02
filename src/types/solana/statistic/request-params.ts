@@ -7,7 +7,7 @@ export interface QueryTradeRankingParams {
   /**
    * The time range (15m 30m 1h 6h 12h 1d). 1d for default
    */
-  time?: RangeType.m15 | RangeType.m30 | RangeType.h1 | RangeType.h6 | RangeType.h12 | RangeType.d1;
+  time?: RangeType.M15 | RangeType.M30 | RangeType.H1 | RangeType.H6 | RangeType.H12 | RangeType.D1;
 
   /**
    * Can be volume or sales. volume for default

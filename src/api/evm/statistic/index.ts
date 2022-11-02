@@ -84,14 +84,14 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   getCollectionTrade(
     contractAddress: string,
     time?:
-      | RangeType.h1
-      | RangeType.h4
-      | RangeType.h12
-      | RangeType.d1
-      | RangeType.d3
-      | RangeType.d7
-      | RangeType.d30
-      | RangeType.d90,
+      | RangeType.H1
+      | RangeType.H4
+      | RangeType.H12
+      | RangeType.D1
+      | RangeType.D3
+      | RangeType.D7
+      | RangeType.D30
+      | RangeType.D90,
   ): Promise<Array<QueryCollectionTradeResponse>> {
     if (isEmpty(contractAddress)) {
       return missingParamError('contractAddress');
@@ -100,7 +100,7 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
     return nftscanGet<NsObject, Array<QueryCollectionTradeResponse>>(
       this.config,
       `${NftscanConst.API.evm.statistic.getCollectionTrade}${contractAddress}`,
-      { time: time || RangeType.d1 },
+      { time: time || RangeType.D1 },
     );
   }
 
@@ -118,14 +118,14 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   getCollectionTrending(
     contractAddress: string,
     time?:
-      | RangeType.h1
-      | RangeType.h4
-      | RangeType.h12
-      | RangeType.d1
-      | RangeType.d3
-      | RangeType.d7
-      | RangeType.d30
-      | RangeType.d90,
+      | RangeType.H1
+      | RangeType.H4
+      | RangeType.H12
+      | RangeType.D1
+      | RangeType.D3
+      | RangeType.D7
+      | RangeType.D30
+      | RangeType.D90,
   ): Promise<Array<QueryCollectionTrendingResponse>> {
     if (isEmpty(contractAddress)) {
       return missingParamError('contractAddress');
@@ -134,7 +134,7 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
     return nftscanGet<NsObject, Array<QueryCollectionTrendingResponse>>(
       this.config,
       `${NftscanConst.API.evm.statistic.getCollectionTrending}${contractAddress}`,
-      { time: time || RangeType.d1 },
+      { time: time || RangeType.D1 },
     );
   }
 
@@ -216,12 +216,12 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
    * @returns Promise<Array<{@link QueryMintRankingResponse}>>
    */
   getMintRanking(
-    time?: RangeType.h1 | RangeType.h6 | RangeType.h12 | RangeType.d1 | RangeType.d3,
+    time?: RangeType.H1 | RangeType.H6 | RangeType.H12 | RangeType.D1 | RangeType.D3,
   ): Promise<Array<QueryMintRankingResponse>> {
     return nftscanGet<NsObject, Array<QueryMintRankingResponse>>(
       this.config,
       `${NftscanConst.API.evm.statistic.getMintRanking}`,
-      { time: time || RangeType.d1 },
+      { time: time || RangeType.D1 },
     );
   }
 
@@ -233,12 +233,12 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
    * @returns Promise<{@link QueryMintAmountResponse}>
    */
   getMintAmount(
-    time?: RangeType.h1 | RangeType.h6 | RangeType.h12 | RangeType.d1 | RangeType.d3 | RangeType.d7 | RangeType.d30,
+    time?: RangeType.H1 | RangeType.H6 | RangeType.H12 | RangeType.D1 | RangeType.D3 | RangeType.D7 | RangeType.D30,
   ): Promise<QueryMintAmountResponse> {
     return nftscanGet<NsObject, QueryMintAmountResponse>(
       this.config,
       `${NftscanConst.API.evm.statistic.getMintAmount}`,
-      { time: time || RangeType.d1 },
+      { time: time || RangeType.D1 },
     );
   }
 
@@ -251,13 +251,13 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
    * @returns Promise<Array<{@link QueryTradersRankingResponse}>>
    */
   getTradersRanking(
-    time?: RangeType.h1 | RangeType.h6 | RangeType.h12 | RangeType.d1 | RangeType.d3,
+    time?: RangeType.H1 | RangeType.H6 | RangeType.H12 | RangeType.D1 | RangeType.D3,
     tradeType?: TradeType,
   ): Promise<Array<QueryTradersRankingResponse>> {
     return nftscanGet<NsObject, Array<QueryTradersRankingResponse>>(
       this.config,
       `${NftscanConst.API.evm.statistic.getTradersRanking}`,
-      { time: time || RangeType.d1, trade_type: tradeType || TradeType.BUY },
+      { time: time || RangeType.D1, trade_type: tradeType || TradeType.BUY },
     );
   }
 
