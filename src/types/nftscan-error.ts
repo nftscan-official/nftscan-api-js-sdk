@@ -32,6 +32,10 @@ export function invalidParamError(paramName: string, extMsg?: string) {
   return Promise.reject(new NftscanError(NsError.PARAM_ERROR, invalidParam(paramName, extMsg)));
 }
 
+export function paramErrorDefault(msg?: string) {
+  return Promise.reject(new NftscanError(NsError.PARAM_ERROR, msg));
+}
+
 export function missingParamError(paramName: string) {
   return Promise.reject(new NftscanError(NsError.PARAM_ERROR, missingParam(paramName)));
 }

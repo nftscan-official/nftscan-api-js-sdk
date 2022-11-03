@@ -1,9 +1,19 @@
-import { BaseNsPaginationReqParam } from '../../nftscan-type';
+import { BaseNsPaginationReqParam, EventType } from '../../nftscan-type';
+
+/**
+ * The common request parameters of EVM transaction related API
+ */
+export interface CommonTransactionParams extends BaseNsPaginationReqParam {
+  /**
+   * The NFT event type of the transaction(Mint, Transfer, Sale, Burn). Using ';' to separate multiple events
+   */
+  event_type?: Array<EventType>;
+}
 
 /**
  * The request parameters of EVM API 'getTransactionsByAccount'
  */
-export interface TransactionParams extends BaseNsPaginationReqParam {
+export interface TransactionParams extends CommonTransactionParams {
   /**
    * The NFT token ID. Can be in Hex or in Number
    */
@@ -18,7 +28,7 @@ export interface TransactionParams extends BaseNsPaginationReqParam {
 /**
  * The request parameters of EVM API 'queryTransactionsByFilters'
  */
-export interface QueryTransactionsByFiltersParams extends BaseNsPaginationReqParam {
+export interface QueryTransactionsByFiltersParams extends CommonTransactionParams {
   /**
    * Filter of end block number
    */
