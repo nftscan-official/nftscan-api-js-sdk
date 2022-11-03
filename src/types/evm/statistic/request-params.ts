@@ -38,7 +38,7 @@ export interface QueryTradeRankingParams {
  */
 export interface QueryCollectionRankingParams {
   /**
-   * Can be volume_1d, volume_7d, volume_30d, volume_total, volume_change_1d, volume_change_7d, floor_price. volume_1d for default
+   * Can be volume_1d, volume_7d, volume_30d, volume_total, volume_change_1d, volume_change_7d, floor_price, sales_1d, sales_7d, sales_30d, sales_total, market_cap. volume_1d for default
    */
   sort_field?:
     | 'volume_1d'
@@ -47,7 +47,12 @@ export interface QueryCollectionRankingParams {
     | 'volume_total'
     | 'volume_change_1d'
     | 'volume_change_7d'
-    | 'floor_price';
+    | 'floor_price'
+    | 'sales_1d'
+    | 'sales_7d'
+    | 'sales_30d'
+    | 'sales_total'
+    | 'market_cap';
 
   /**
    * Can be asc or desc. desc for default
