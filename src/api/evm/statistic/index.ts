@@ -6,6 +6,7 @@ import {
 } from '../../../types/evm/statistic/request-params';
 import {
   QueryAccountOverviewResponse,
+  QueryBlueChipStatisticsResponse,
   QueryCollectionRankingResponse,
   QueryCollectionStatisticsResponse,
   QueryCollectionTradeResponse,
@@ -144,7 +145,7 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
    * *****
    * Obtain account overview statistics.
    * - This endpoint returns overview statistics for an account address referring to NFTScan Overview({@link https://www.nftscan.com/0xea7a0f1434084b2e99b42f045896e7326fed9dc1}).
-   * - details: {@link https://docs.nftscan.com/nftscan/trendingUsingGET}
+   * - details: {@link https://docs.nftscan.com/nftscan/accountOverviewUsingGET}
    * @param accountAddress The account address
    * @returns Promise<{@link QueryAccountOverviewResponse}>
    */
@@ -156,6 +157,27 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
     return nftscanGet<NsObject, QueryAccountOverviewResponse>(
       this.config,
       `${NftscanConst.API.evm.statistic.getAccountOverview}${accountAddress}`,
+    );
+  }
+
+  /**
+   * *****
+   * [PRO]
+   * *****
+   * Obtain blue chip statistics.
+   * - This endpoint returns blue chip statistics referring to({@link https://www.nftscan.com/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d?module=Analytics}).
+   * - details: {@link https://docs.nftscan.com/nftscan/blueChipUsingGET}
+   * @param contractAddress The NFT contract address
+   * @returns Promise<{@link QueryBlueChipStatisticsResponse}>
+   */
+  getBlueChipStatistics(contractAddress: string): Promise<QueryBlueChipStatisticsResponse> {
+    if (isEmpty(contractAddress)) {
+      return missingParamError('contractAddress');
+    }
+
+    return nftscanGet<NsObject, QueryBlueChipStatisticsResponse>(
+      this.config,
+      `${NftscanConst.API.evm.statistic.getBlueChipStatistics}${contractAddress}`,
     );
   }
 

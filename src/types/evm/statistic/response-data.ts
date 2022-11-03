@@ -543,6 +543,26 @@ export interface QueryCollectionStatisticsResponse {
 }
 
 /**
+ * The response parameters of EVM API 'getBlueChipStatistics'
+ */
+export interface QueryBlueChipStatisticsResponse {
+  /**
+   * How many owners who have at least one Blue Chip NFT for the collection.
+   */
+  blue_chip_owner: number;
+
+  /**
+   * Percentage of owners of this collection who have at least one Blue Chip NFT
+   */
+  next_blue_chip_probability: string;
+
+  /**
+   * How many owners for the collection
+   */
+  owner: number;
+}
+
+/**
  * The response parameters of EVM API 'getMintRanking'
  */
 export interface QueryMintRankingResponse {
