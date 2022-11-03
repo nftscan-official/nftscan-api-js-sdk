@@ -1,8 +1,17 @@
 import { nftscanGet, nftscanPost } from '../../../http/nftscan.http';
-import { QueryTransactionsByFiltersParams, TransactionParams } from '../../../types/evm/transaction/request-params';
+import {
+  CommonTransactionParams,
+  QueryTransactionsByFiltersParams,
+  TransactionParams,
+} from '../../../types/evm/transaction/request-params';
 import { CommonTransactionResponse, Transaction } from '../../../types/evm/transaction/response-data';
-import { invalidLimitError, invalidParamError, missingParamError } from '../../../types/nftscan-error';
-import { BaseNsPaginationReqParam, NftscanConfig, NsObject } from '../../../types/nftscan-type';
+import {
+  invalidLimitError,
+  invalidParamError,
+  missingParamError,
+  paramErrorDefault,
+} from '../../../types/nftscan-error';
+import { EventType, NftscanConfig, NsObject } from '../../../types/nftscan-type';
 import { isEmpty } from '../../../util/common.util';
 import NftscanConst from '../../../util/nftscan.const';
 import BaseApi from '../../base-api';
@@ -42,7 +51,7 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
     return nftscanGet<TransactionParams, CommonTransactionResponse>(
       this.config,
       `${NftscanConst.API.evm.transaction.getTransactionsByAccount}${accountAddress}`,
-      params,
+      NftscanEvmTransaction.convertEventType(params),
     );
   }
 
@@ -54,12 +63,12 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
    * - This endpoint returns a list of NFT transactions for an NFT contract address. The transactions are sorted by timestamp with descending direction.
    * - details: {@link https://docs.nftscan.com/nftscan/getTransactionsByContractAddressUsingGET}
    * @param contractAddress The NFT contract address
-   * @param params The query params {@link BaseNsPaginationReqParam}
+   * @param params The query params {@link CommonTransactionParams}
    * @returns Promise<{@link CommonTransactionResponse}>
    */
   getTransactionsByContract(
     contractAddress: string,
-    params?: BaseNsPaginationReqParam,
+    params?: CommonTransactionParams,
   ): Promise<CommonTransactionResponse> {
     if (isEmpty(contractAddress)) {
       return missingParamError('contractAddress');
@@ -72,10 +81,10 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
       }
     }
 
-    return nftscanGet<BaseNsPaginationReqParam, CommonTransactionResponse>(
+    return nftscanGet<CommonTransactionParams, CommonTransactionResponse>(
       this.config,
       `${NftscanConst.API.evm.transaction.getTransactions}${contractAddress}`,
-      params,
+      NftscanEvmTransaction.convertEventType(params),
     );
   }
 
@@ -88,13 +97,13 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
    * - details: {@link https://docs.nftscan.com/nftscan/getTransactionByContractAddressAndTokenIdUsingGET}
    * @param contractAddress The NFT contract address
    * @param tokenId The NFT token ID. Can be in Hex or in Number
-   * @param params The query params {@link BaseNsPaginationReqParam}
+   * @param params The query params {@link CommonTransactionParams}
    * @returns Promise<{@link CommonTransactionResponse}>
    */
   getTransactionsByContractAndTokenId(
     contractAddress: string,
     tokenId: string,
-    params?: BaseNsPaginationReqParam,
+    params?: CommonTransactionParams,
   ): Promise<CommonTransactionResponse> {
     if (isEmpty(contractAddress)) {
       return missingParamError('contractAddress');
@@ -111,10 +120,10 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
       }
     }
 
-    return nftscanGet<BaseNsPaginationReqParam, CommonTransactionResponse>(
+    return nftscanGet<CommonTransactionParams, CommonTransactionResponse>(
       this.config,
       `${NftscanConst.API.evm.transaction.getTransactions}${contractAddress}/${tokenId}`,
-      params,
+      NftscanEvmTransaction.convertEventType(params),
     );
   }
 
@@ -126,10 +135,10 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
    * - This endpoint returns a list of NFT transactions filtered by the param `to` of the transaction. The transactions are sorted by timestamp with descending direction.
    * - details: {@link https://docs.nftscan.com/nftscan/getTransactionByTxToUsingGET}
    * @param toAddress The to address of the transaction
-   * @param params The query params {@link BaseNsPaginationReqParam}
+   * @param params The query params {@link CommonTransactionParams}
    * @returns Promise<{@link CommonTransactionResponse}>
    */
-  getTransactionsByToAddress(toAddress: string, params?: BaseNsPaginationReqParam): Promise<CommonTransactionResponse> {
+  getTransactionsByToAddress(toAddress: string, params?: CommonTransactionParams): Promise<CommonTransactionResponse> {
     if (isEmpty(toAddress)) {
       return missingParamError('toAddress');
     }
@@ -141,10 +150,10 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
       }
     }
 
-    return nftscanGet<BaseNsPaginationReqParam, CommonTransactionResponse>(
+    return nftscanGet<CommonTransactionParams, CommonTransactionResponse>(
       this.config,
       `${NftscanConst.API.evm.transaction.getTransactionsByToAddress}${toAddress}`,
-      params,
+      NftscanEvmTransaction.convertEventType(params),
     );
   }
 
@@ -160,10 +169,19 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
    */
   queryTransactionsByFilters(params?: QueryTransactionsByFiltersParams): Promise<CommonTransactionResponse> {
     if (params) {
-      const { contract_address_list: contractAddressList, limit } = params;
+      const {
+        contract_address_list: contractAddressList,
+        limit,
+        block_number_start: blockNumberStart,
+        block_number_end: blockNumberEnd,
+      } = params;
 
       if (contractAddressList && contractAddressList.length > 50) {
         return invalidParamError('contract_address_list', 'Maximum size is 50');
+      }
+
+      if (blockNumberStart === undefined && blockNumberEnd === undefined && isEmpty(contractAddressList)) {
+        return paramErrorDefault('need more filter');
       }
 
       if (limit && limit > 100) {
@@ -174,7 +192,7 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
     return nftscanPost<QueryTransactionsByFiltersParams, CommonTransactionResponse>(
       this.config,
       NftscanConst.API.evm.transaction.queryTransactionsByFilters,
-      params,
+      NftscanEvmTransaction.convertEventType(params),
     );
   }
 
@@ -185,10 +203,11 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
    * Retrieve transactions by the list of transaction hash.
    * - This endpoint returns the transaction records queried based on the list of transaction hash.
    * - details: {@link https://docs.nftscan.com/nftscan/getAssetsByListUsingPOST_3}
-   * @param txHashList List of transaction hash. Maximum size is 50.
+   * @param txHashList The string Array of transaction hash. Maximum size is 50.
+   * @param eventType The NFT event type Array<{@link EventType}> of the transaction.
    * @returns Promise<Array<{@link Transaction}>>
    */
-  queryTransactionsByTxHashList(txHashList: Array<string>): Promise<Array<Transaction>> {
+  queryTransactionsByTxHashList(txHashList: Array<string>, eventType?: Array<EventType>): Promise<Array<Transaction>> {
     if (isEmpty(txHashList)) {
       return missingParamError('txHashList');
     }
@@ -198,11 +217,27 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
     }
 
     const params: NsObject = { tx_hash_list: txHashList };
+    if (eventType) {
+      params.event_type = eventType;
+    }
 
     return nftscanPost<NsObject, Array<Transaction>>(
       this.config,
       NftscanConst.API.evm.transaction.queryTransactionsByTxHashList,
-      params,
+      NftscanEvmTransaction.convertEventType(params),
     );
+  }
+
+  private static convertEventType(params?: unknown): NsObject | undefined {
+    if (!params) {
+      return params as NsObject;
+    }
+    const result: NsObject = {
+      ...params,
+    };
+    if (result.event_type && Array.isArray(result.event_type)) {
+      result.event_type = result.event_type.join(';');
+    }
+    return result;
   }
 }

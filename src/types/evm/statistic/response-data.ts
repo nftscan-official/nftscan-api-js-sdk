@@ -167,6 +167,21 @@ export interface QueryCollectionRankingResponse {
   average_price_7d: number;
 
   /**
+   * The average price growth rate for 1 day
+   */
+  average_price_change_1d: string;
+
+  /**
+   * The average price growth rate for 30 days
+   */
+  average_price_change_30d: string;
+
+  /**
+   * The average price growth rate for 7 days
+   */
+  average_price_change_7d: string;
+
+  /**
    * The average price for total
    */
   average_price_total: number;
@@ -525,6 +540,26 @@ export interface QueryCollectionStatisticsResponse {
    * The 24h volume
    */
   volume_24h: number;
+}
+
+/**
+ * The response parameters of EVM API 'getBlueChipStatistics'
+ */
+export interface QueryBlueChipStatisticsResponse {
+  /**
+   * How many owners who have at least one Blue Chip NFT for the collection.
+   */
+  blue_chip_owner: number;
+
+  /**
+   * Percentage of owners of this collection who have at least one Blue Chip NFT
+   */
+  next_blue_chip_probability: string;
+
+  /**
+   * How many owners for the collection
+   */
+  owner: number;
 }
 
 /**

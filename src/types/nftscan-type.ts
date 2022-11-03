@@ -34,25 +34,25 @@ export enum SortDirection {
  */
 export enum TradeType {
   BUY = 'buy',
-  sell = 'sell',
+  SELL = 'sell',
 }
 
 export enum RangeType {
-  m15 = '15m',
-  m30 = '30m',
-  h1 = '1h',
-  h4 = '4h',
-  h6 = '6h',
-  h12 = '12h',
-  d1 = '1d',
-  d3 = '3d',
-  d7 = '7d',
-  d30 = '30d',
-  d90 = '90d',
-  mth1 = '1mth',
-  mth3 = '3mth',
-  y1 = '1y',
-  all = 'all',
+  M15 = '15m',
+  M30 = '30m',
+  H1 = '1h',
+  H4 = '4h',
+  H6 = '6h',
+  H12 = '12h',
+  D1 = '1d',
+  D3 = '3d',
+  D7 = '7d',
+  D30 = '30d',
+  D90 = '90d',
+  MTH1 = '1mth',
+  MTH3 = '3mth',
+  Y1 = '1y',
+  ALL = 'all',
 }
 
 /**
@@ -65,6 +65,16 @@ export enum NsError {
   RESPONSE_DATA_EMPTY = 'response_data_empty',
   NFTSCAN_DATA_EMPTY = 'nftscan_data_empty',
   PARAM_ERROR = 'param_error',
+}
+
+/**
+ * The NFT event type of the transaction(Mint, Transfer, Sale, Burn)
+ */
+export enum EventType {
+  MINT = 'Mint',
+  TRANSFER = 'Transfer',
+  SALE = 'Sale',
+  BURN = 'Burn',
 }
 
 /**

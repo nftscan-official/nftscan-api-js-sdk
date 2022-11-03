@@ -45,6 +45,7 @@ export default class NftscanConst {
         getCollectionTrade: '/v2/statistics/collection/trade/',
         getCollectionTrending: '/v2/statistics/collection/trending/',
         getAccountOverview: '/v2/statistics/overview/',
+        getBlueChipStatistics: '/v2/statistics/blue/chip/',
         getMarketplaceRanking: '/v2/statistics/ranking/marketplace',
         getMarketCapRanking: '/v2/statistics/ranking/marketcap',
         getCollectionStatistics: '/v2/statistics/collection/',
