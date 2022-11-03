@@ -33,6 +33,11 @@ interface Attributes {
  */
 export interface Collection {
   /**
+   * How many amount for the collection(only for ERC1155)
+   */
+  amounts_total: number;
+
+  /**
    * The attributes distribution of the collection
    */
   attributes: Array<Attributes>;
