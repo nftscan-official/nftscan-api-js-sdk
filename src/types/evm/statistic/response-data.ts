@@ -167,6 +167,21 @@ export interface QueryCollectionRankingResponse {
   average_price_7d: number;
 
   /**
+   * The average price growth rate for 1 day
+   */
+  average_price_change_1d: string;
+
+  /**
+   * The average price growth rate for 30 days
+   */
+  average_price_change_30d: string;
+
+  /**
+   * The average price growth rate for 7 days
+   */
+  average_price_change_7d: string;
+
+  /**
    * The average price for total
    */
   average_price_total: number;
