@@ -16,7 +16,9 @@ function apiKeyError() {
 function apiChainError() {
   const error = new NftscanError(NsError.API_CHAIN_ERROR, 'The property "chain" is invalid');
   console.error(error.msg);
-  console.error('"chian" must be one of the following strings: [ETH, BNB, MATIC, GLMR, Arbitrum, Optimism]');
+  console.error(
+    '"chian" must be one of the following strings: [eth, bnb, arbitrum, moonbeam, polygon, optimism, platon, avalanche]',
+  );
   return Promise.reject(error);
 }
 
@@ -75,7 +77,7 @@ export function nftscanGet<T, V>(nftscanConfig: NftscanConfig, url: string, para
 
   return axios.get(`${baseURL}${url}`, {
     params,
-    headers: { 'X-API-KEY': apiKey },
+    headers: { 'X-API-KEY': apiKey, 'X-FROM': 'js_sdk' },
   });
 }
 
@@ -97,5 +99,5 @@ export function nftscanPost<T, V>(nftscanConfig: NftscanConfig, url: string, dat
     return apiChainError();
   }
 
-  return axios.post(`${baseURL}${url}`, data, { headers: { 'X-API-KEY': apiKey } });
+  return axios.post(`${baseURL}${url}`, data, { headers: { 'X-API-KEY': apiKey, 'X-FROM': 'js_sdk' } });
 }

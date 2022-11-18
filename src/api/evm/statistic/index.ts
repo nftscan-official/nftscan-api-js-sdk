@@ -126,7 +126,9 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
       | RangeType.D3
       | RangeType.D7
       | RangeType.D30
-      | RangeType.D90,
+      | RangeType.D90
+      | RangeType.Y1
+      | RangeType.ALL,
   ): Promise<Array<QueryCollectionTrendingResponse>> {
     if (isEmpty(contractAddress)) {
       return missingParamError('contractAddress');
