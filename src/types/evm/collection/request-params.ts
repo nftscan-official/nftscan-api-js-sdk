@@ -50,9 +50,29 @@ export interface QueryCollectionsByFiltersParams {
   name?: string;
 
   /**
+   * Whether name supports fuzzy search
+   */
+  name_fuzzy_search?: boolean;
+
+  /**
    * The offset for pagination
    */
   offset?: number;
+
+  /**
+   * Whether to load collections with the same name. Default is false
+   */
+  show_collection?: boolean;
+
+  /**
+   * Can be asc or desc. asc for default
+   */
+  sort_direction?: string;
+
+  /**
+   * Can be create_block_number or floor_price. create_block_number for default
+   */
+  sort_field?: 'create_block_number' | 'floor_price';
 
   /**
    * Filter of collection symbol
