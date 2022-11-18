@@ -7,19 +7,19 @@ The daily request limit for a single account is 10,000 general calls. If you hav
 
 The SDK currently supports the following chains:
 
-| Blockchain | Domain name             | Abbreviation |
+| Blockchain | Domain name             | Short name   |
 | ---------- | ----------------------- | ------------ |
 | Ethereum   | restapi.nftscan.com     | eth          |
 | BNB chain  | bnbapi.nftscan.com      | bnb          |
+| Polygon    | polygonapi.nftscan.com  | polygon      |
+| Moonbeam   | moonbeamapi.nftscan.com | moonbeam     |
 | Arbitrum   | arbitrumapi.nftscan.com | arbitrum     |
-| Moonbeam   | moonbeamapi.nftscan.com | glmr         |
-| Polygon    | polygonapi.nftscan.com  | matic        |
 | Optimism   | optimismapi.nftscan.com | optimism     |
 | PlatON     | platonapi.nftscan.com   | platon       |
+| Avalanche  | avaxapi.nftscan.com     | avalanche    |
 | Solana     | solanaapi.nftscan.com   | solana       |
-| Avalanche  | avaxapi.nftscan.com     | avax         |
 
-*The value of **Abbreviation** is used in the SDK as an initialization configuration parameter.*
+*The value of **Short name** is used in the SDK as an initialization configuration parameter.*
 
 ## Getting started
 

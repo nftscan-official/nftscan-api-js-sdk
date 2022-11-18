@@ -6,12 +6,12 @@ export default class NftscanConst {
     eth: 'https://restapi.nftscan.com/api',
     bnb: 'https://bnbapi.nftscan.com/api',
     arbitrum: 'https://arbitrumapi.nftscan.com/api',
-    glmr: 'https://moonbeamapi.nftscan.com/api',
-    matic: 'https://polygonapi.nftscan.com/api',
+    moonbeam: 'https://moonbeamapi.nftscan.com/api',
+    polygon: 'https://polygonapi.nftscan.com/api',
     optimism: 'https://optimismapi.nftscan.com/api',
     platon: 'https://platonapi.nftscan.com/api',
     solana: 'https://solanaapi.nftscan.com/api',
-    avax: 'https://avaxapi.nftscan.com/api',
+    avalanche: 'https://avaxapi.nftscan.com/api',
   };
 
   /**
@@ -24,8 +24,10 @@ export default class NftscanConst {
         getAllAssets: '/v2/account/own/all/',
         getAccountMinted: '/v2/account/mint/',
         getAssets: '/v2/assets/',
+        getMultiChainAssets: '/v2/assets/chain/',
         queryAssetsInBatches: '/v2/assets/batch',
         queryAssetsByFilters: '/v2/assets/filters',
+        queryAssetsByAttributes: '/v2/assets/attributes',
       },
       transaction: {
         getTransactionsByAccount: '/v2/transactions/account/',

@@ -16,7 +16,9 @@ function apiKeyError() {
 function apiChainError() {
   const error = new NftscanError(NsError.API_CHAIN_ERROR, 'The property "chain" is invalid');
   console.error(error.msg);
-  console.error('"chian" must be one of the following strings: [ETH, BNB, MATIC, GLMR, Arbitrum, Optimism]');
+  console.error(
+    '"chian" must be one of the following strings: [eth, bnb, arbitrum, moonbeam, polygon, optimism, platon, avalanche]',
+  );
   return Promise.reject(error);
 }
 

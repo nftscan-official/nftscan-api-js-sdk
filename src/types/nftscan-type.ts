@@ -6,11 +6,11 @@ export enum EvmChain {
   ETH = 'eth',
   BNB = 'bnb',
   ARBITRUM = 'arbitrum',
-  GLMR = 'glmr',
-  MATIC = 'matic',
+  MOONBEAM = 'moonbeam',
+  POLYGON = 'polygon',
   OPTIMISM = 'optimism',
   PLATON = 'platon',
-  AVAX = 'avax',
+  AVALANCHE = 'avalanche',
 }
 
 /**
