@@ -5,11 +5,17 @@ import {
   BatchQueryAssetsListItemParams,
   BatchQueryAssetsParams,
   CommonAssetParams,
+  QueryAssetsByAttributesParams,
   QueryAssetsByFiltersParams,
 } from '../../../types/evm/asset/request-params';
-import { QueryAllAssetsResponse, Asset, CommonAssetResponse } from '../../../types/evm/asset/response-data';
+import {
+  QueryAllAssetsResponse,
+  Asset,
+  CommonAssetResponse,
+  QueryMultiChainAssets,
+} from '../../../types/evm/asset/response-data';
 import { invalidLimitError, invalidParamError, missingParamError } from '../../../types/nftscan-error';
-import { ErcType, NftscanConfig, NsObject } from '../../../types/nftscan-type';
+import { ErcType, EvmChain, NftscanConfig, NsObject } from '../../../types/nftscan-type';
 import { isEmpty } from '../../../util/common.util';
 import NftscanConst from '../../../util/nftscan.const';
 import BaseApi from '../../base-api';
@@ -146,7 +152,7 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
    * @param contractAddress The NFT contract address for the assets
    * @param tokenId The NFT token ID. Can be in Hex or in Number
    * @param showAttribute Whether to load attribute data of the asset. Default is false
-   * @returns Promise<{@link CommonAssetResponse}>
+   * @returns Promise<{@link Asset}>
    */
   getAssetsByContractAndTokenId(contractAddress: string, tokenId: string, showAttribute?: boolean): Promise<Asset> {
     if (isEmpty(contractAddress)) {
@@ -162,6 +168,37 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
     return nftscanGet<NsObject, Asset>(
       this.config,
       `${NftscanConst.API.evm.assets.getAssets}${contractAddress}/${tokenId}`,
+      params,
+    );
+  }
+
+  /**
+   * Retrieve multi-chain assets owned by an account.
+   * - This endpoint returns all multi-chain NFTs owned by an account address. And the NFTs are grouped according to contract address.
+   * - details: {@link https://docs.nftscan.com/nftscan/getAssetsByMultiChainUsingGET}
+   * @param accountAddress The address of the owner of the assets
+   * @param chain The short name of chain(eth, bnb, polygon, moonbeam, arbitrum, optimism, platon, avalanche). Using ';' to separate multiple chains
+   * @param ercType Can be erc721 or erc1155.
+   * @returns Promise<{@link QueryMultiChainAssets}>
+   */
+  getMultiChainAssets(
+    accountAddress: string,
+    chain: Array<EvmChain>,
+    ercType?: ErcType,
+  ): Promise<QueryMultiChainAssets> {
+    if (isEmpty(accountAddress)) {
+      return missingParamError('accountAddress');
+    }
+
+    if (isEmpty(chain)) {
+      return missingParamError('chain');
+    }
+
+    const params: NsObject = { chain: chain.join(';'), erc_type: ercType };
+
+    return nftscanGet<NsObject, QueryMultiChainAssets>(
+      this.config,
+      `${NftscanConst.API.evm.assets.getMultiChainAssets}${accountAddress}`,
       params,
     );
   }
@@ -223,6 +260,38 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
     return nftscanPost<QueryAssetsByFiltersParams, CommonAssetResponse>(
       this.config,
       NftscanConst.API.evm.assets.queryAssetsByFilters,
+      params,
+    );
+  }
+
+  /**
+   * *****
+   * [PRO]
+   * *****
+   * Retrieve assets by contract address with attributes
+   * - This endpoint returns a set of NFTs those belong to an NFT contract address with attributes. The NFTs are sorted by token_id with ascending direction.
+   * - details: {@link https://docs.nftscan.com/nftscan/getAssetsByContractAddressWithAttributesUsingPOST}
+   * @param params The query params {@link QueryAssetsByAttributesParams}
+   * @returns Promise<{@link CommonAssetResponse}>
+   */
+  queryAssetsByAttributes(params: QueryAssetsByAttributesParams): Promise<CommonAssetResponse> {
+    const { contract_address: contractAddress, attributes } = params;
+
+    if (isEmpty(contractAddress)) {
+      return missingParamError('contract_address');
+    }
+
+    if (isEmpty(attributes)) {
+      return missingParamError('attributes');
+    }
+
+    if (attributes.length > 10) {
+      return invalidParamError('attributes', 'Maximum size is 10');
+    }
+
+    return nftscanPost<QueryAssetsByAttributesParams, CommonAssetResponse>(
+      this.config,
+      NftscanConst.API.evm.assets.queryAssetsByAttributes,
       params,
     );
   }

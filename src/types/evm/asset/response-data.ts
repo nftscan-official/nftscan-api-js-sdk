@@ -194,3 +194,18 @@ export interface QueryAllAssetsResponse {
    */
   owns_total: number;
 }
+
+/**
+ * The response parameters of EVM API 'getMultiChainAssets'
+ */
+export interface QueryMultiChainAssets {
+  /**
+   * The short name of chain
+   */
+  chain: string;
+
+  /**
+   * List of Collection Asset Model
+   */
+  collection_assets: Array<Asset>;
+}

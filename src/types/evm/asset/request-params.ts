@@ -89,3 +89,30 @@ export interface QueryAssetsByFiltersParams extends CommonAssetParams {
    */
   contract_address_list?: Array<string>;
 }
+
+interface Attribute {
+  /**
+   * The name of the attribute
+   */
+  attribute_name: string;
+
+  /**
+   * The value(s) for the attribute name
+   */
+  attribute_values: Array<string>;
+}
+
+/**
+ * The request parameters of EVM API 'queryAssetsByAttributes'
+ */
+export interface QueryAssetsByAttributesParams extends CommonAssetParams {
+  /**
+   * The NFT contract address for the assets
+   */
+  contract_address: string;
+
+  /**
+   * List of attribute name with attribute value(s). Maximum size is 10
+   */
+  attributes: Array<Attribute>;
+}
