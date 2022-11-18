@@ -37,6 +37,11 @@ interface volume7d {
  */
 export interface QueryTradeRankingResponse {
   /**
+   * How many amount for the collection(only for ERC1155)
+   */
+  amounts_total: number;
+
+  /**
    * The average price
    */
   average_price: number;
