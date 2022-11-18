@@ -127,8 +127,10 @@ As follows:
     - `getAccountMinted()`: Retrieve assets minted by an account.
     - ***[PRO]*** `getAssetsByContract()`: Retrieve assets by contract address.
     - `getAssetsByContractAndTokenId()`: Retrieve an asset by contract address and token ID.
+    - ***[PRO]*** `getMultiChainAssets()`: Retrieve multi-chain assets owned by an account.
     - ***[PRO]*** `queryAssetsInBatches`: Retrieve assets by list of contract address and token ID.
     - ***[PRO]*** `queryAssetsByFilters()`: Retrieve assets with filters.
+    - ***[PRO]*** `queryAssetsByAttributes()`: Retrieve assets by contract address with attributes.
   - ##### Retrieve Transactions (`new NftscanEvm().transaction.*`)
     - ***[PRO]*** `getTransactionsByAccount()`: Retrieve transactions by an account.
     - ***[PRO]*** `getTransactionsByContract()`: Retrieve transactions by contract address.
@@ -146,6 +148,7 @@ As follows:
     - ***[PRO]*** `getCollectionTrade()`: Obtain collection trade distribution.
     - ***[PRO]*** `getCollectionTrending()`: Obtain collection trending statistics.
     - ***[PRO]*** `getAccountOverview()`: Obtain account overview statistics.
+    - ***[PRO]*** `getBlueChipStatistics()`: Obtain blue chip statistics.
     - `getMarketplaceRanking()`: Obtain marketplace ranking statistics.
     - `getMarketCapRanking()`: Obtain market cap ranking statistics
     - ***[PRO]*** `getCollectionStatistics()`: Obtain collection statistics.
