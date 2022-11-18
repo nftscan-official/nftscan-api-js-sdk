@@ -77,7 +77,7 @@ export function nftscanGet<T, V>(nftscanConfig: NftscanConfig, url: string, para
 
   return axios.get(`${baseURL}${url}`, {
     params,
-    headers: { 'X-API-KEY': apiKey },
+    headers: { 'X-API-KEY': apiKey, 'X-FROM': 'js_sdk' },
   });
 }
 
@@ -99,5 +99,5 @@ export function nftscanPost<T, V>(nftscanConfig: NftscanConfig, url: string, dat
     return apiChainError();
   }
 
-  return axios.post(`${baseURL}${url}`, data, { headers: { 'X-API-KEY': apiKey } });
+  return axios.post(`${baseURL}${url}`, data, { headers: { 'X-API-KEY': apiKey, 'X-FROM': 'js_sdk' } });
 }
