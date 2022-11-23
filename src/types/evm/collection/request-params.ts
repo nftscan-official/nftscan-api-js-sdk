@@ -78,4 +78,9 @@ export interface QueryCollectionsByFiltersParams {
    * Filter of collection symbol
    */
   symbol?: string;
+
+  /**
+   * Filter of twitter
+   */
+  twitter?: string;
 }
