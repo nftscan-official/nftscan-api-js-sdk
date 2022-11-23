@@ -133,6 +133,11 @@ export interface Asset {
   owner: string;
 
   /**
+   * The timestamp in milliseconds when the item was owned (null if the item is an ERC-1155 NFT)
+   */
+  own_timestamp: number;
+
+  /**
    * The token ID of the NFT in Number
    */
   token_id: string;

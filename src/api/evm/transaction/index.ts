@@ -43,8 +43,8 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
         return missingParamError('contract_address');
       }
 
-      if (limit && limit > 100) {
-        return invalidLimitError(100);
+      if (limit && limit > 1000) {
+        return invalidLimitError(1000);
       }
     }
 

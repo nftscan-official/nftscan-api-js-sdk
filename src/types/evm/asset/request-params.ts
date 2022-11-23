@@ -1,4 +1,4 @@
-import { BaseNsPaginationReqParam, ErcType } from '../../nftscan-type';
+import { BaseNsPaginationReqParam, ErcType, SortDirection } from '../../nftscan-type';
 
 /**
  * The common request parameters of EVM asset related API
@@ -23,6 +23,16 @@ export interface AssetParams extends CommonAssetParams {
    * The NFT contract address for the assets
    */
   contract_address?: string;
+
+  /**
+   * Can be mint_time or own_time
+   */
+  sort_field?: 'mint_time' | 'own_time';
+
+  /**
+   * Can be asc or desc
+   */
+  sort_direction?: SortDirection;
 }
 
 /**
