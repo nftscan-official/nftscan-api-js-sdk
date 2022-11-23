@@ -1,4 +1,15 @@
 # Changelog
+## [1.5.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.4.0...v1.5.0) (2022-11-23)
+
+
+### ✨ Features | 新功能
+
+* Added `opensea_verified` to the return data of EVM collection related ([3adf243](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/3adf24350facbd0d5af840f0262fae1386a5624f))
+* Added `own_timestamp` to the return data of EVM asset related ([e0bfbf7](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/e0bfbf75e935bacd2b445a4516d1a22214fd6bab))
+* Added `sort_field` & `sort_direction` query condition to `getAssetsByAccount` endpoint of EVM. ([d9ae4ee](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/d9ae4eec86a5e32cd0ba8dd6e12890f9767b9f80))
+* Added `twitter` query condition to `queryCollectionsByFilters` endpoint of EVM ([b5e5462](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/b5e5462ab9a5ec3b515b102df85be99c4bc4dac3))
+* Adjusted the paging limit of `getTransactionsByAccount` endpoint of EVM to 1000 ([7b3953a](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/7b3953ab165f33ac2b04661279cc29ae282a9790))
+
 ## [1.4.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.3.0...v1.4.0) (2022-11-18)
 
 
