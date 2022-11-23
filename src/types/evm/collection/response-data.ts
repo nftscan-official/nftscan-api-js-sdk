@@ -133,6 +133,11 @@ export interface Collection {
   opensea_floor_price: number;
 
   /**
+   * Whether the collection is verified on OpenSea
+   */
+  opensea_verified: boolean;
+
+  /**
    * The user address who owns the contract
    */
   owner: string;
