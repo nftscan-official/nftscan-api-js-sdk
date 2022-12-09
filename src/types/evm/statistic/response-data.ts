@@ -412,6 +412,11 @@ export interface QueryMarketplaceRankingResponse {
   gas: number;
 
   /**
+   * The handling fee
+   */
+  handling_fee: string;
+
+  /**
    * The logo URL
    */
   logo_url: string;
