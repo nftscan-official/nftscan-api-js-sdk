@@ -18,6 +18,7 @@ The SDK currently supports the following chains:
 | PlatON     | platonapi.nftscan.com   | platon       |
 | Avalanche  | avaxapi.nftscan.com     | avalanche    |
 | Solana     | solanaapi.nftscan.com   | solana       |
+| Cronos     | cronosapi.nftscan.com   | cronos       |
 
 *The value of **Short name** is used in the SDK as an initialization configuration parameter.*
 
@@ -55,11 +56,12 @@ export enum EvmChain {
   ETH = 'eth',
   BNB = 'bnb',
   ARBITRUM = 'arbitrum',
-  GLMR = 'glmr',
-  MATIC = 'matic',
+  MOONBEAM = 'moonbeam',
+  POLYGON = 'polygon',
   OPTIMISM = 'optimism',
   PLATON = 'platon',
-  AVAX = 'avax',
+  AVALANCHE = 'avalanche',
+  CRONOS = 'cronos',
 }
 ```
 
@@ -106,11 +108,10 @@ In general, NFTScan's API that supports pagination will uses the query params `c
 For example:
 ```ts
 let nextCursor = "";
-const params = {
+const { content, next } = await evm.asset.getAccountMinted("<ACCOUNT_ADDRESS>", {
   cursor: nextCursor, // A cursor to retrieve the next page
   limit: 20, // Page size
-};
-const { content, next } = await evm.asset.getAccountMinted("<ACCOUNT_ADDRESS>", params);
+});
 // update the nextCursor
 nextCursor = next;
 ```
