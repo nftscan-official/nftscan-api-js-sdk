@@ -1,4 +1,4 @@
-import { BaseNsPaginationReqParam, EventType } from '../../nftscan-type';
+import { BaseNsPaginationReqParam, EventType, SortDirection } from '../../nftscan-type';
 
 /**
  * The common request parameters of EVM transaction related API
@@ -8,6 +8,11 @@ export interface CommonTransactionParams extends BaseNsPaginationReqParam {
    * The NFT event type of the transaction(Mint, Transfer, Sale, Burn). Using ';' to separate multiple events
    */
   event_type?: Array<EventType>;
+
+  /**
+   * Can be asc or desc. desc for default
+   */
+  sort_direction?: SortDirection;
 }
 
 /**
