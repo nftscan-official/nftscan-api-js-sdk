@@ -1,4 +1,4 @@
-import { SortDirection } from '../../nftscan-type';
+import { ErcType, SortDirection } from '../../nftscan-type';
 
 /**
  * The request parameters of EVM API 'getCollectionsByRanking'
@@ -83,4 +83,24 @@ export interface QueryCollectionsByFiltersParams {
    * Filter of twitter
    */
   twitter?: string;
+}
+
+/**
+ * The request parameters of EVM API 'queryCollectionsByAccountAddress'
+ */
+export interface QueryCollectionsByAccountAddressParams {
+  /**
+   * Can be erc721 or erc1155
+   */
+  erc_type: ErcType;
+
+  /**
+   * Page size. Defaults to 20, capped at 100
+   */
+  limit?: number;
+
+  /**
+   * The offset for pagination
+   */
+  offset?: number;
 }

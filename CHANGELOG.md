@@ -1,4 +1,15 @@
 # Changelog
+## [1.6.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.5.0...v1.6.0) (2022-12-09)
+
+
+### ✨ Features | 新功能
+
+* Added `handling_fee` to the return data of endpoint `getMarketplaceRanking` ([37c64ae](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/37c64ae6a6af9a4f8283da3f1f4fd6f9740cb5e2))
+* Added `market_cap` to the return data of endpoint `getCollectionStatistics` ([e2da01a](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/e2da01ac180e425d113dd8b76d02593be6fe950a))
+* Added `sort_direction` query condition to `getTransactionsByAccount`, `getTransactionsByContract`,`getTransactionsByContractAndTokenId`,`getTransactionsByToAddress` endpoint of EVM ([7676d68](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/7676d682ccf2e4aae2e9e99eac9e041cc9fd6846))
+* Added endpoint `queryCollectionsByAccountAddress`, which Retrieve collections by account address. ([8083108](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/80831085bd1f1dfc611a8ea1f659a8a5e06eb740))
+* added support the EVM-like chain Cronos ([158f6ab](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/158f6ab0ced2867b15bf21e0fa5cc66686b82288))
+
 ## [1.5.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.4.0...v1.5.0) (2022-11-23)
 
 

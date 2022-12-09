@@ -412,6 +412,11 @@ export interface QueryMarketplaceRankingResponse {
   gas: number;
 
   /**
+   * The handling fee
+   */
+  handling_fee: string;
+
+  /**
    * The logo URL
    */
   logo_url: string;
@@ -525,6 +530,11 @@ export interface QueryCollectionStatisticsResponse {
    * The 24h lowest price
    */
   lowest_price_24h: number;
+
+  /**
+   * The market cap
+   */
+  market_cap: number;
 
   /**
    * How many owners for the collection
