@@ -142,6 +142,7 @@ As follows:
     - ***[PRO]*** `getCollectionsByContract()`: Retrieve a collection by contract address.
     - ***[PRO]*** `getCollectionsByRanking()`: Retrieve collections by ranking.
     - ***[PRO]*** `queryCollectionsByFilters()`: Retrieve collections with filters.
+    - ***[PRO]*** `queryCollectionsByAccountAddress()`: Retrieve collections by account address.
   - ##### Statistics (`new NftscanEvm().statistic.*`)
     - `getTradeRanking()`: Obtain trade ranking statistics.
     - ***[PRO]*** `getCollectionRanking()`: Obtain collection ranking statistics.

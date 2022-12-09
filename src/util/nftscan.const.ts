@@ -40,6 +40,7 @@ export default class NftscanConst {
         getCollectionsByContract: '/v2/collections/',
         getCollectionsByRanking: '/v2/collections/rankings',
         queryCollectionsByFilters: '/v2/collections/filters',
+        queryCollectionsByAccountAddress: '/v2/collections/own/',
       },
       statistic: {
         getTradeRanking: '/v2/statistics/ranking/trade',

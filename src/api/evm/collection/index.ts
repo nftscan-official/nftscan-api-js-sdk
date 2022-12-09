@@ -1,5 +1,6 @@
 import { nftscanGet, nftscanPost } from '../../../http/nftscan.http';
 import {
+  QueryCollectionsByAccountAddressParams,
   QueryCollectionsByFiltersParams,
   QueryCollectionsByRankingParams,
 } from '../../../types/evm/collection/request-params';
@@ -83,6 +84,42 @@ export default class NftscanEvmCollection extends BaseApi<NftscanConfig> {
     return nftscanPost<QueryCollectionsByFiltersParams, Array<Collection>>(
       this.config,
       `${NftscanConst.API.evm.collection.queryCollectionsByFilters}`,
+      params,
+    );
+  }
+
+  /**
+   * *****
+   * [PRO]
+   * *****
+   * Retrieve collections by account address.
+   * - This endpoint returns information for a list of collections by the account address. The collections are sorted by floor_price with descending direction.
+   * - details: {@link https://docs.nftscan.com/nftscan/getCollectionsOwnByAccountAddressUsingGET}
+   * @param accountAddress The account address
+   * @param params The query params {@link QueryCollectionsByAccountAddressParams}
+   * @returns Promise<Array<{@link Collection}>>
+   */
+  queryCollectionsByAccountAddress(
+    accountAddress: string,
+    params: QueryCollectionsByAccountAddressParams,
+  ): Promise<Array<Collection>> {
+    const { limit, erc_type: ercType } = params;
+
+    if (isEmpty(accountAddress)) {
+      return missingParamError('accountAddress');
+    }
+
+    if (isEmpty(ercType)) {
+      return missingParamError('erc_type');
+    }
+
+    if (limit && limit > 100) {
+      return invalidLimitError(100);
+    }
+
+    return nftscanGet<QueryCollectionsByAccountAddressParams, Array<Collection>>(
+      this.config,
+      `${NftscanConst.API.evm.collection.queryCollectionsByAccountAddress}${accountAddress}`,
       params,
     );
   }
