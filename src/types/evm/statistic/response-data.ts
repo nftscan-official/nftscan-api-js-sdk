@@ -532,6 +532,11 @@ export interface QueryCollectionStatisticsResponse {
   lowest_price_24h: number;
 
   /**
+   * The market cap
+   */
+  market_cap: number;
+
+  /**
    * How many owners for the collection
    */
   owners_total: number;
