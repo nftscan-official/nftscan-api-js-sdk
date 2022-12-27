@@ -1,4 +1,11 @@
 # Changelog
+### [1.6.1](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.6.0...v1.6.1) (2022-12-27)
+
+
+### ✨ Features | 新功能
+
+* Added `average_price_change_1d`, `average_price_change_7d`, `average_price_change_30d` to the return data of endpoint `getCollectionStatistics` ([b5e2c70](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/b5e2c7053a5a2b8253fe3c9332d0bf207a14480a))
+
 ## [1.6.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.5.0...v1.6.0) (2022-12-09)
 
 
