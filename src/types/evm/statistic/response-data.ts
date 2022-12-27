@@ -497,6 +497,21 @@ export interface QueryCollectionStatisticsResponse {
   average_price_24h: number;
 
   /**
+   * The average price growth rate for 1 day
+   */
+  average_price_change_1d: string;
+
+  /**
+   * The average price growth rate for 30 days
+   */
+  average_price_change_30d: string;
+
+  /**
+   * The average price growth rate for 7 days
+   */
+  average_price_change_7d: string;
+
+  /**
    * The contract address
    */
   contract_address: string;
