@@ -6,6 +6,11 @@ import { BaseNsPaginationResData } from '../../nftscan-type';
  */
 export interface Transaction {
   /**
+   * The NFT aggregate trading exchange name (Only for Sale)
+   */
+  aggregate_exchange_name: string;
+
+  /**
    * The amount of the NFT (Default 1 for the ERC-721 NFT)
    */
   amount: string;
