@@ -2,6 +2,7 @@ import { EvmChain, NftscanConfig, NftscanSolanaConfig } from '../../types/nftsca
 import BaseApi from '../base-api';
 import NftscanSolanaAsset from './asset';
 import NftscanSolanaCollection from './collection';
+import NftscanSolanaRefresh from './refresh';
 import NftscanSolanaStatistic from './statistic';
 import NftscanSolanaTransaction from './transaction';
 
@@ -47,5 +48,12 @@ export default class NftscanSolana extends BaseApi<NftscanConfig> {
    */
   get statistic(): NftscanSolanaStatistic {
     return new NftscanSolanaStatistic(this.config);
+  }
+
+  /**
+   * The `refresh` object contains methods for NFTScan's Solana refresh metadata API.
+   */
+  get refresh(): NftscanSolanaRefresh {
+    return new NftscanSolanaRefresh(this.config);
   }
 }

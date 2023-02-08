@@ -12,7 +12,7 @@ import { BaseNsPaginationReqParam, NftscanConfig, NsObject } from '../../../type
  */
 export default class NftscanSolanaAsset extends BaseApi<NftscanConfig> {
   /**
-   * Retrieve assets owned by an account.
+   * Retrieve assets for account
    * - This endpoint returns a set of NFTs owned by an account address.
    * - details: {@link https://docs.nftscan.com/solana/getAccountNftAssetsUsingGET_1}
    * @param accountAddress The address of the owner of the assets
@@ -39,7 +39,7 @@ export default class NftscanSolanaAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Retrieve all assets owned by an account group by collection.
+   * Retrieve all assets for account
    * - This endpoint returns all NFTs owned by an account address. And the NFTs are grouped according to collection.
    * - details: {@link https://docs.nftscan.com/solana/getAccountNftAssetsGroupByCollectionUsingGET}
    * @param accountAddress The address of the owner of the assets
@@ -57,7 +57,7 @@ export default class NftscanSolanaAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Retrieve assets minted by an account.
+   * Retrieve assets minted for account
    * - This endpoint returns a set of NFTs minted by an account address.
    * - details: {@link https://docs.nftscan.com/solana/getAccountMintedUsingGET_1}
    * @param accountAddress The address of the owner of the assets
@@ -87,7 +87,7 @@ export default class NftscanSolanaAsset extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve assets by collection.
+   * Retrieve assets by collection
    * - This endpoint returns a set of NFTs that belong to an NFT collection. The NFTs are sorted by token address with ascending direction.
    * - details: {@link https://docs.nftscan.com/solana/getAssetsByCollectionUsingGET}
    * @param collection The NFT collection for the assets
@@ -113,7 +113,7 @@ export default class NftscanSolanaAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Retrieve an asset by token address.
+   * Retrieve an asset
    * - This endpoint returns a single NFT.
    * - details: {@link https://docs.nftscan.com/solana/getAssetByTokenAddressUsingGET}
    * @param tokenAddress The NFT token address for the assets

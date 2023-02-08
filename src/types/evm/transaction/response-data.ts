@@ -127,7 +127,7 @@ export interface Transaction {
 }
 
 /**
- * The common response parameters of EVM transaction related API
+ * The common response data of EVM transaction related API
  */
 export interface CommonTransactionResponse extends BaseNsPaginationResData {
   content: Array<Transaction>;

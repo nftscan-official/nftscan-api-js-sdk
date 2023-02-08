@@ -19,7 +19,7 @@ export default class NftscanEvmCollection extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve a collection by contract address.
+   * Retrieve a collection
    * - This endpoint returns information for a collection with the given NFT contract address.
    * - details: {@link https://docs.nftscan.com/nftscan/getCollectionUsingGET}
    * @param contractAddress The NFT contract address
@@ -92,7 +92,7 @@ export default class NftscanEvmCollection extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve collections by account address.
+   * Retrieve collections for account
    * - This endpoint returns information for a list of collections by the account address. The collections are sorted by floor_price with descending direction.
    * - details: {@link https://docs.nftscan.com/nftscan/getCollectionsOwnByAccountAddressUsingGET}
    * @param accountAddress The account address

@@ -18,7 +18,7 @@ import {
   QueryMintRankingResponse,
   QueryTradeRankingResponse,
   QueryTradersRankingResponse,
-  QueryVolumeIn24hResponse,
+  CollectionOverviewResponse,
 } from '../../../types/evm/statistic/response-data';
 import { invalidLimitError, missingParamError } from '../../../types/nftscan-error';
 import { NftscanConfig, NsObject, RangeType, TradeType } from '../../../types/nftscan-type';
@@ -31,7 +31,7 @@ import BaseApi from '../../base-api';
  */
 export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   /**
-   * Obtain trade ranking statistics.
+   * Trade ranking
    * - This endpoint returns NFT trade ranking statistics referring to NFTScan Ranking({@link https://www.nftscan.com/ranking})
    * - details: {@link https://docs.nftscan.com/nftscan/getTradeUsingGET_1}
    * @param params The query params {@link QueryTradeRankingParams}
@@ -49,7 +49,7 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Obtain collection ranking statistics.
+   * Collection ranking
    * - This endpoint returns NFT collection ranking statistics.
    * - details: {@link https://docs.nftscan.com/nftscan/collectionRankingUsingGET}
    * @param params The query params {@link QueryCollectionRankingParams}
@@ -75,7 +75,7 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Obtain collection trade distribution.
+   * Collection trade distribution
    * - This endpoint returns NFT collection trade distribution referring to NFTScan Traded Distribution({@link https://www.nftscan.com/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d?module=Analytics}).
    * - details: {@link https://docs.nftscan.com/nftscan/tradeDistributionUsingGET}
    * @param contractAddress The NFT contract address
@@ -109,9 +109,9 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Obtain collection trending statistics.
+   * Collection trending statistics
    * - This endpoint returns NFT collection trending statistics referring to NFTScan Trending({@link https://www.nftscan.com/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d?module=Analytics}).
-   * - details: {@link https://docs.nftscan.com/nftscan/trendingUsingGET_1}
+   * - details: {@link https://docs.nftscan.com/nftscan/trendingUsingGET}
    * @param contractAddress The NFT contract address
    * @param time Can be 1h, 4h, 12h, 1d, 3d, 7d, 30d and 90d. 1d for default
    * @returns Promise<Array<{@link QueryCollectionTrendingResponse}>>
@@ -145,7 +145,7 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Obtain account overview statistics.
+   * Account overview
    * - This endpoint returns overview statistics for an account address referring to NFTScan Overview({@link https://www.nftscan.com/0xea7a0f1434084b2e99b42f045896e7326fed9dc1}).
    * - details: {@link https://docs.nftscan.com/nftscan/accountOverviewUsingGET}
    * @param accountAddress The account address
@@ -166,7 +166,7 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Obtain blue chip statistics.
+   * Blue chip
    * - This endpoint returns blue chip statistics referring to({@link https://www.nftscan.com/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d?module=Analytics}).
    * - details: {@link https://docs.nftscan.com/nftscan/blueChipUsingGET}
    * @param contractAddress The NFT contract address
@@ -184,7 +184,7 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Obtain marketplace ranking statistics.
+   * Marketplace ranking
    * - This endpoint returns NFT marketplace ranking statistics referring to NFTScan Marketplace({@link https://www.nftscan.com/marketplace}).
    * - details: {@link https://docs.nftscan.com/nftscan/getMarketplaceUsingGET}
    * @param params The query params {@link QueryMarketplaceRankingParams}
@@ -199,7 +199,7 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Obtain market cap ranking statistics
+   * Market cap ranking
    * - This endpoint returns NFT market cap ranking statistics.
    * - details: {@link https://docs.nftscan.com/nftscan/getMarketCapUsingGET}
    * @returns Promise<Array<{@link QueryMarketCapRankingResponse}>>
@@ -215,7 +215,7 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Obtain collection statistics.
+   * Collection statistics
    * - This endpoint returns statistics for a collection referring to NFTScan Collection({@link https://www.nftscan.com/search/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d}).
    * - details: {@link https://docs.nftscan.com/nftscan/getCollectionUsingGET_2}
    * @param contractAddress The NFT contract address
@@ -233,7 +233,7 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Obtain mint ranking statistics.
+   * Mint ranking
    * - This endpoint returns NFT mint ranking statistics referring to NFTScan Discover({@link https://www.nftscan.com/analytics/discover}) for the section of 'Top Mints'.
    * - details: {@link https://docs.nftscan.com/nftscan/getMintUsingGET}
    * @param time The time range (1h 6h 12h 1d 3d). 1d for default
@@ -250,7 +250,7 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Obtain mint amount statistics.
+   * Mint amount
    * - This endpoint returns NFT mint amount statistics referring to NFTScan Discover({@link https://www.nftscan.com/analytics/discover}) for the section of 'Amount of New NFTs'.
    * - details: {@link https://docs.nftscan.com/nftscan/getAmountUsingGET}
    * @param time The time range (1h 6h 12h 1d 3d 7d 30d). 1d for default
@@ -267,7 +267,7 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Obtain traders ranking statistics.
+   * Traders ranking
    * - This endpoint returns NFT traders ranking statistics referring to NFTScan Discover({@link https://www.nftscan.com/analytics/discover}) for the section of 'Top Traders'.
    * - details: {@link https://docs.nftscan.com/nftscan/getTradersUsingGET}
    * @param time The time range (1h 6h 12h 1d 3d). 1d for default
@@ -286,7 +286,7 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Obtain traders ranking statistics.
+   * Gas ranking
    * - This endpoint returns NFT gas ranking statistics referring to NFTScan Gas Tracker({@link https://www.nftscan.com/analytics/tracker}).
    * - details: {@link https://docs.nftscan.com/nftscan/getGasUsingGET}
    * @returns Promise<Array<{@link QueryGasRankingResponse}>>
@@ -299,15 +299,15 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Obtain 24h volume statistics.
-   * - This endpoint returns NFT volume statistics for 24h.
-   * - details: {@link https://docs.nftscan.com/nftscan/get24hUsingGET}
-   * @returns Promise<{@link QueryVolumeIn24hResponse}>
+   * Collection overview
+   * - This endpoint returns collection overview data.
+   * - details: {@link https://docs.nftscan.com/nftscan/getPlatformOverviewUsingGET}
+   * @returns Promise<{@link CollectionOverviewResponse}>
    */
-  getVolumeIn24h(): Promise<QueryVolumeIn24hResponse> {
-    return nftscanGet<NsObject, QueryVolumeIn24hResponse>(
+  getCollectionOverview(): Promise<CollectionOverviewResponse> {
+    return nftscanGet<NsObject, CollectionOverviewResponse>(
       this.config,
-      `${NftscanConst.API.evm.statistic.getVolumeIn24h}`,
+      `${NftscanConst.API.evm.statistic.getCollectionOverview}`,
     );
   }
 }

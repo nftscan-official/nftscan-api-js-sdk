@@ -12,7 +12,7 @@ import BaseApi from '../../base-api';
  */
 export default class NftscanSolanaTransaction extends BaseApi<NftscanConfig> {
   /**
-   * Retrieve transactions by an account.
+   * Retrieve transactions for account
    * - This endpoint returns a list of NFT transactions for an account address. The transactions are sorted by timestamp with descending direction.
    * - details: {@link https://docs.nftscan.com/solana/getAccountTransactionsUsingGET}
    * @param accountAddress The account address
@@ -39,7 +39,7 @@ export default class NftscanSolanaTransaction extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Retrieve transactions by collection.
+   * Retrieve transactions by collection
    * - This endpoint returns a list of NFT transactions for an NFT collection. The transactions are sorted by timestamp with descending direction.
    * - details: {@link https://docs.nftscan.com/solana/getTransactionsByCollectionUsingGET}
    * @param collection The NFT collection for the assets
@@ -69,7 +69,7 @@ export default class NftscanSolanaTransaction extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Retrieve transactions by token address.
+   * Retrieve transactions for an asset
    * - This endpoint returns a list of NFT transactions for a single NFT. The transactions are sorted by timestamp with descending direction.
    * - details: {@link https://docs.nftscan.com/solana/getTransactionByTokenAddressUsingGET}
    * @param tokenAddress The NFT token address

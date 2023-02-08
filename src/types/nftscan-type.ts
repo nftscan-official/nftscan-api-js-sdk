@@ -141,3 +141,18 @@ export interface BaseNsPaginationResData {
    */
   total: number;
 }
+
+/**
+ * The response data of refresh metadata api
+ */
+export interface RefreshMetadataResponse {
+  /**
+   * The reason for the FAIL status
+   */
+  reason: string;
+
+  /**
+   * Task status. SUCCESS means the task was successfully submitted, FAIL means the task was not submitted due to some reason
+   */
+  status: string;
+}

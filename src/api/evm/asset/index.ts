@@ -25,7 +25,7 @@ import BaseApi from '../../base-api';
  */
 export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
   /**
-   * Retrieve assets owned by an account.
+   * Retrieve assets for account.
    * - This endpoint returns a set of NFTs owned by an account address.
    * - details: {@link https://docs.nftscan.com/nftscan/getAccountNftAssetsUsingGET}
    * @param accountAddress The address of the owner of the assets
@@ -59,7 +59,7 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Retrieve all assets owned by an account group by contract address.
+   * Retrieve all assets for account.
    * - This endpoint returns all NFTs owned by an account address. And the NFTs are grouped according to contract address.
    * - details: {@link https://docs.nftscan.com/nftscan/getAccountNftAssetsGroupByContractAddressUsingGET}
    * @param accountAddress The address of the owner of the assets
@@ -89,7 +89,7 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Retrieve assets minted by an account.
+   * Retrieve assets minted for account.
    * - This endpoint returns a set of NFTs minted by an account address.
    * - details: {@link https://docs.nftscan.com/nftscan/getAccountMintedUsingGET}
    * @param accountAddress The address of the minter of the assets
@@ -119,7 +119,7 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve assets by contract address.
+   * Retrieve assets for contract
    * - This endpoint returns a set of NFTs that belong to an NFT contract address. The NFTs are sorted by token_id with ascending direction.
    * - details: {@link https://docs.nftscan.com/nftscan/getAssetsByContractAddressUsingGET}
    * @param contractAddress The NFT contract address for the assets
@@ -146,7 +146,7 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Retrieve an asset by contract address and token ID.
+   * Retrieve an asset
    * - This endpoint returns a single NFT.
    * - details: {@link https://docs.nftscan.com/nftscan/getAssetByContractAddressAndTokenIdUsingGET}
    * @param contractAddress The NFT contract address for the assets
@@ -176,7 +176,7 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve multi-chain assets owned by an account.
+   * Retrieve multi-chain assets for account
    * - This endpoint returns all multi-chain NFTs owned by an account address. And the NFTs are grouped according to contract address.
    * - details: {@link https://docs.nftscan.com/nftscan/getAssetsByMultiChainUsingGET}
    * @param accountAddress The address of the owner of the assets
@@ -210,7 +210,7 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve assets by list of contract address and token ID.
+   * Retrieve multiple assets
    * - This endpoint returns a set of NFTs according to the search list in the request body.
    * - details: {@link https://docs.nftscan.com/nftscan/getAssetsByListUsingPOST_1}
    * @param list List of contract address with token ID. Maximum size is 50.
@@ -271,7 +271,7 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve assets by contract address with attributes.
+   * Retrieve assets with attributes
    * - This endpoint returns a set of NFTs those belong to an NFT contract address with attributes. The NFTs are sorted by token_id with ascending direction.
    * - details: {@link https://docs.nftscan.com/nftscan/getAssetsByContractAddressWithAttributesUsingPOST}
    * @param params The query params {@link QueryAssetsByAttributesParams}

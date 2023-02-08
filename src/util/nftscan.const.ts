@@ -57,14 +57,17 @@ export default class NftscanConst {
         getMintAmount: '/v2/statistics/mint/amount',
         getTradersRanking: '/v2/statistics/ranking/traders',
         getGasRanking: '/v2/statistics/ranking/gas',
-        getVolumeIn24h: '/v2/statistics/volume/24h',
+        getCollectionOverview: '/v2/statistics/collection/overview',
+      },
+      refresh: {
+        refreshAsset: '/v2/refresh/metadata',
+        refreshContract: '/v2/refresh/metadata/contract',
       },
       other: {
         getBlockNumber: '/v2/blocknumber',
         queryAssestAmountByAccounts: '/v2/asset/account/amount',
         getAssetOwnerByContract: '/v2/asset/collection/amount',
         getAssetOwnerByContractAndTokenId: '/v2/asset/owners',
-        refreshMetadata: '/v2/asset/metadata/refresh',
       },
     },
     solana: {
@@ -86,6 +89,9 @@ export default class NftscanConst {
       },
       statistic: {
         getTradeRanking: '/sol/statistics/ranking/trade',
+      },
+      refresh: {
+        refreshAsset: '/sol/refresh/metadata',
       },
     },
   };

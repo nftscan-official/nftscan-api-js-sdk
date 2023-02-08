@@ -24,7 +24,7 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve transactions by an account.
+   * Retrieve transactions for account
    * - This endpoint returns a list of NFT transactions for an account address. The transactions are sorted by timestamp with descending direction.
    * - details: {@link https://docs.nftscan.com/nftscan/getAccountTransactionsUsingGET_1}
    * @param accountAddress The account address
@@ -59,7 +59,7 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve transactions by contract address.
+   * Retrieve transactions for contract
    * - This endpoint returns a list of NFT transactions for an NFT contract address. The transactions are sorted by timestamp with descending direction.
    * - details: {@link https://docs.nftscan.com/nftscan/getTransactionsByContractAddressUsingGET}
    * @param contractAddress The NFT contract address
@@ -92,7 +92,7 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve transactions by contract address and token ID.
+   * Retrieve transactions for an asset
    * - This endpoint returns a list of NFT transactions for a single NFT. The transactions are sorted by timestamp with descending direction.
    * - details: {@link https://docs.nftscan.com/nftscan/getTransactionByContractAddressAndTokenIdUsingGET}
    * @param contractAddress The NFT contract address
@@ -200,9 +200,9 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve transactions by the list of transaction hash.
+   * Retrieve transactions by hash
    * - This endpoint returns the transaction records queried based on the list of transaction hash.
-   * - details: {@link https://docs.nftscan.com/nftscan/getAssetsByListUsingPOST_3}
+   * - details: {@link https://docs.nftscan.com/nftscan/getTransactionRecordsByTxHashListUsingPOST}
    * @param txHashList The string Array of transaction hash. Maximum size is 50.
    * @param eventType The NFT event type Array<{@link EventType}> of the transaction.
    * @returns Promise<Array<{@link Transaction}>>

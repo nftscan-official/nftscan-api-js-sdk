@@ -102,7 +102,7 @@ export interface Asset {
 }
 
 /**
- * The common response parameters of Solana asset related API
+ * The common response data of Solana asset related API
  */
 export interface CommonAssetResponse extends BaseNsPaginationResData {
   content: Array<Asset>;
