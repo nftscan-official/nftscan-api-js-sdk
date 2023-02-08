@@ -17,8 +17,9 @@ The SDK currently supports the following chains:
 | Optimism   | optimismapi.nftscan.com | optimism     |
 | PlatON     | platonapi.nftscan.com   | platon       |
 | Avalanche  | avaxapi.nftscan.com     | avalanche    |
-| Solana     | solanaapi.nftscan.com   | solana       |
 | Cronos     | cronosapi.nftscan.com   | cronos       |
+| Fantom     | fantomapi.nftscan.com   | fantom       |
+| Solana     | solanaapi.nftscan.com   | solana       |
 
 *The value of **Short name** is used in the SDK as an initialization configuration parameter.*
 
@@ -62,6 +63,7 @@ export enum EvmChain {
   PLATON = 'platon',
   AVALANCHE = 'avalanche',
   CRONOS = 'cronos',
+  FANTOM = 'fantom',
 }
 ```
 

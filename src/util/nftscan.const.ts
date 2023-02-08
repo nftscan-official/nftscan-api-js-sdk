@@ -13,6 +13,7 @@ export default class NftscanConst {
     solana: 'https://solanaapi.nftscan.com/api',
     avalanche: 'https://avaxapi.nftscan.com/api',
     cronos: 'https://cronosapi.nftscan.com/api',
+    fantom: 'https://fantomapi.nftscan.com/api',
   };
 
   /**

@@ -12,6 +12,7 @@ export enum EvmChain {
   PLATON = 'platon',
   AVALANCHE = 'avalanche',
   CRONOS = 'cronos',
+  FANTOM = 'fantom',
 }
 
 /**
