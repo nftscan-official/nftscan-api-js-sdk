@@ -10,7 +10,7 @@ import BaseApi from '../../base-api';
  */
 export default class NftscanSolanaStatistic extends BaseApi<NftscanConfig> {
   /**
-   * Obtain trade ranking statistics.
+   * Trade ranking
    * - This endpoint returns NFT trade ranking statistics referring to NFTScan Ranking({@link https://solana.nftscan.com/analytics/ranking})
    * - details: {@link https://docs.nftscan.com/solana/getTradeUsingGET}
    * @param params The query params {@link QueryTradeRankingParams}

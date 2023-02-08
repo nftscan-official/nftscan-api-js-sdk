@@ -1,4 +1,12 @@
 # Changelog
+## [1.7.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v2.0.0...v1.7.0) (2023-02-08)
+
+
+### ✨ Features | 新功能
+
+* feat: delete API `getVolumeIn24h` `refreshMetadata` of EVM, add API `getCollectionOverview` `getCollectionOverview` `refreshAsset` `refreshContract` of EVM, add API `refreshAsset` of Solana.([56d28cb](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/56d28cb11565971868e96650f84a825c958861e6))
+* feat: added support the EVM-like chain Fantom.([57b0f5d](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/57b0f5dacc5202708cafa00cd86840f5129b9932))
+
 ### [1.6.1](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.6.0...v1.6.1) (2022-12-27)
 
 

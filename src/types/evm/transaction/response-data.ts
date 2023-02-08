@@ -6,6 +6,11 @@ import { BaseNsPaginationResData } from '../../nftscan-type';
  */
 export interface Transaction {
   /**
+   * The NFT aggregate trading exchange name (Only for Sale)
+   */
+  aggregate_exchange_name: string;
+
+  /**
    * The amount of the NFT (Default 1 for the ERC-721 NFT)
    */
   amount: string;
@@ -122,7 +127,7 @@ export interface Transaction {
 }
 
 /**
- * The common response parameters of EVM transaction related API
+ * The common response data of EVM transaction related API
  */
 export interface CommonTransactionResponse extends BaseNsPaginationResData {
   content: Array<Transaction>;

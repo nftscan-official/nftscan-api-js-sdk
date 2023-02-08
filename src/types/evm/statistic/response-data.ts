@@ -33,7 +33,7 @@ interface volume7d {
 }
 
 /**
- * The response parameters of EVM API 'getTradeRanking'
+ * The response data of EVM API 'getTradeRanking'
  */
 export interface QueryTradeRankingResponse {
   /**
@@ -153,7 +153,7 @@ export interface QueryTradeRankingResponse {
 }
 
 /**
- * The response parameters of EVM API 'getCollectionRanking'
+ * The response data of EVM API 'getCollectionRanking'
  */
 export interface QueryCollectionRankingResponse {
   /**
@@ -263,7 +263,7 @@ export interface QueryCollectionRankingResponse {
 }
 
 /**
- * The response parameters of EVM API 'getCollectionTrade'
+ * The response data of EVM API 'getCollectionTrade'
  */
 export interface QueryCollectionTradeResponse {
   /**
@@ -288,7 +288,7 @@ export interface QueryCollectionTradeResponse {
 }
 
 /**
- * The response parameters of EVM API 'getCollectionTrending'
+ * The response data of EVM API 'getCollectionTrending'
  */
 export interface QueryCollectionTrendingResponse {
   /**
@@ -313,7 +313,7 @@ export interface QueryCollectionTrendingResponse {
 }
 
 /**
- * The response parameters of EVM API 'getAccountOverview'
+ * The response data of EVM API 'getAccountOverview'
  */
 export interface QueryAccountOverviewResponse {
   /**
@@ -393,7 +393,7 @@ export interface QueryAccountOverviewResponse {
 }
 
 /**
- * The response parameters of EVM API 'getMarketplaceRanking'
+ * The response data of EVM API 'getMarketplaceRanking'
  */
 export interface QueryMarketplaceRankingResponse {
   /**
@@ -453,7 +453,7 @@ export interface QueryMarketplaceRankingResponse {
 }
 
 /**
- * The response parameters of EVM API 'getMarketCapRanking'
+ * The response data of EVM API 'getMarketCapRanking'
  */
 export interface QueryMarketCapRankingResponse {
   /**
@@ -488,7 +488,7 @@ export interface QueryMarketCapRankingResponse {
 }
 
 /**
- * The response parameters of EVM API 'getCollectionStatistics'
+ * The response data of EVM API 'getCollectionStatistics'
  */
 export interface QueryCollectionStatisticsResponse {
   /**
@@ -573,7 +573,7 @@ export interface QueryCollectionStatisticsResponse {
 }
 
 /**
- * The response parameters of EVM API 'getBlueChipStatistics'
+ * The response data of EVM API 'getBlueChipStatistics'
  */
 export interface QueryBlueChipStatisticsResponse {
   /**
@@ -593,7 +593,7 @@ export interface QueryBlueChipStatisticsResponse {
 }
 
 /**
- * The response parameters of EVM API 'getMintRanking'
+ * The response data of EVM API 'getMintRanking'
  */
 export interface QueryMintRankingResponse {
   /**
@@ -618,7 +618,7 @@ export interface QueryMintRankingResponse {
 }
 
 /**
- * The response parameters of EVM API 'getMintAmount'
+ * The response data of EVM API 'getMintAmount'
  */
 export interface QueryMintAmountResponse {
   /**
@@ -628,7 +628,7 @@ export interface QueryMintAmountResponse {
 }
 
 /**
- * The response parameters of EVM API 'getTradersRanking'
+ * The response data of EVM API 'getTradersRanking'
  */
 export interface QueryTradersRankingResponse {
   /**
@@ -648,7 +648,7 @@ export interface QueryTradersRankingResponse {
 }
 
 /**
- * The response parameters of EVM API 'getGasRanking'
+ * The response data of EVM API 'getGasRanking'
  */
 export interface QueryGasRankingResponse {
   /**
@@ -683,16 +683,21 @@ export interface QueryGasRankingResponse {
 }
 
 /**
- * The response parameters of EVM API 'getVolumeIn24h'
+ * The response data of EVM API 'getCollectionOverview'
  */
-export interface QueryVolumeIn24hResponse {
+export interface CollectionOverviewResponse {
   /**
-   * The total volume
+   * The contract address
    */
-  total_volume: number;
+  contract_address: string;
 
   /**
-   * The growth rate of the total volume in the last 24h
+   * The contract name
    */
-  volume_growth_rate_24h: string;
+  contract_name: string;
+
+  /**
+   * The floor price of the collection
+   */
+  floor_price: number;
 }

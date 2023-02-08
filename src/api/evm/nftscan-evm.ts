@@ -3,6 +3,7 @@ import BaseApi from '../base-api';
 import NftscanEvmAsset from './asset';
 import NftscanEvmCollection from './collection';
 import NftscanEvmOther from './other';
+import NftscanEvmRefresh from './refresh';
 import NftscanEvmStatistic from './statistic';
 import NftscanEvmTransaction from './transaction';
 
@@ -42,6 +43,13 @@ export default class NftscanEvm extends BaseApi<NftscanConfig> {
    */
   get statistic(): NftscanEvmStatistic {
     return new NftscanEvmStatistic(this.config);
+  }
+
+  /**
+   * The `refresh` object contains NFTScan's EVM-like chain refresh metadata API.
+   */
+  get refresh(): NftscanEvmRefresh {
+    return new NftscanEvmRefresh(this.config);
   }
 
   /**

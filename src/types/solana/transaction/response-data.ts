@@ -72,7 +72,7 @@ export interface Transaction {
 }
 
 /**
- * The common response parameters of Solana transaction related API
+ * The common response data of Solana transaction related API
  */
 export interface CommonTransactionResponse extends BaseNsPaginationResData {
   content: Array<Transaction>;

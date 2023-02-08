@@ -1,5 +1,5 @@
 /**
- * The response parameters of Solana API 'getTradeRanking'
+ * The response data of Solana API 'getTradeRanking'
  */
 export interface QueryTradeRankingResponse {
   /**

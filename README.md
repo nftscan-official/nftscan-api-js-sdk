@@ -17,8 +17,9 @@ The SDK currently supports the following chains:
 | Optimism   | optimismapi.nftscan.com | optimism     |
 | PlatON     | platonapi.nftscan.com   | platon       |
 | Avalanche  | avaxapi.nftscan.com     | avalanche    |
-| Solana     | solanaapi.nftscan.com   | solana       |
 | Cronos     | cronosapi.nftscan.com   | cronos       |
+| Fantom     | fantomapi.nftscan.com   | fantom       |
+| Solana     | solanaapi.nftscan.com   | solana       |
 
 *The value of **Short name** is used in the SDK as an initialization configuration parameter.*
 
@@ -62,6 +63,7 @@ export enum EvmChain {
   PLATON = 'platon',
   AVALANCHE = 'avalanche',
   CRONOS = 'cronos',
+  FANTOM = 'fantom',
 }
 ```
 
@@ -123,65 +125,68 @@ As follows:
 
 - #### NFTScan API of EVM
   - ##### Retrieve Assets (`new NftscanEvm().asset.*`)
-    - `getAssetsByAccount()`: Retrieve assets owned by an account.
-    - `getAllAssets()`: Retrieve all assets owned by an account group by contract address.
-    - `getAccountMinted()`: Retrieve assets minted by an account.
-    - ***[PRO]*** `getAssetsByContract()`: Retrieve assets by contract address.
-    - `getAssetsByContractAndTokenId()`: Retrieve an asset by contract address and token ID.
-    - ***[PRO]*** `getMultiChainAssets()`: Retrieve multi-chain assets owned by an account.
-    - ***[PRO]*** `queryAssetsInBatches`: Retrieve assets by list of contract address and token ID.
-    - ***[PRO]*** `queryAssetsByFilters()`: Retrieve assets with filters.
-    - ***[PRO]*** `queryAssetsByAttributes()`: Retrieve assets by contract address with attributes.
+    - `getAssetsByAccount()`: [Retrieve assets for account](https://docs.nftscan.com/nftscan/getAccountNftAssetsUsingGET)
+    - `getAllAssets()`: [Retrieve all assets for account](https://docs.nftscan.com/nftscan/getAccountNftAssetsGroupByContractAddressUsingGET)
+    - `getAccountMinted()`: [Retrieve assets minted for account](https://docs.nftscan.com/nftscan/getAccountMintedUsingGET)
+    - ***[PRO]*** `getAssetsByContract()`: [Retrieve assets for contract](https://docs.nftscan.com/nftscan/getAssetsByContractAddressUsingGET)
+    - `getAssetsByContractAndTokenId()`: [Retrieve an asset](https://docs.nftscan.com/nftscan/getAssetByContractAddressAndTokenIdUsingGET)
+    - ***[PRO]*** `queryAssetsInBatches`: [Retrieve multiple assets](https://docs.nftscan.com/nftscan/getAssetsByListUsingPOST_1)
+    - ***[PRO]*** `queryAssetsByFilters()`: [Retrieve assets with filters](https://docs.nftscan.com/nftscan/getAssetsByListUsingPOST).
+    - ***[PRO]*** `queryAssetsByAttributes()`: [Retrieve assets with attributes](https://docs.nftscan.com/nftscan/getAssetsByContractAddressWithAttributesUsingPOST)
+    - ***[PRO]*** `getMultiChainAssets()`: [Retrieve multi-chain assets for account](https://docs.nftscan.com/nftscan/getAssetsByMultiChainUsingGET)
   - ##### Retrieve Transactions (`new NftscanEvm().transaction.*`)
-    - ***[PRO]*** `getTransactionsByAccount()`: Retrieve transactions by an account.
-    - ***[PRO]*** `getTransactionsByContract()`: Retrieve transactions by contract address.
-    - ***[PRO]*** `getTransactionsByContractAndTokenId()`: Retrieve transactions by contract address and token ID.
-    - ***[PRO]*** `getTransactionsByToAddress()`: Retrieve transactions by to address.
-    - ***[PRO]*** `queryTransactionsByFilters()`: Retrieve transactions with filters.
-    - ***[PRO]*** `queryTransactionsByTxHashList()`: Retrieve transactions by the list of transaction hash.
+    - ***[PRO]*** `getTransactionsByAccount()`: [Retrieve transactions for account](https://docs.nftscan.com/nftscan/getAccountTransactionsUsingGET_1)
+    - ***[PRO]*** `getTransactionsByContract()`: [Retrieve transactions for contract](https://docs.nftscan.com/nftscan/getTransactionsByContractAddressUsingGET)
+    - ***[PRO]*** `getTransactionsByContractAndTokenId()`: [Retrieve transactions for an asset](https://docs.nftscan.com/nftscan/getTransactionByContractAddressAndTokenIdUsingGET)
+    - ***[PRO]*** `queryTransactionsByFilters()`: [Retrieve transactions with filters](https://docs.nftscan.com/nftscan/getAssetsByListUsingPOST_2)
+    - ***[PRO]*** `getTransactionsByToAddress()`: [Retrieve transactions by to address](https://docs.nftscan.com/nftscan/getTransactionByTxToUsingGET)
+    - ***[PRO]*** `queryTransactionsByTxHashList()`: [Retrieve transactions by hash](https://docs.nftscan.com/nftscan/getTransactionRecordsByTxHashListUsingPOST)
   - ##### Retrieve Collections (`new NftscanEvm().collection.*`)
-    - ***[PRO]*** `getCollectionsByContract()`: Retrieve a collection by contract address.
-    - ***[PRO]*** `getCollectionsByRanking()`: Retrieve collections by ranking.
-    - ***[PRO]*** `queryCollectionsByFilters()`: Retrieve collections with filters.
-    - ***[PRO]*** `queryCollectionsByAccountAddress()`: Retrieve collections by account address.
+    - ***[PRO]*** `getCollectionsByContract()`: [Retrieve a collection](https://docs.nftscan.com/nftscan/getCollectionUsingGET)
+    - ***[PRO]*** `queryCollectionsByFilters()`: [Retrieve collections with filters](https://docs.nftscan.com/nftscan/getCollectionsUsingPOST)
+    - ***[PRO]*** `queryCollectionsByAccountAddress()`: [Retrieve collections for account](https://docs.nftscan.com/nftscan/getCollectionsOwnByAccountAddressUsingGET)
+    - ***[PRO]*** `getCollectionsByRanking()`: [Retrieve collections by ranking](https://docs.nftscan.com/nftscan/getRankingsUsingGET)
   - ##### Statistics (`new NftscanEvm().statistic.*`)
-    - `getTradeRanking()`: Obtain trade ranking statistics.
-    - ***[PRO]*** `getCollectionRanking()`: Obtain collection ranking statistics.
-    - ***[PRO]*** `getCollectionTrade()`: Obtain collection trade distribution.
-    - ***[PRO]*** `getCollectionTrending()`: Obtain collection trending statistics.
-    - ***[PRO]*** `getAccountOverview()`: Obtain account overview statistics.
-    - ***[PRO]*** `getBlueChipStatistics()`: Obtain blue chip statistics.
-    - `getMarketplaceRanking()`: Obtain marketplace ranking statistics.
-    - `getMarketCapRanking()`: Obtain market cap ranking statistics
-    - ***[PRO]*** `getCollectionStatistics()`: Obtain collection statistics.
-    - `getMintRanking()`: Obtain mint ranking statistics.
-    - `getMintAmount()`: Obtain mint amount statistics.
-    - `getTradersRanking()`: Obtain traders ranking statistics.
-    - `getGasRanking()`: Obtain traders ranking statistics.
-    - `getVolumeIn24h()`: Obtain 24h volume statistics.
+    - `getTradeRanking()`: [Trade ranking](https://docs.nftscan.com/nftscan/getTradeUsingGET_1)
+    - `getMintRanking()`: [mint ranking](https://docs.nftscan.com/nftscan/getMintUsingGET)
+    - `getMintAmount()`: [Mint amount](https://docs.nftscan.com/nftscan/getAmountUsingGET)
+    - `getTradersRanking()`: [Traders ranking](https://docs.nftscan.com/nftscan/getTradersUsingGET)
+    - `getGasRanking()`: [Gas ranking](https://docs.nftscan.com/nftscan/getGasUsingGET)
+    - ***[PRO]*** `getCollectionRanking()`: [Collection ranking](https://docs.nftscan.com/nftscan/collectionRankingUsingGET)
+    - `getMarketplaceRanking()`: [Marketplace ranking](https://docs.nftscan.com/nftscan/getMarketplaceUsingGET)
+    - `getMarketCapRanking()`: [Market cap ranking](https://docs.nftscan.com/nftscan/getMarketCapUsingGET)
+    - ***[PRO]*** `getCollectionStatistics()`: [Collection statistics](https://docs.nftscan.com/nftscan/getCollectionUsingGET_2)
+    - ***[PRO]*** `getCollectionTrade()`: [Collection trade distribution](https://docs.nftscan.com/nftscan/tradeDistributionUsingGET)
+    - ***[PRO]*** `getCollectionTrending()`: [Collection trending statistics](https://docs.nftscan.com/nftscan/trendingUsingGET)
+    - ***[PRO]*** `getBlueChipStatistics()`: [Blue chip](https://docs.nftscan.com/nftscan/blueChipUsingGET)
+    - ***[PRO]*** `getAccountOverview()`: [Account overview](https://docs.nftscan.com/nftscan/accountOverviewUsingGET)
+    - `getCollectionOverview()`: [Collection overview](https://docs.nftscan.com/nftscan/getPlatformOverviewUsingGET)
+  - ##### Refresh (`new NftscanEvm().refresh.*`)
+     - ***[PRO]*** `refreshAsset()`: [Refresh an asset](https://docs.nftscan.com/nftscan/refreshAssetMetadataUsingPOST)
+     - ***[PRO]*** `refreshContract()`:[Refresh a contract](https://docs.nftscan.com/nftscan/refreshAssetMetadataByContractAddressUsingPOST)
    - ##### Other (`new NftscanEvm().other.*`)
-     - `getBlockNumber()`: Obtain the latest block number.
-     - ***[PRO]*** `queryAssestAmountByAccounts()`: Obtain asset amount owned by accounts.
-     - ***[PRO]*** `getAssetOwnerByContract()`: Obtain asset owner amount by contract address.
-     - ***[PRO]*** `getAssetOwnerByContractAndTokenId()`: Obtain asset owner's amount by contract address and token ID.
-     - ***[PRO]*** `refreshMetadata()`: Submit a task for refreshing NFT metadata.
-  
+     - `getBlockNumber()`: [Latest block number](https://docs.nftscan.com/nftscan/getBlockNumberUsingGET)
+     - ***[PRO]*** `queryAssestAmountByAccounts()`: [Asset amount for accounts](https://docs.nftscan.com/nftscan/getAssetAmountByAccountsUsingPOST)
+     - ***[PRO]*** `getAssetOwnerByContract()`: [Asset owners for contract](https://docs.nftscan.com/nftscan/getAssetOwnerAmountByContractUsingGET)
+     - ***[PRO]*** `getAssetOwnerByContractAndTokenId()`: [Asset owner amount for an asset](https://docs.nftscan.com/nftscan/getAssetOwnersUsingGET)
 - #### NFTScan API of Solana
   - ##### Retrieve Assets (`new NftscanSolana().asset.*`)
-    - `getAssetsByAccount()`: Retrieve assets owned by an account.
-    - `getAllAssets()`: Retrieve all assets owned by an account group by collection.
-    - `getAccountMinted()`: Retrieve assets minted by an account.
-    - ***[PRO]*** `getAssetsByCollection()`: Retrieve assets by collection.
-    - `getAssetsByTokenAddress()`: Retrieve an asset by token address.
+    - `getAssetsByAccount()`: [Retrieve assets for account](https://docs.nftscan.com/solana/getAccountNftAssetsUsingGET_1)
+    - `getAllAssets()`: [Retrieve all assets for account](https://docs.nftscan.com/solana/getAccountNftAssetsGroupByCollectionUsingGET)
+    - `getAccountMinted()`: [Retrieve assets minted for account](https://docs.nftscan.com/solana/getAccountMintedUsingGET_1)
+    - ***[PRO]*** `getAssetsByCollection()`: [Retrieve assets by collection](https://docs.nftscan.com/solana/getAssetsByCollectionUsingGET)
+    - `getAssetsByTokenAddress()`: [Retrieve an asset](https://docs.nftscan.com/solana/getAssetByTokenAddressUsingGET)
   - ##### Retrieve Transactions (`new NftscanSolana().transaction.*`)
-    - `getTransactionsByAccount()`: Retrieve transactions by an account.
-    - `getTransactionsByCollection()`: Retrieve transactions by collection.
-    - `getTransactionsByTokenAddress()`: Retrieve transactions by token address.
+    - `getTransactionsByAccount()`: [Retrieve transactions for account](https://docs.nftscan.com/solana/getAccountTransactionsUsingGET)
+    - `getTransactionsByCollection()`: [Retrieve transactions by collection](https://docs.nftscan.com/solana/getTransactionsByCollectionUsingGET)
+    - `getTransactionsByTokenAddress()`: [Retrieve transactions for an asset](https://docs.nftscan.com/solana/getTransactionByTokenAddressUsingGET)
   - ##### Retrieve Collections (`new NftscanSolana().collection.*`)
-    - ***[PRO]*** `getCollection()`: Retrieve a collection.
-    - ***[PRO]*** `queryCollectionsByFilters()`: Retrieve collections with filters.
+    - ***[PRO]*** `getCollection()`: [Retrieve a collection](https://docs.nftscan.com/solana/getCollectionUsingGET_1)
+    - ***[PRO]*** `queryCollectionsByFilters()`: [Retrieve collections with filters](https://docs.nftscan.com/solana/getCollectionsUsingPOST_1)
   - ##### Statistics (`new NftscanSolana().statistic.*`)
-    - `getTradeRanking()`: Obtain trade ranking statistics.
+    - `getTradeRanking()`: [Trade ranking](https://docs.nftscan.com/solana/getTradeUsingGET)
+  - ##### Refresh (`new NftscanSolana().refresh.*`)
+     - ***[PRO]*** `refreshAsset()`: [Refresh an asset](https://docs.nftscan.com/solana/refreshAssetMetadataByTokenAddressUsingPOST)
 
 ## More
 - [NFTScan API](https://developer.nftscan.com/)

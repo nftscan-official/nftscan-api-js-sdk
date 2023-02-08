@@ -1,7 +1,7 @@
 import { BaseNsPaginationResData } from '../../nftscan-type';
 
 /**
- * The response parameters of EVM API 'getBlockNumber'
+ * The response data of EVM API 'getBlockNumber'
  */
 export interface QueryBlockNumberResponse {
   /**
@@ -11,7 +11,7 @@ export interface QueryBlockNumberResponse {
 }
 
 /**
- * The response parameters of EVM API 'queryAssestAmountByAccounts'
+ * The response data of EVM API 'queryAssestAmountByAccounts'
  */
 export interface QueryAssestAmountResponse {
   /**
@@ -53,7 +53,7 @@ interface AssetOwnerContent {
 }
 
 /**
- * The response parameters of EVM API 'getAssetOwnerByContract'
+ * The response data of EVM API 'getAssetOwnerByContract'
  */
 export interface QueryAssetOwnerResponse extends BaseNsPaginationResData {
   content: Array<AssetOwnerContent>;
@@ -72,23 +72,8 @@ interface AccountAmountContent {
 }
 
 /**
- * The response parameters of EVM API 'getAssetOwnerByContractAndTokenId'
+ * The response data of EVM API 'getAssetOwnerByContractAndTokenId'
  */
 export interface QueryAssetOwnerByContractAndTokenIdResponse extends BaseNsPaginationResData {
   content: Array<AccountAmountContent>;
-}
-
-/**
- * The response parameters of EVM API 'refreshMetadata'
- */
-export interface RefreshMetadataResponse {
-  /**
-   * The reason for the FAIL status
-   */
-  reason: string;
-
-  /**
-   * Task status. SUCCESS means the task was successfully submitted, FAIL means the task was not submitted due to some reason
-   */
-  status: string;
 }
