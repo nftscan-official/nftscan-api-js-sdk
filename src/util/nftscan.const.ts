@@ -14,6 +14,7 @@ export default class NftscanConst {
     avalanche: 'https://avaxapi.nftscan.com/api',
     cronos: 'https://cronosapi.nftscan.com/api',
     fantom: 'https://fantomapi.nftscan.com/api',
+    gnosis: 'https://gnosisapi.nftscan.com/api',
   };
 
   /**

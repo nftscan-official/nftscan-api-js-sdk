@@ -7,19 +7,20 @@ The daily request limit for a single account is 10,000 general calls. If you hav
 
 The SDK currently supports the following chains:
 
-| Blockchain | Domain name             | Short name   |
-| ---------- | ----------------------- | ------------ |
-| Ethereum   | restapi.nftscan.com     | eth          |
-| BNB chain  | bnbapi.nftscan.com      | bnb          |
-| Polygon    | polygonapi.nftscan.com  | polygon      |
-| Moonbeam   | moonbeamapi.nftscan.com | moonbeam     |
-| Arbitrum   | arbitrumapi.nftscan.com | arbitrum     |
-| Optimism   | optimismapi.nftscan.com | optimism     |
-| PlatON     | platonapi.nftscan.com   | platon       |
-| Avalanche  | avaxapi.nftscan.com     | avalanche    |
-| Cronos     | cronosapi.nftscan.com   | cronos       |
-| Fantom     | fantomapi.nftscan.com   | fantom       |
-| Solana     | solanaapi.nftscan.com   | solana       |
+| Blockchain | Domain name             | Short name |
+| ---------- | ----------------------- | ---------- |
+| Ethereum   | restapi.nftscan.com     | eth        |
+| BNB chain  | bnbapi.nftscan.com      | bnb        |
+| Polygon    | polygonapi.nftscan.com  | polygon    |
+| Moonbeam   | moonbeamapi.nftscan.com | moonbeam   |
+| Arbitrum   | arbitrumapi.nftscan.com | arbitrum   |
+| Optimism   | optimismapi.nftscan.com | optimism   |
+| PlatON     | platonapi.nftscan.com   | platon     |
+| Avalanche  | avaxapi.nftscan.com     | avalanche  |
+| Cronos     | cronosapi.nftscan.com   | cronos     |
+| Fantom     | fantomapi.nftscan.com   | fantom     |
+| Gnosis     | gnosisapi.nftscan.com   | gnosis     |
+| Solana     | solanaapi.nftscan.com   | solana     |
 
 *The value of **Short name** is used in the SDK as an initialization configuration parameter.*
 
@@ -64,6 +65,7 @@ export enum EvmChain {
   AVALANCHE = 'avalanche',
   CRONOS = 'cronos',
   FANTOM = 'fantom',
+  Gnosis = 'gnosis',
 }
 ```
 
