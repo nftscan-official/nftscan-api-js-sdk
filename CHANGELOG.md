@@ -1,4 +1,12 @@
 # Changelog
+## [1.8.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v2.0.0...v1.8.0) (2023-03-06)
+
+
+### ✨ Features | 新功能
+
+* added support the EVM-like chain `Gnosis` ([a811260](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/a811260ac436e9f59cc282e34d0c7e1a95aaca33))
+* change the text in comments, update the input and output param, add API `queryAssetsInBatches`, `getCollectionStatistics` of Solana ([23da908](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/23da9088614cf2b0ce28d13890e1885c78ffcfe2))
+
 ## [1.7.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v2.0.0...v1.7.0) (2023-02-08)
 
 
