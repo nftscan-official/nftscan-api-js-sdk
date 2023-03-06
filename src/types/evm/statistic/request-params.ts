@@ -47,11 +47,15 @@ export interface QueryCollectionRankingParams {
     | 'volume_total'
     | 'volume_change_1d'
     | 'volume_change_7d'
-    | 'floor_price'
+    | 'volume_change_30d'
     | 'sales_1d'
     | 'sales_7d'
     | 'sales_30d'
     | 'sales_total'
+    | 'sales_change_1d'
+    | 'sales_change_7d'
+    | 'sales_change_30d'
+    | 'floor_price'
     | 'market_cap';
 
   /**

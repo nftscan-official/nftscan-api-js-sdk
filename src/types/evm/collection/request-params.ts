@@ -35,7 +35,7 @@ export interface QueryCollectionsByFiltersParams {
   block_number_start?: number;
 
   /**
-   * List of contract address. Maximum size is 50.
+   * List of contract address. Maximum size is 10.
    */
   contract_address_list?: Array<string>;
 

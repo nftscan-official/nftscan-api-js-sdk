@@ -12,9 +12,9 @@ import BaseApi from '../../base-api';
  */
 export default class NftscanSolanaTransaction extends BaseApi<NftscanConfig> {
   /**
-   * Retrieve transactions for account
+   * Get transactions by account
    * - This endpoint returns a list of NFT transactions for an account address. The transactions are sorted by timestamp with descending direction.
-   * - details: {@link https://docs.nftscan.com/solana/getAccountTransactionsUsingGET}
+   * - details: {@link https://docs.nftscan.com/reference/solana/get-transactions-by-account}
    * @param accountAddress The account address
    * @param params The query params {@link TransactionParams}
    * @returns Promise<{@link CommonTransactionResponse}>
@@ -39,9 +39,9 @@ export default class NftscanSolanaTransaction extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Retrieve transactions by collection
+   * Get transactions by collection
    * - This endpoint returns a list of NFT transactions for an NFT collection. The transactions are sorted by timestamp with descending direction.
-   * - details: {@link https://docs.nftscan.com/solana/getTransactionsByCollectionUsingGET}
+   * - details: {@link https://docs.nftscan.com/reference/solana/get-transactions-by-collection}
    * @param collection The NFT collection for the assets
    * @param params The query params {@link BaseNsPaginationReqParam}
    * @returns Promise<{@link CommonTransactionResponse}>
@@ -69,9 +69,9 @@ export default class NftscanSolanaTransaction extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Retrieve transactions for an asset
+   * Get transactions by NFT
    * - This endpoint returns a list of NFT transactions for a single NFT. The transactions are sorted by timestamp with descending direction.
-   * - details: {@link https://docs.nftscan.com/solana/getTransactionByTokenAddressUsingGET}
+   * - details: {@link https://docs.nftscan.com/reference/solana/get-transactions-by-nft}
    * @param tokenAddress The NFT token address
    * @param params The query params {@link BaseNsPaginationReqParam}
    * @returns Promise<{@link CommonTransactionResponse}>

@@ -138,6 +138,21 @@ export interface Asset {
   own_timestamp: number;
 
   /**
+   * The rarity rank for the item
+   */
+  rarity_rank: number;
+
+  /**
+   * The rarity score for the item
+   */
+  rarity_score: number;
+
+  /**
+   * The small image URI stored by NFTScan (null if not stored by NFTScan)
+   */
+  small_nftscan_uri: string;
+
+  /**
    * The token ID of the NFT in Number
    */
   token_id: string;
@@ -198,6 +213,11 @@ export interface QueryAllAssetsResponse {
    * How many items the account address owns
    */
   owns_total: number;
+
+  /**
+   * The symbol
+   */
+  symbol: string;
 }
 
 /**
