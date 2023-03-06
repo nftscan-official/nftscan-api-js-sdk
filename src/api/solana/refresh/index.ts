@@ -13,22 +13,22 @@ export default class NftscanSolanaRefresh extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Refresh an asset
+   * Refresh NFT metadata
    * - This endpoint enables you to submit a background task. The task will refresh the metadata of a specified NFT asset.
-   * - details: {@link https://docs.nftscan.com/solana/refreshAssetMetadataByTokenAddressUsingPOST}
-   * @param tokenAddressstring The token address of the NFT
+   * - details: {@link https://docs.nftscan.com/reference/solana/refresh-nft-metadata}
+   * @param tokenAddress The token address of the NFT
    * @returns Promise<{@link RefreshMetadataResponse}>
    */
-  refreshAsset(tokenAddressstring: string): Promise<RefreshMetadataResponse> {
-    if (isEmpty(tokenAddressstring)) {
-      return missingParamError('tokenAddressstring');
+  refreshAsset(tokenAddress: string): Promise<RefreshMetadataResponse> {
+    if (isEmpty(tokenAddress)) {
+      return missingParamError('tokenAddress');
     }
 
     return nftscanPost<NsObject, RefreshMetadataResponse>(
       this.config,
       `${NftscanConst.API.solana.refresh.refreshAsset}`,
       {
-        token_address: tokenAddressstring,
+        token_address: tokenAddress,
       },
     );
   }

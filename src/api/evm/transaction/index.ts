@@ -24,9 +24,9 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve transactions for account
+   * Get transactions by account
    * - This endpoint returns a list of NFT transactions for an account address. The transactions are sorted by timestamp with descending direction.
-   * - details: {@link https://docs.nftscan.com/nftscan/getAccountTransactionsUsingGET_1}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-transactions-by-account}
    * @param accountAddress The account address
    * @param params The query params {@link TransactionParams}
    * @returns Promise<{@link CommonTransactionResponse}>
@@ -59,9 +59,9 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve transactions for contract
+   * Get transactions by contract
    * - This endpoint returns a list of NFT transactions for an NFT contract address. The transactions are sorted by timestamp with descending direction.
-   * - details: {@link https://docs.nftscan.com/nftscan/getTransactionsByContractAddressUsingGET}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-transactions-by-contract}
    * @param contractAddress The NFT contract address
    * @param params The query params {@link CommonTransactionParams}
    * @returns Promise<{@link CommonTransactionResponse}>
@@ -92,9 +92,9 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve transactions for an asset
+   * Get transactions by NFT
    * - This endpoint returns a list of NFT transactions for a single NFT. The transactions are sorted by timestamp with descending direction.
-   * - details: {@link https://docs.nftscan.com/nftscan/getTransactionByContractAddressAndTokenIdUsingGET}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-transactions-by-nft}
    * @param contractAddress The NFT contract address
    * @param tokenId The NFT token ID. Can be in Hex or in Number
    * @param params The query params {@link CommonTransactionParams}
@@ -131,9 +131,9 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve transactions by to address.
+   * Get transactions by to address.
    * - This endpoint returns a list of NFT transactions filtered by the param `to` of the transaction. The transactions are sorted by timestamp with descending direction.
-   * - details: {@link https://docs.nftscan.com/nftscan/getTransactionByTxToUsingGET}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-transactions-by-to-address}
    * @param toAddress The to address of the transaction
    * @param params The query params {@link CommonTransactionParams}
    * @returns Promise<{@link CommonTransactionResponse}>
@@ -161,9 +161,9 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve transactions with filters.
+   * Search transactions.
    * - This endpoint returns a list of NFT transactions by applying search filters in the request body. The transactions are sorted by timestamp with descending direction.
-   * - details: {@link https://docs.nftscan.com/nftscan/getAssetsByListUsingPOST_2}
+   * - details: {@link https://docs.nftscan.com/reference/evm/search-transactions}
    * @param params The query params {@link QueryTransactionsByFiltersParams}
    * @returns Promise<{@link CommonAssetResponse}>
    */
@@ -176,8 +176,8 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
         block_number_end: blockNumberEnd,
       } = params;
 
-      if (contractAddressList && contractAddressList.length > 50) {
-        return invalidParamError('contract_address_list', 'Maximum size is 50');
+      if (contractAddressList && contractAddressList.length > 10) {
+        return invalidParamError('contract_address_list', 'Maximum size is 10');
       }
 
       if (blockNumberStart === undefined && blockNumberEnd === undefined && isEmpty(contractAddressList)) {
@@ -200,9 +200,9 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve transactions by hash
+   * Get transactions by hash
    * - This endpoint returns the transaction records queried based on the list of transaction hash.
-   * - details: {@link https://docs.nftscan.com/nftscan/getTransactionRecordsByTxHashListUsingPOST}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-transactions-by-hash}
    * @param txHashList The string Array of transaction hash. Maximum size is 50.
    * @param eventType The NFT event type Array<{@link EventType}> of the transaction.
    * @returns Promise<Array<{@link Transaction}>>

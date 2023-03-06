@@ -117,12 +117,12 @@ interface Attribute {
  */
 export interface QueryAssetsByAttributesParams extends CommonAssetParams {
   /**
-   * The NFT contract address for the assets
-   */
-  contract_address: string;
-
-  /**
    * List of attribute name with attribute value(s). Maximum size is 10
    */
   attributes: Array<Attribute>;
+
+  /**
+   * The NFT contract address for the assets
+   */
+  contract_address: string;
 }

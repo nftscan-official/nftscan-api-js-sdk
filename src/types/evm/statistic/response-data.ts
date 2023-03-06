@@ -15,7 +15,7 @@ interface Price7d {
   end_timestamp: number;
 }
 
-interface volume7d {
+interface Volume7d {
   /**
    * The volume
    */
@@ -30,6 +30,18 @@ interface volume7d {
    * The ending timestamp in milliseconds for the interval
    */
   end_timestamp: number;
+}
+
+interface Gas24h {
+  /**
+   * The gas cost
+   */
+  gas: number;
+
+  /**
+   * The time hour
+   */
+  time: number;
 }
 
 /**
@@ -137,6 +149,11 @@ export interface QueryTradeRankingResponse {
   sales: number;
 
   /**
+   * The sale growth rate
+   */
+  sales_change: string;
+
+  /**
    * The volume
    */
   volume: number;
@@ -144,7 +161,7 @@ export interface QueryTradeRankingResponse {
   /**
    * The 7-day trading volume trends
    */
-  volume_7d: Array<volume7d>;
+  volume_7d: Array<Volume7d>;
 
   /**
    * The volume growth rate
@@ -222,9 +239,44 @@ export interface QueryCollectionRankingResponse {
   logo_url: string;
 
   /**
+   * The market cap
+   */
+  market_cap: number;
+
+  /**
    * How many owners for the collection
    */
   owners_total: number;
+
+  /**
+   * How many sales for 1 day
+   */
+  sales_1d: number;
+
+  /**
+   * How many sales for 30 days
+   */
+  sales_30d: number;
+
+  /**
+   * How many sales for 7 days
+   */
+  sales_7d: number;
+
+  /**
+   * The sale growth rate for 1 day
+   */
+  sales_change_1d: string;
+
+  /**
+   * The sale growth rate for 30 days
+   */
+  sales_change_30d: string;
+
+  /**
+   * The sale growth rate for 7 days
+   */
+  sales_change_7d: string;
 
   /**
    * How many sales for total
@@ -527,6 +579,11 @@ export interface QueryCollectionStatisticsResponse {
   erc_type: string;
 
   /**
+   * The floor price of the collection
+   */
+  floor_price: number;
+
+  /**
    * The highest price
    */
   highest_price: number;
@@ -552,6 +609,11 @@ export interface QueryCollectionStatisticsResponse {
   market_cap: number;
 
   /**
+   * Percentage of owners of this collection who have at least one Blue Chip NFT
+   */
+  next_blue_chip_probability: string;
+
+  /**
    * How many owners for the collection
    */
   owners_total: number;
@@ -567,9 +629,39 @@ export interface QueryCollectionStatisticsResponse {
   total_volume: number;
 
   /**
+   * The volume for 1 day
+   */
+  volume_1d: number;
+
+  /**
    * The 24h volume
    */
   volume_24h: number;
+
+  /**
+   * The volume for 30 days
+   */
+  volume_30d: number;
+
+  /**
+   * The volume for 7 days
+   */
+  volume_7d: number;
+
+  /**
+   * The volume growth rate for 1 day
+   */
+  volume_change_1d: string;
+
+  /**
+   * The volume growth rate for 30 days
+   */
+  volume_change_30d: string;
+
+  /**
+   * The volume growth rate for 7 days
+   */
+  volume_change_7d: string;
 }
 
 /**
@@ -660,6 +752,11 @@ export interface QueryGasRankingResponse {
    * The contract name
    */
   contract_name: string;
+
+  /**
+   * The 24-hour gas fee trend data
+   */
+  gas_24h: Array<Gas24h>;
 
   /**
    * The gas fee for 12 hour

@@ -92,3 +92,58 @@ export interface QueryTradeRankingResponse {
    */
   volume_change: string;
 }
+
+/**
+ * The response data of Solana API 'getCollectionStatistics'
+ */
+export interface QueryCollectionStatisticsResponse {
+  /**
+   * The average price of 24h
+   */
+  average_price_24h: number;
+
+  /**
+   * The collection
+   */
+  collection: string;
+
+  /**
+   * The highest price
+   */
+  highest_price: number;
+
+  /**
+   * How many items for the collection
+   */
+  items_total: number;
+
+  /**
+   * The logo URL
+   */
+  logo_url: string;
+
+  /**
+   * The lowest price of 24h
+   */
+  lowest_price_24h: number;
+
+  /**
+   * How many owners for the collection
+   */
+  owners_total: number;
+
+  /**
+   * How many sales of 24h
+   */
+  sales_24h: number;
+
+  /**
+   * The total volume
+   */
+  total_volume: number;
+
+  /**
+   * The volume of 24h
+   */
+  volume_24h: number;
+}

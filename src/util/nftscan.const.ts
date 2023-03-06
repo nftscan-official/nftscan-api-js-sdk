@@ -14,6 +14,7 @@ export default class NftscanConst {
     avalanche: 'https://avaxapi.nftscan.com/api',
     cronos: 'https://cronosapi.nftscan.com/api',
     fantom: 'https://fantomapi.nftscan.com/api',
+    gnosis: 'https://gnosisapi.nftscan.com/api',
   };
 
   /**
@@ -78,6 +79,7 @@ export default class NftscanConst {
         getAccountMinted: '/sol/account/mint/',
         getAssetsByCollection: '/sol/assets/collection/',
         getAssetsByTokenAddress: '/sol/assets/',
+        queryAssetsInBatches: '/sol/assets/batch',
       },
       transaction: {
         getTransactionsByAccount: '/sol/transactions/account/',
@@ -90,6 +92,7 @@ export default class NftscanConst {
       },
       statistic: {
         getTradeRanking: '/sol/statistics/ranking/trade',
+        getCollectionStatistics: '/sol/statistics/collection/',
       },
       refresh: {
         refreshAsset: '/sol/refresh/metadata',

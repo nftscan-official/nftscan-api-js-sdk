@@ -17,9 +17,9 @@ import BaseApi from '../../base-api';
  */
 export default class NftscanEvmOther extends BaseApi<NftscanConfig> {
   /**
-   * Latest block number
+   * Get latest block number
    * - This endpoint returns the latest block number NFTScan has reached to.
-   * - details: {@link https://docs.nftscan.com/nftscan/getBlockNumberUsingGET}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-latest-block-number}
    * @returns Promise<{@link QueryBlockNumberResponse}>
    */
   getBlockNumber(): Promise<QueryBlockNumberResponse> {
@@ -30,9 +30,9 @@ export default class NftscanEvmOther extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Asset amount for accounts
+   * Get NFT amount by account
    * - This endpoint returns information for ERC721 and ERC1155 NFT amount owned by an account address according to the search list in the request body.
-   * - details: {@link https://docs.nftscan.com/nftscan/getAssetAmountByAccountsUsingPOST}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-nft-amount-by-account}
    * @param accountAddressList List of account address. Maximum size is 50.
    * @returns Promise<Array<{@link QueryAssestAmountResponse}>>
    */
@@ -56,9 +56,9 @@ export default class NftscanEvmOther extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Asset owners for contract
+   * Get NFT owners by contract
    * - This endpoint returns a list of owners for  ERC721 NFT asset.
-   * - details: {@link https://docs.nftscan.com/nftscan/getAssetOwnerAmountByContractUsingGET}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-nft-owners-by-contract}
    * @param params The query params {@link QueryAssetOwnerByContractParams}
    * @returns Promise<{@link QueryAssetOwnerResponse}>
    */
@@ -86,7 +86,7 @@ export default class NftscanEvmOther extends BaseApi<NftscanConfig> {
    * *****
    * Asset owner amount for an asset
    * - This endpoint returns information for owner amount of NFTs that belong to an NFT contract address. The NFTs are sorted by token_id with ascending direction.
-   * - details: {@link https://docs.nftscan.com/nftscan/getAssetOwnersUsingGET}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-owners-by-an-nft}
    * @param params The query params {@link QueryAssetOwnerParams}
    * @returns Promise<{@link QueryAssetOwnerByContractAndTokenIdResponse}>
    */

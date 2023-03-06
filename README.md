@@ -7,19 +7,20 @@ The daily request limit for a single account is 10,000 general calls. If you hav
 
 The SDK currently supports the following chains:
 
-| Blockchain | Domain name             | Short name   |
-| ---------- | ----------------------- | ------------ |
-| Ethereum   | restapi.nftscan.com     | eth          |
-| BNB chain  | bnbapi.nftscan.com      | bnb          |
-| Polygon    | polygonapi.nftscan.com  | polygon      |
-| Moonbeam   | moonbeamapi.nftscan.com | moonbeam     |
-| Arbitrum   | arbitrumapi.nftscan.com | arbitrum     |
-| Optimism   | optimismapi.nftscan.com | optimism     |
-| PlatON     | platonapi.nftscan.com   | platon       |
-| Avalanche  | avaxapi.nftscan.com     | avalanche    |
-| Cronos     | cronosapi.nftscan.com   | cronos       |
-| Fantom     | fantomapi.nftscan.com   | fantom       |
-| Solana     | solanaapi.nftscan.com   | solana       |
+| Blockchain | Domain name             | Short name |
+| ---------- | ----------------------- | ---------- |
+| Ethereum   | restapi.nftscan.com     | eth        |
+| BNB chain  | bnbapi.nftscan.com      | bnb        |
+| Polygon    | polygonapi.nftscan.com  | polygon    |
+| Moonbeam   | moonbeamapi.nftscan.com | moonbeam   |
+| Arbitrum   | arbitrumapi.nftscan.com | arbitrum   |
+| Optimism   | optimismapi.nftscan.com | optimism   |
+| PlatON     | platonapi.nftscan.com   | platon     |
+| Avalanche  | avaxapi.nftscan.com     | avalanche  |
+| Cronos     | cronosapi.nftscan.com   | cronos     |
+| Fantom     | fantomapi.nftscan.com   | fantom     |
+| Gnosis     | gnosisapi.nftscan.com   | gnosis     |
+| Solana     | solanaapi.nftscan.com   | solana     |
 
 *The value of **Short name** is used in the SDK as an initialization configuration parameter.*
 
@@ -64,6 +65,7 @@ export enum EvmChain {
   AVALANCHE = 'avalanche',
   CRONOS = 'cronos',
   FANTOM = 'fantom',
+  Gnosis = 'gnosis',
 }
 ```
 
@@ -125,68 +127,70 @@ As follows:
 
 - #### NFTScan API of EVM
   - ##### Retrieve Assets (`new NftscanEvm().asset.*`)
-    - `getAssetsByAccount()`: [Retrieve assets for account](https://docs.nftscan.com/nftscan/getAccountNftAssetsUsingGET)
-    - `getAllAssets()`: [Retrieve all assets for account](https://docs.nftscan.com/nftscan/getAccountNftAssetsGroupByContractAddressUsingGET)
-    - `getAccountMinted()`: [Retrieve assets minted for account](https://docs.nftscan.com/nftscan/getAccountMintedUsingGET)
-    - ***[PRO]*** `getAssetsByContract()`: [Retrieve assets for contract](https://docs.nftscan.com/nftscan/getAssetsByContractAddressUsingGET)
-    - `getAssetsByContractAndTokenId()`: [Retrieve an asset](https://docs.nftscan.com/nftscan/getAssetByContractAddressAndTokenIdUsingGET)
-    - ***[PRO]*** `queryAssetsInBatches`: [Retrieve multiple assets](https://docs.nftscan.com/nftscan/getAssetsByListUsingPOST_1)
-    - ***[PRO]*** `queryAssetsByFilters()`: [Retrieve assets with filters](https://docs.nftscan.com/nftscan/getAssetsByListUsingPOST).
-    - ***[PRO]*** `queryAssetsByAttributes()`: [Retrieve assets with attributes](https://docs.nftscan.com/nftscan/getAssetsByContractAddressWithAttributesUsingPOST)
-    - ***[PRO]*** `getMultiChainAssets()`: [Retrieve multi-chain assets for account](https://docs.nftscan.com/nftscan/getAssetsByMultiChainUsingGET)
+    - `getAssetsByAccount()`: [Get NFTs by account](https://docs.nftscan.com/reference/evm/get-nfts-by-account)
+    - `getAllAssets()`: [Get all NFTs by account](https://docs.nftscan.com/reference/evm/get-all-nfts-by-account)
+    - `getAccountMinted()`: [Get minted NFTs by account](https://docs.nftscan.com/reference/evm/get-minted-nfts-by-account)
+    - ***[PRO]*** `getAssetsByContract()`: [Get NFTs by contract](https://docs.nftscan.com/reference/evm/get-nfts-by-contract)
+    - `getAssetsByContractAndTokenId()`: [Get single NFT](https://docs.nftscan.com/reference/evm/get-single-nft)
+    - ***[PRO]*** `queryAssetsInBatches`: [Get multiple NFTs](https://docs.nftscan.com/reference/evm/get-multiple-nfts)
+    - ***[PRO]*** `queryAssetsByFilters()`: [Search NFTs](https://docs.nftscan.com/reference/evm/search-nfts).
+    - ***[PRO]*** `queryAssetsByAttributes()`: [Get NFTs by attributes](https://docs.nftscan.com/reference/evm/get-nfts-by-attributes)
+    - ***[PRO]*** `getMultiChainAssets()`: [Get all multi-chain NFTs by account](https://docs.nftscan.com/reference/evm/get-all-multi-chain-nfts-by-account)
   - ##### Retrieve Transactions (`new NftscanEvm().transaction.*`)
-    - ***[PRO]*** `getTransactionsByAccount()`: [Retrieve transactions for account](https://docs.nftscan.com/nftscan/getAccountTransactionsUsingGET_1)
-    - ***[PRO]*** `getTransactionsByContract()`: [Retrieve transactions for contract](https://docs.nftscan.com/nftscan/getTransactionsByContractAddressUsingGET)
-    - ***[PRO]*** `getTransactionsByContractAndTokenId()`: [Retrieve transactions for an asset](https://docs.nftscan.com/nftscan/getTransactionByContractAddressAndTokenIdUsingGET)
-    - ***[PRO]*** `queryTransactionsByFilters()`: [Retrieve transactions with filters](https://docs.nftscan.com/nftscan/getAssetsByListUsingPOST_2)
-    - ***[PRO]*** `getTransactionsByToAddress()`: [Retrieve transactions by to address](https://docs.nftscan.com/nftscan/getTransactionByTxToUsingGET)
-    - ***[PRO]*** `queryTransactionsByTxHashList()`: [Retrieve transactions by hash](https://docs.nftscan.com/nftscan/getTransactionRecordsByTxHashListUsingPOST)
+    - ***[PRO]*** `getTransactionsByAccount()`: [Get transactions by account](https://docs.nftscan.com/reference/evm/get-transactions-by-account)
+    - ***[PRO]*** `getTransactionsByContract()`: [Get transactions by contract](https://docs.nftscan.com/reference/evm/get-transactions-by-contract)
+    - ***[PRO]*** `getTransactionsByContractAndTokenId()`: [Get transactions by NFT](https://docs.nftscan.com/reference/evm/get-transactions-by-nft)
+    - ***[PRO]*** `queryTransactionsByFilters()`: [Search transactions](https://docs.nftscan.com/reference/evm/search-transactions)
+    - ***[PRO]*** `getTransactionsByToAddress()`: [Get transactions by to address](https://docs.nftscan.com/reference/evm/get-transactions-by-to-address)
+    - ***[PRO]*** `queryTransactionsByTxHashList()`: [Get transactions by hash](https://docs.nftscan.com/reference/evm/get-transactions-by-hash)
   - ##### Retrieve Collections (`new NftscanEvm().collection.*`)
-    - ***[PRO]*** `getCollectionsByContract()`: [Retrieve a collection](https://docs.nftscan.com/nftscan/getCollectionUsingGET)
-    - ***[PRO]*** `queryCollectionsByFilters()`: [Retrieve collections with filters](https://docs.nftscan.com/nftscan/getCollectionsUsingPOST)
-    - ***[PRO]*** `queryCollectionsByAccountAddress()`: [Retrieve collections for account](https://docs.nftscan.com/nftscan/getCollectionsOwnByAccountAddressUsingGET)
-    - ***[PRO]*** `getCollectionsByRanking()`: [Retrieve collections by ranking](https://docs.nftscan.com/nftscan/getRankingsUsingGET)
+    - ***[PRO]*** `getCollectionsByContract()`: [Get an NFT collection](https://docs.nftscan.com/reference/evm/get-an-nft-collection)
+    - ***[PRO]*** `queryCollectionsByFilters()`: [Search NFT collections](https://docs.nftscan.com/reference/evm/search-nft-collections)
+    - ***[PRO]*** `queryCollectionsByAccountAddress()`: [Get NFT collections by account](https://docs.nftscan.com/reference/evm/get-nft-collections-by-account)
+    - ***[PRO]*** `getCollectionsByRanking()`: [Get NFT collections by ranking](https://docs.nftscan.com/reference/evm/get-nft-collections-by-ranking)
   - ##### Statistics (`new NftscanEvm().statistic.*`)
-    - `getTradeRanking()`: [Trade ranking](https://docs.nftscan.com/nftscan/getTradeUsingGET_1)
-    - `getMintRanking()`: [mint ranking](https://docs.nftscan.com/nftscan/getMintUsingGET)
-    - `getMintAmount()`: [Mint amount](https://docs.nftscan.com/nftscan/getAmountUsingGET)
-    - `getTradersRanking()`: [Traders ranking](https://docs.nftscan.com/nftscan/getTradersUsingGET)
-    - `getGasRanking()`: [Gas ranking](https://docs.nftscan.com/nftscan/getGasUsingGET)
-    - ***[PRO]*** `getCollectionRanking()`: [Collection ranking](https://docs.nftscan.com/nftscan/collectionRankingUsingGET)
-    - `getMarketplaceRanking()`: [Marketplace ranking](https://docs.nftscan.com/nftscan/getMarketplaceUsingGET)
-    - `getMarketCapRanking()`: [Market cap ranking](https://docs.nftscan.com/nftscan/getMarketCapUsingGET)
-    - ***[PRO]*** `getCollectionStatistics()`: [Collection statistics](https://docs.nftscan.com/nftscan/getCollectionUsingGET_2)
-    - ***[PRO]*** `getCollectionTrade()`: [Collection trade distribution](https://docs.nftscan.com/nftscan/tradeDistributionUsingGET)
-    - ***[PRO]*** `getCollectionTrending()`: [Collection trending statistics](https://docs.nftscan.com/nftscan/trendingUsingGET)
-    - ***[PRO]*** `getBlueChipStatistics()`: [Blue chip](https://docs.nftscan.com/nftscan/blueChipUsingGET)
-    - ***[PRO]*** `getAccountOverview()`: [Account overview](https://docs.nftscan.com/nftscan/accountOverviewUsingGET)
-    - `getCollectionOverview()`: [Collection overview](https://docs.nftscan.com/nftscan/getPlatformOverviewUsingGET)
+    - `getTradeRanking()`: [Trade ranking](https://docs.nftscan.com/reference/evm/trade-ranking)
+    - `getMintRanking()`: [mint ranking](https://docs.nftscan.com/reference/evm/mint-ranking)
+    - `getMintAmount()`: [Mint amount](https://docs.nftscan.com/reference/evm/mint-amount)
+    - `getTradersRanking()`: [Traders ranking](https://docs.nftscan.com/reference/evm/traders-ranking)
+    - `getGasRanking()`: [Gas ranking](https://docs.nftscan.com/reference/evm/gas-ranking)
+    - ***[PRO]*** `getCollectionRanking()`: [Collection ranking](https://docs.nftscan.com/reference/evm/collection-ranking)
+    - `getMarketplaceRanking()`: [Marketplace ranking](https://docs.nftscan.com/reference/evm/marketplace-ranking)
+    - `getMarketCapRanking()`: [Market cap ranking](https://docs.nftscan.com/reference/evm/market-cap-ranking)
+    - ***[PRO]*** `getCollectionStatistics()`: [Collection statistics](https://docs.nftscan.com/reference/evm/collection-statistics)
+    - ***[PRO]*** `getCollectionTrade()`: [Collection trade distribution](https://docs.nftscan.com/reference/evm/collection-trade-distribution)
+    - ***[PRO]*** `getCollectionTrending()`: [Collection trending statistics](https://docs.nftscan.com/reference/evm/collection-trending-statistics)
+    - ***[PRO]*** `getBlueChipStatistics()`: [Blue chip](https://docs.nftscan.com/reference/evm/blue-chip)
+    - ***[PRO]*** `getAccountOverview()`: [Account overview](https://docs.nftscan.com/reference/evm/account-overview)
+    - `getCollectionOverview()`: [Collection overview](https://docs.nftscan.com/reference/evm/collection-overview)
   - ##### Refresh (`new NftscanEvm().refresh.*`)
-     - ***[PRO]*** `refreshAsset()`: [Refresh an asset](https://docs.nftscan.com/nftscan/refreshAssetMetadataUsingPOST)
-     - ***[PRO]*** `refreshContract()`:[Refresh a contract](https://docs.nftscan.com/nftscan/refreshAssetMetadataByContractAddressUsingPOST)
+     - ***[PRO]*** `refreshAsset()`: [Refresh an asset](https://docs.nftscan.com/reference/evm/refresh-nft-metadata)
+     - ***[PRO]*** `refreshContract()`:[Refresh a contract](https://docs.nftscan.com/reference/evm/refresh-nft-metadata-by-contract)
    - ##### Other (`new NftscanEvm().other.*`)
-     - `getBlockNumber()`: [Latest block number](https://docs.nftscan.com/nftscan/getBlockNumberUsingGET)
-     - ***[PRO]*** `queryAssestAmountByAccounts()`: [Asset amount for accounts](https://docs.nftscan.com/nftscan/getAssetAmountByAccountsUsingPOST)
-     - ***[PRO]*** `getAssetOwnerByContract()`: [Asset owners for contract](https://docs.nftscan.com/nftscan/getAssetOwnerAmountByContractUsingGET)
-     - ***[PRO]*** `getAssetOwnerByContractAndTokenId()`: [Asset owner amount for an asset](https://docs.nftscan.com/nftscan/getAssetOwnersUsingGET)
+     - `getBlockNumber()`: [Get latest block number](https://docs.nftscan.com/reference/evm/get-latest-block-number)
+     - ***[PRO]*** `queryAssestAmountByAccounts()`: [Get NFT amount by account](https://docs.nftscan.com/reference/evm/get-nft-amount-by-account)
+     - ***[PRO]*** `getAssetOwnerByContract()`: [Get NFT owners by contract](https://docs.nftscan.com/reference/evm/get-nft-owners-by-contract)
+     - ***[PRO]*** `getAssetOwnerByContractAndTokenId()`: [Asset owner amount for an asset](https://docs.nftscan.com/reference/evm/get-owners-by-an-nft)
 - #### NFTScan API of Solana
   - ##### Retrieve Assets (`new NftscanSolana().asset.*`)
-    - `getAssetsByAccount()`: [Retrieve assets for account](https://docs.nftscan.com/solana/getAccountNftAssetsUsingGET_1)
-    - `getAllAssets()`: [Retrieve all assets for account](https://docs.nftscan.com/solana/getAccountNftAssetsGroupByCollectionUsingGET)
-    - `getAccountMinted()`: [Retrieve assets minted for account](https://docs.nftscan.com/solana/getAccountMintedUsingGET_1)
-    - ***[PRO]*** `getAssetsByCollection()`: [Retrieve assets by collection](https://docs.nftscan.com/solana/getAssetsByCollectionUsingGET)
-    - `getAssetsByTokenAddress()`: [Retrieve an asset](https://docs.nftscan.com/solana/getAssetByTokenAddressUsingGET)
+    - `getAssetsByAccount()`: [Get NFTs by account](https://docs.nftscan.com/reference/solana/get-nfts-by-account)
+    - `getAllAssets()`: [Get all NFTs by account](https://docs.nftscan.com/reference/solana/get-all-nfts-by-account)
+    - `getAccountMinted()`: [Get minted NFTs by account](https://docs.nftscan.com/reference/solana/get-minted-nfts-by-account)
+    - ***[PRO]*** `getAssetsByCollection()`: [Get NFTs by collection](https://docs.nftscan.com/reference/solana/get-nfts-by-collection)
+    - `getAssetsByTokenAddress()`: [Get single NFT](https://docs.nftscan.com/reference/solana/get-single-nft)
+    - ***[PRO]*** `queryAssetsInBatches`: [Get multiple NFTs](https://docs.nftscan.com/reference/solana/get-multiple-nfts)
   - ##### Retrieve Transactions (`new NftscanSolana().transaction.*`)
-    - `getTransactionsByAccount()`: [Retrieve transactions for account](https://docs.nftscan.com/solana/getAccountTransactionsUsingGET)
-    - `getTransactionsByCollection()`: [Retrieve transactions by collection](https://docs.nftscan.com/solana/getTransactionsByCollectionUsingGET)
-    - `getTransactionsByTokenAddress()`: [Retrieve transactions for an asset](https://docs.nftscan.com/solana/getTransactionByTokenAddressUsingGET)
+    - `getTransactionsByAccount()`: [Get transactions by account](https://docs.nftscan.com/reference/solana/get-transactions-by-account)
+    - `getTransactionsByCollection()`: [Get transactions by collection](https://docs.nftscan.com/reference/solana/get-transactions-by-collection)
+    - `getTransactionsByTokenAddress()`: [Get transactions by NFT](https://docs.nftscan.com/reference/solana/get-transactions-by-nft)
   - ##### Retrieve Collections (`new NftscanSolana().collection.*`)
-    - ***[PRO]*** `getCollection()`: [Retrieve a collection](https://docs.nftscan.com/solana/getCollectionUsingGET_1)
-    - ***[PRO]*** `queryCollectionsByFilters()`: [Retrieve collections with filters](https://docs.nftscan.com/solana/getCollectionsUsingPOST_1)
+    - ***[PRO]*** `getCollection()`: [Get an NFT collection](https://docs.nftscan.com/reference/solana/get-an-nft-collection)
+    - ***[PRO]*** `queryCollectionsByFilters()`: [Search NFT collections](https://docs.nftscan.com/reference/solana/search-nft-collections)
   - ##### Statistics (`new NftscanSolana().statistic.*`)
-    - `getTradeRanking()`: [Trade ranking](https://docs.nftscan.com/solana/getTradeUsingGET)
+    - `getTradeRanking()`: [Trade ranking](https://docs.nftscan.com/reference/solana/trade-ranking)
+    - `getCollectionStatistics()`: [Collection Statistics](https://docs.nftscan.com/reference/solana/collection-statistics)
   - ##### Refresh (`new NftscanSolana().refresh.*`)
-     - ***[PRO]*** `refreshAsset()`: [Refresh an asset](https://docs.nftscan.com/solana/refreshAssetMetadataByTokenAddressUsingPOST)
+     - ***[PRO]*** `refreshAsset()`: [Refresh an asset](https://docs.nftscan.com/reference/solana/refresh-nft-metadata)
 
 ## More
 - [NFTScan API](https://developer.nftscan.com/)

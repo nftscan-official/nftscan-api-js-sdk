@@ -9,3 +9,13 @@ export interface AssetParams extends BaseNsPaginationReqParam {
    */
   collection?: string;
 }
+
+/**
+ * The request parameters of Solana API 'getAssetsByCollection'
+ */
+export interface QueryAssetsByCollectionParams extends BaseNsPaginationReqParam {
+  /**
+   * Whether to obtain attributes for the assets
+   */
+  show_attribute?: boolean;
+}

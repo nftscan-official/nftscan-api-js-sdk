@@ -25,9 +25,9 @@ import BaseApi from '../../base-api';
  */
 export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
   /**
-   * Retrieve assets for account.
+   * Get NFTs by account
    * - This endpoint returns a set of NFTs owned by an account address.
-   * - details: {@link https://docs.nftscan.com/nftscan/getAccountNftAssetsUsingGET}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-nfts-by-account}
    * @param accountAddress The address of the owner of the assets
    * @param params The query params {@link AssetParams}
    * @returns Promise<{@link CommonAssetResponse}>
@@ -59,9 +59,9 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Retrieve all assets for account.
+   * Get all NFTs by account
    * - This endpoint returns all NFTs owned by an account address. And the NFTs are grouped according to contract address.
-   * - details: {@link https://docs.nftscan.com/nftscan/getAccountNftAssetsGroupByContractAddressUsingGET}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-all-nfts-by-account}
    * @param accountAddress The address of the owner of the assets
    * @param ercType Can be erc721 or erc1155.
    * @param showAttribute Whether to load attribute data of the asset. Default is false
@@ -89,9 +89,9 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Retrieve assets minted for account.
+   * Get minted NFTs by account
    * - This endpoint returns a set of NFTs minted by an account address.
-   * - details: {@link https://docs.nftscan.com/nftscan/getAccountMintedUsingGET}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-minted-nfts-by-account}
    * @param accountAddress The address of the minter of the assets
    * @param params The query params {@link AccountMintParams}
    * @returns Promise<{@link CommonAssetResponse}>
@@ -119,9 +119,9 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve assets for contract
+   * Get NFTs by contract
    * - This endpoint returns a set of NFTs that belong to an NFT contract address. The NFTs are sorted by token_id with ascending direction.
-   * - details: {@link https://docs.nftscan.com/nftscan/getAssetsByContractAddressUsingGET}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-nfts-by-contract}
    * @param contractAddress The NFT contract address for the assets
    * @param params The query params {@link CommonAssetParams}
    * @returns Promise<{@link CommonAssetResponse}>
@@ -146,9 +146,9 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * Retrieve an asset
+   * Get single NFT
    * - This endpoint returns a single NFT.
-   * - details: {@link https://docs.nftscan.com/nftscan/getAssetByContractAddressAndTokenIdUsingGET}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-single-nft}
    * @param contractAddress The NFT contract address for the assets
    * @param tokenId The NFT token ID. Can be in Hex or in Number
    * @param showAttribute Whether to load attribute data of the asset. Default is false
@@ -176,43 +176,9 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve multi-chain assets for account
-   * - This endpoint returns all multi-chain NFTs owned by an account address. And the NFTs are grouped according to contract address.
-   * - details: {@link https://docs.nftscan.com/nftscan/getAssetsByMultiChainUsingGET}
-   * @param accountAddress The address of the owner of the assets
-   * @param chain The short name of chain(eth, bnb, polygon, moonbeam, arbitrum, optimism, platon, avalanche). Using ';' to separate multiple chains
-   * @param ercType Can be erc721 or erc1155.
-   * @returns Promise<{@link QueryMultiChainAssets}>
-   */
-  getMultiChainAssets(
-    accountAddress: string,
-    chain: Array<EvmChain>,
-    ercType?: ErcType,
-  ): Promise<QueryMultiChainAssets> {
-    if (isEmpty(accountAddress)) {
-      return missingParamError('accountAddress');
-    }
-
-    if (isEmpty(chain)) {
-      return missingParamError('chain');
-    }
-
-    const params: NsObject = { chain: chain.join(';'), erc_type: ercType };
-
-    return nftscanGet<NsObject, QueryMultiChainAssets>(
-      this.config,
-      `${NftscanConst.API.evm.assets.getMultiChainAssets}${accountAddress}`,
-      params,
-    );
-  }
-
-  /**
-   * *****
-   * [PRO]
-   * *****
-   * Retrieve multiple assets
+   * Get multiple NFTs
    * - This endpoint returns a set of NFTs according to the search list in the request body.
-   * - details: {@link https://docs.nftscan.com/nftscan/getAssetsByListUsingPOST_1}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-multiple-nfts}
    * @param list List of contract address with token ID. Maximum size is 50.
    * @param showAttribute Whether to load attribute data of the assets. Default is false
    * @returns Promise<Array<{@link Asset}>>
@@ -241,9 +207,9 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve assets with filters
+   * Search NFTs
    * - This endpoint returns a list of NFT assets by applying search filters in the request body. The assets are sorted by nftscan_id with ascending direction.
-   * - details: {@link https://docs.nftscan.com/nftscan/getAssetsByListUsingPOST}
+   * - details: {@link https://docs.nftscan.com/reference/evm/search-nfts}
    * @param params The query params {@link QueryAssetsByFiltersParams}
    * @returns Promise<{@link CommonAssetResponse}>
    */
@@ -271,9 +237,9 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve assets with attributes
+   * Get NFTs by attributes
    * - This endpoint returns a set of NFTs those belong to an NFT contract address with attributes. The NFTs are sorted by token_id with ascending direction.
-   * - details: {@link https://docs.nftscan.com/nftscan/getAssetsByContractAddressWithAttributesUsingPOST}
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-nfts-by-attributes}
    * @param params The query params {@link QueryAssetsByAttributesParams}
    * @returns Promise<{@link CommonAssetResponse}>
    */
@@ -295,6 +261,40 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
     return nftscanPost<QueryAssetsByAttributesParams, CommonAssetResponse>(
       this.config,
       NftscanConst.API.evm.assets.queryAssetsByAttributes,
+      params,
+    );
+  }
+
+  /**
+   * *****
+   * [PRO]
+   * *****
+   * Get all multi-chain NFTs by account
+   * - This endpoint returns all multi-chain NFTs owned by an account address. And the NFTs are grouped according to contract address.
+   * - details: {@link https://docs.nftscan.com/reference/evm/get-all-multi-chain-nfts-by-account}
+   * @param accountAddress The address of the owner of the assets
+   * @param chain The short name of chain(eth, bnb, polygon, moonbeam, arbitrum, optimism, platon, avalanche). Using ';' to separate multiple chains
+   * @param ercType Can be erc721 or erc1155.
+   * @returns Promise<{@link QueryMultiChainAssets}>
+   */
+  getMultiChainAssets(
+    accountAddress: string,
+    chain: Array<EvmChain>,
+    ercType?: ErcType,
+  ): Promise<QueryMultiChainAssets> {
+    if (isEmpty(accountAddress)) {
+      return missingParamError('accountAddress');
+    }
+
+    if (isEmpty(chain)) {
+      return missingParamError('chain');
+    }
+
+    const params: NsObject = { chain: chain.join(';'), erc_type: ercType };
+
+    return nftscanGet<NsObject, QueryMultiChainAssets>(
+      this.config,
+      `${NftscanConst.API.evm.assets.getMultiChainAssets}${accountAddress}`,
       params,
     );
   }

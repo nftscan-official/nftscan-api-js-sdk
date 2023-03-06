@@ -15,9 +15,9 @@ export default class NftscanSolanaCollection extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve a collection.
+   * Get an NFT collection.
    * - This endpoint returns information for a collection with the given NFT.
-   * - details: {@link https://docs.nftscan.com/solana/getCollectionUsingGET_1}
+   * - details: {@link https://docs.nftscan.com/reference/solana/get-an-nft-collection}
    * @param collection The NFT collection for the assets
    * @returns Promise<{@link Collection}>
    */
@@ -36,9 +36,9 @@ export default class NftscanSolanaCollection extends BaseApi<NftscanConfig> {
    * *****
    * [PRO]
    * *****
-   * Retrieve collections with filters.
+   * Search NFT collections.
    * - This endpoint returns information for a list of collections by applying search filters in the request body. The collections are sorted by create_block_number with ascending direction.
-   * - details: {@link https://docs.nftscan.com/solana/getCollectionsUsingPOST_1}
+   * - details: {@link https://docs.nftscan.com/reference/solana/search-nft-collections}
    * @param params The query params {@link QueryCollectionsByFiltersParams}
    * @returns Promise<Array<{@link Collection}>>
    */

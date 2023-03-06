@@ -6,7 +6,7 @@ import { BaseNsPaginationResData } from '../../nftscan-type';
  */
 export interface Transaction {
   /**
-   * The NFT aggregate trading exchange name (Only for Sale)
+   * The NFT aggregate trading exchange name
    */
   aggregate_exchange_name: string;
 
@@ -119,6 +119,11 @@ export interface Transaction {
    * The trade symbol of the trade price
    */
   trade_symbol: string;
+
+  /**
+   * The trade symbol contract address (Default null for the native cryptocurrency)
+   */
+  trade_symbol_address: string;
 
   /**
    * The trade value of the transaction in Hex
