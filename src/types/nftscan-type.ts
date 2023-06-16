@@ -68,6 +68,8 @@ export enum NsError {
   RESPONSE_DATA_EMPTY = 'response_data_empty',
   NFTSCAN_DATA_EMPTY = 'nftscan_data_empty',
   PARAM_ERROR = 'param_error',
+  WS_NOT_READY = 'ws_not_ready',
+  WS_ERROR = 'ws_error',
 }
 
 /**
@@ -78,6 +80,19 @@ export enum EventType {
   TRANSFER = 'Transfer',
   SALE = 'Sale',
   BURN = 'Burn',
+}
+
+/**
+ * The event type of the Websocket
+ */
+export enum WSEventType {
+  SUBSCRIBE = 'subscribe',
+  UNSUBSCRIBE = 'unsubscribe',
+}
+
+export enum WSTopic {
+  TRANSACTION = 'transaction',
+  METADATA_REFRESH = 'metadata_refresh',
 }
 
 /**
@@ -108,6 +123,13 @@ export interface NftscanConfig {
  * To use our SDK, You need to register an account on NFTScan open platform({@link https://developer.nftscan.com/}) and get your API-KEY for making calls to API services.
  */
 export interface NftscanSolanaConfig {
+  /**
+   * The API key of NFTScan
+   */
+  apiKey: string;
+}
+
+export interface NftscanWsConfig {
   /**
    * The API key of NFTScan
    */
@@ -158,3 +180,18 @@ export interface RefreshMetadataResponse {
    */
   status: string;
 }
+
+export type Listener = (...args: Array<unknown>) => void;
+
+export type WSRequest = {
+  resolve?: (value: any) => void;
+  reject?: (reason?: any) => void;
+  payload?: NsObject;
+};
+
+export type SubscribeOptions = {
+  topic: WSTopic;
+  chain: EvmChain;
+  params?: NsObject;
+  listener?: Listener;
+};

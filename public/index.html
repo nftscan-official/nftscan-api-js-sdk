@@ -6,28 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nftscan</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      (function (l, r) {
+        if (!l || l.getElementById('livereloadscript')) return;
+        r = l.createElement('script');
+        r.async = 1;
+        r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1';
+        r.id = 'livereloadscript';
+        l.getElementsByTagName('head')[0].appendChild(r);
+      })(self.document);
+      console.log('---test by browser !!---');
+    </script>
     <script src="../dist/umd/index.js"></script>
+    <script src="index.js"></script>
   </head>
   <body>
     <div>NftscanSDK Test</div>
   </body>
-  <script>
-    async function test() {
-      const evm = new NftscanSDK.NftscanEvm({
-        apiKey: '',
-        chain: NftscanSDK.EvmChain.AVAX,
-      });
-      const result = await evm.asset.getAccountMinted('0xE6d884c5195Aa6187b554E542DEaDcF0C91a431a');
-      console.log(result);
-
-      const sol = new NftscanSDK.NftscanSolana({ apiKey: '' });
-      const result1 = await sol.asset.getAccountMinted('HrpADsnPdmbaxBDPHiJbd2kUoKqSXkyMBd71uFqc7BHS');
-      console.log(result1);
-    }
-
-    window.onload = () => {
-      console.log('---the support chain--->', NftscanSDK.EvmChain);
-      test();
-    };
-  </script>
 </html>

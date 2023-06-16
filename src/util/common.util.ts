@@ -23,3 +23,18 @@ export function isJson(str: string): boolean {
     return false;
   }
 }
+
+export function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<T>((_, reject) => {
+      setTimeout(() => {
+        reject(new Error('Timeout'));
+      }, ms);
+    }),
+  ]);
+}
+
+export function isNodeEnvironment(): boolean {
+  return typeof process !== 'undefined' && process != null && process.versions != null && process.versions.node != null;
+}

@@ -9,7 +9,24 @@ import pkg from './package.json';
 
 export default {
   input: 'src/index.ts',
-  output: [{ dir: 'dist/umd', name: 'NftscanSDK', format: 'umd', sourcemap: true }],
+  output: [
+    { dir: 'dist/umd', name: 'NftscanSDK', format: 'umd', sourcemap: true },
+    {
+      dir: 'dist/cjs',
+      format: 'cjs',
+      sourcemap: true,
+    },
+    {
+      dir: 'dist/esm',
+      format: 'esm',
+      sourcemap: true,
+    },
+    {
+      dir: 'dist/es',
+      format: 'es',
+      sourcemap: true,
+    },
+  ],
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
   external: [...Object.keys(pkg.dependencies || {})],
   watch: {
@@ -29,7 +46,7 @@ export default {
 
     // Resolve source maps to the original source
     sourceMaps(),
-    livereload(),
+    livereload({ inject: false }),
     serve({
       open: true,
       port: 8082,

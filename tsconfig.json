@@ -14,10 +14,17 @@
     "declarationDir": "dist/src",
     // 报错时不生成输出文件
     "noEmitOnError": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    // 允许在 ES 模块中导入 CommonJS 模块，并且会自动转换导入的方式，以匹配 ES 模块的导入语义
+    "esModuleInterop": true,
   },
   // 编译器默认包含的编译文件，src是源代码文件夹，test是jest测试代码文件夹
-  "include": ["src/**/*", "test/**/*"],
+  "include": [
+    "src/**/*",
+    "test/**/*"
+  ],
   // 编译器默认排除的编译文件
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

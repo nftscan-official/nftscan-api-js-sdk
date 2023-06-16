@@ -3,6 +3,7 @@ export default class NftscanConst {
    * NFTScan's API base url
    */
   static readonly BASE_URL = {
+    ws: 'wss://stream.nftscan.com/socket/',
     eth: 'https://restapi.nftscan.com/api',
     bnb: 'https://bnbapi.nftscan.com/api',
     arbitrum: 'https://arbitrumapi.nftscan.com/api',
