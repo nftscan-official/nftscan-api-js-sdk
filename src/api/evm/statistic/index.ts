@@ -3,6 +3,8 @@ import {
   QueryCollectionRankingParams,
   QueryMarketplaceRankingParams,
   QueryTradeRankingParams,
+  QueryTradeWalletRankingParams,
+  QueryWalletRankingParams,
 } from '../../../types/evm/statistic/request-params';
 import {
   QueryAccountOverviewResponse,
@@ -19,9 +21,14 @@ import {
   QueryTradeRankingResponse,
   QueryTradersRankingResponse,
   CollectionOverviewResponse,
+  WalletRankingResponse,
+  TradeWalletRankingResponse,
+  CollectionHoldingDistributionResponse,
+  CollectionBlueChipListResponse,
+  AccountHoldingDistributionResponse,
 } from '../../../types/evm/statistic/response-data';
 import { invalidLimitError, missingParamError } from '../../../types/nftscan-error';
-import { NftscanConfig, NsObject, RangeType, TradeType } from '../../../types/nftscan-type';
+import { NftscanConfig, NsObject, RangeType, SortDirection, TradeType } from '../../../types/nftscan-type';
 import { isEmpty } from '../../../util/common.util';
 import NftscanConst from '../../../util/nftscan.const';
 import BaseApi from '../../base-api';
@@ -46,9 +53,6 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Collection ranking
    * - This endpoint returns NFT collection ranking statistics.
    * - details: {@link https://docs.nftscan.com/reference/evm/collection-ranking}
@@ -72,9 +76,6 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Collection trade distribution
    * - This endpoint returns NFT collection trade distribution referring to NFTScan Traded Distribution({@link https://www.nftscan.com/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d?module=Analytics}).
    * - details: {@link https://docs.nftscan.com/reference/evm/collection-trade-distribution}
@@ -106,9 +107,6 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Collection trending statistics
    * - This endpoint returns NFT collection trending statistics referring to NFTScan Trending({@link https://www.nftscan.com/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d?module=Analytics}).
    * - details: {@link https://docs.nftscan.com/reference/evm/collection-trending-statistics}
@@ -142,12 +140,9 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Account overview
    * - This endpoint returns overview statistics for an account address referring to NFTScan Overview({@link https://www.nftscan.com/0xea7a0f1434084b2e99b42f045896e7326fed9dc1}).
-   * - details: {@link https://docs.nftscan.com/reference/evm/account-overview}
+   * - details: {@link https://docs.nftscan.com/reference/evm/account-overview-statistics}
    * @param accountAddress The account address
    * @returns Promise<{@link QueryAccountOverviewResponse}>
    */
@@ -163,12 +158,9 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
-   * Blue chip
+   * Collection Blue Chip Statistics
    * - This endpoint returns blue chip statistics referring to({@link https://www.nftscan.com/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d?module=Analytics}).
-   * - details: {@link https://docs.nftscan.com/reference/evm/blue-chip}
+   * - details: {@link https://docs.nftscan.com/reference/evm/collection-blue-chip-statistics}
    * @param contractAddress The NFT contract address
    * @returns Promise<{@link QueryBlueChipStatisticsResponse}>
    */
@@ -212,9 +204,6 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Collection statistics
    * - This endpoint returns statistics for a collection referring to NFTScan Collection({@link https://www.nftscan.com/search/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d}).
    * - details: {@link https://docs.nftscan.com/reference/evm/collection-statistics}
@@ -240,7 +229,7 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
    * @returns Promise<Array<{@link QueryMintRankingResponse}>>
    */
   getMintRanking(
-    time?: RangeType.H1 | RangeType.H6 | RangeType.H12 | RangeType.D1 | RangeType.D3,
+    time?: RangeType.M15 | RangeType.M30 | RangeType.H1 | RangeType.H6 | RangeType.H12 | RangeType.D1 | RangeType.D3,
   ): Promise<Array<QueryMintRankingResponse>> {
     return nftscanGet<NsObject, Array<QueryMintRankingResponse>>(
       this.config,
@@ -310,6 +299,132 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
     return nftscanGet<NsObject, CollectionOverviewResponse>(
       this.config,
       `${NftscanConst.API.evm.statistic.getCollectionOverview}`,
+    );
+  }
+
+  /**
+   * Wallet Ranking
+   * - This endpoint returns the giant whale wallet addresses and their related analysis statistics referring to NFTScan Top Wallet({@link https://www.nftscan.com/analytics/wallet}).
+   * - details: {@link https://docs.nftscan.com/reference/evm/wallet-ranking}
+   * @param params The query params {@link QueryWalletRankingParams}
+   * @returns Promise<{@link WalletRankingResponse}>
+   */
+  getWalletRanking(params: QueryWalletRankingParams): Promise<WalletRankingResponse> {
+    const { limit } = params;
+
+    if (limit && limit > 100) {
+      return invalidLimitError(100);
+    }
+
+    return nftscanGet<QueryWalletRankingParams, WalletRankingResponse>(
+      this.config,
+      `${NftscanConst.API.evm.statistic.getWalletRanking}`,
+      params,
+    );
+  }
+
+  /**
+   * Wallet Trade Ranking
+   * - This endpoint returns the top 1000 wallet addresses and their related analysis statistics in the last 24 hours.
+   * - details: {@link https://docs.nftscan.com/reference/evm/wallet-trade-ranking}
+   * @param params The query params {@link QueryTradeWalletRankingParams}
+   * @returns Promise<{@link TradeWalletRankingResponse}>
+   */
+  getTradeWalletRanking(params: QueryTradeWalletRankingParams): Promise<TradeWalletRankingResponse> {
+    const { limit } = params;
+
+    if (limit && limit > 100) {
+      return invalidLimitError(100);
+    }
+
+    return nftscanGet<QueryTradeWalletRankingParams, TradeWalletRankingResponse>(
+      this.config,
+      `${NftscanConst.API.evm.statistic.getTradeWalletRanking}`,
+      params,
+    );
+  }
+
+  /**
+   * Collection Holding Amount Distribution
+   * - This endpoint returns the distribution information of the number of NFT items held referring to NFTScan Holding Amount Distribution({@link https://www.nftscan.com/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d}).
+   * - details: {@link https://docs.nftscan.com/reference/evm/collection-holding-amount-distribution}
+   * @param contractAddress The NFT contract address
+   * @returns Promise<{@link CollectionHoldingDistributionResponse}>
+   */
+  getCollectionHoldingAmountDistribution(contractAddress: string): Promise<CollectionHoldingDistributionResponse> {
+    if (isEmpty(contractAddress)) {
+      return missingParamError('contractAddress');
+    }
+
+    return nftscanGet<NsObject, CollectionHoldingDistributionResponse>(
+      this.config,
+      `${NftscanConst.API.evm.statistic.getCollectionHoldingAmountDistribution}${contractAddress}`,
+    );
+  }
+
+  /**
+   * Collection Holding Period Distribution
+   * - This endpoint returns NFT item holding period distribution information referring to NFTScan Holding Period Distribution({@link https://www.nftscan.com/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d}).
+   * - details: {@link https://docs.nftscan.com/reference/evm/collection-holding-period-distribution}
+   * @param contractAddress The NFT contract address
+   * @returns Promise<{@link CollectionHoldingDistributionResponse}>
+   */
+  getCollectionHoldingPeriodDistribution(contractAddress: string): Promise<CollectionHoldingDistributionResponse> {
+    if (isEmpty(contractAddress)) {
+      return missingParamError('contractAddress');
+    }
+
+    return nftscanGet<NsObject, CollectionHoldingDistributionResponse>(
+      this.config,
+      `${NftscanConst.API.evm.statistic.getCollectionHoldingPeriodDistribution}${contractAddress}`,
+    );
+  }
+
+  /**
+   * Collection Blue Chip List
+   * - This endpoint returns the list of blue chips involved in this project referring to NFTScan Blue Chip Collection({@link https://www.nftscan.com/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d?module=Analytics}).
+   * - details: {@link https://docs.nftscan.com/reference/evm/collection-blue-chip-list}
+   * @param contractAddress The NFT contract address
+   * @param sortField Can be mutual_holders or mutual_holders
+   * @param sortDirection Can be asc or desc
+   * @returns Promise<{@link CollectionBlueChipListResponse}>
+   */
+  getCollectionBlueChipList(
+    contractAddress: string,
+    sortField?: 'mutual_holders' | 'mutual_holders',
+    sortDirection?: SortDirection,
+  ): Promise<CollectionBlueChipListResponse> {
+    if (isEmpty(contractAddress)) {
+      return missingParamError('contractAddress');
+    }
+
+    return nftscanGet<NsObject, CollectionBlueChipListResponse>(
+      this.config,
+      `${NftscanConst.API.evm.statistic.getCollectionHoldingPeriodDistribution}${contractAddress}`,
+      { contract_address: contractAddress, sort_field: sortField, sort_direction: sortDirection },
+    );
+  }
+
+  /**
+   * Account Holding Distribution
+   * - This endpoint returns NFT holding distribution statistics for an account address referring to NFTScan Portfolio({@link https://portfolio.nftscan.com/account/0xca1257ade6f4fa6c6834fdc42e030be6c0f5a813}).
+   * - details: {@link https://docs.nftscan.com/reference/evm/account-holding-distribution}
+   * @param accountAddress The account address
+   * @param distributionType Can be volume or amount
+   * @returns Promise<{@link AccountHoldingDistributionResponse}>
+   */
+  getAccountHoldingDistribution(
+    accountAddress: string,
+    distributionType?: 'volume' | 'amount',
+  ): Promise<AccountHoldingDistributionResponse> {
+    if (isEmpty(accountAddress)) {
+      return missingParamError('contractAddress');
+    }
+
+    return nftscanGet<NsObject, AccountHoldingDistributionResponse>(
+      this.config,
+      `${NftscanConst.API.evm.statistic.getAccountHoldingDistribution}${accountAddress}`,
+      { distribution_type: distributionType },
     );
   }
 }

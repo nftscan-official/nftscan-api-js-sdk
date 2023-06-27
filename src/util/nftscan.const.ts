@@ -60,6 +60,12 @@ export default class NftscanConst {
         getTradersRanking: '/v2/statistics/ranking/traders',
         getGasRanking: '/v2/statistics/ranking/gas',
         getCollectionOverview: '/v2/statistics/collection/overview',
+        getWalletRanking: '/v2/statistics/ranking/wallet',
+        getTradeWalletRanking: '/v2/statistics/ranking/trade/wallet',
+        getCollectionHoldingAmountDistribution: '/v2/statistics/amount/distribution/',
+        getCollectionHoldingPeriodDistribution: '/v2/statistics/period/distribution/',
+        getCollectionBlueChipList: '/v2/statistics/blue/chip/list',
+        getAccountHoldingDistribution: '/v2/statistics/distribution/',
       },
       refresh: {
         refreshAsset: '/v2/refresh/metadata',

@@ -44,6 +44,45 @@ interface Gas24h {
   time: number;
 }
 
+interface CollectionDistribution {
+  /**
+   * The name or type
+   */
+  name: string;
+
+  /**
+   * The proportion of holdings
+   */
+  proportion: string;
+
+  /**
+   * The value(amount or volume)
+   */
+  value: number;
+}
+
+interface AccountDistribution {
+  /**
+   * The contract address
+   */
+  contract: string;
+
+  /**
+   * The contract name
+   */
+  name: string;
+
+  /**
+   * The proportion of holdings
+   */
+  proportion: string;
+
+  /**
+   * The value(amount or volume)
+   */
+  value: number;
+}
+
 /**
  * The response data of EVM API 'getTradeRanking'
  */
@@ -244,6 +283,11 @@ export interface QueryCollectionRankingResponse {
   market_cap: number;
 
   /**
+   * Whether the collection is verified on OpenSea
+   */
+  opensea_verified: boolean;
+
+  /**
    * How many owners for the collection
    */
   owners_total: number;
@@ -284,6 +328,11 @@ export interface QueryCollectionRankingResponse {
   sales_total: number;
 
   /**
+   * Whether the collection is verified on NFTScan
+   */
+  verified: boolean;
+
+  /**
    * The volume for 1 day
    */
   volume_1d: number;
@@ -302,6 +351,11 @@ export interface QueryCollectionRankingResponse {
    * The volume growth rate for 1 day
    */
   volume_change_1d: string;
+
+  /**
+   * The volume growth rate for 30 days
+   */
+  volume_change_30d: string;
 
   /**
    * The volume growth rate for 7 days
@@ -619,6 +673,11 @@ export interface QueryCollectionStatisticsResponse {
   owners_total: number;
 
   /**
+   * The total sales
+   */
+  sales: number;
+
+  /**
    * The 24h sales
    */
   sales_24h: number;
@@ -699,14 +758,34 @@ export interface QueryMintRankingResponse {
   contract_name: string;
 
   /**
+   * The floor price or lowest price
+   */
+  floor_price: number;
+
+  /**
    * The logo URL
    */
   logo_url: string;
 
   /**
+   * The mint cost
+   */
+  mint_cost: number;
+
+  /**
    * How many items were minted
    */
   mint_total: number;
+
+  /**
+   * The mint total growth rate
+   */
+  mint_total_change: string;
+
+  /**
+   * How many items were sold
+   */
+  sale_total: number;
 }
 
 /**
@@ -797,4 +876,144 @@ export interface CollectionOverviewResponse {
    * The floor price of the collection
    */
   floor_price: number;
+}
+
+/**
+ * The response data of EVM API 'getWalletRanking'
+ */
+export interface WalletRankingResponse {
+  /**
+   * The account address.
+   */
+  account_address: string;
+
+  /**
+   * The valuation of buying NFTs.
+   */
+  buy_volume: number;
+
+  /**
+   * The amount of holding collection.
+   */
+  holding_collections: number;
+
+  /**
+   * The amount of holding NFT.
+   */
+  holding_nfts: number;
+
+  /**
+   * The valuation of holding NFTs. (Total valuation = sum of floor prices of holding NFTs).
+   */
+  holding_volume: number;
+
+  /**
+   * The gains of NFT tradings. (Gains = sum of prices of sold NFTs - sum of prices of purchased NFTs).
+   */
+  realized_gains_volume: number;
+
+  /**
+   * The valuation of selling NFTs.
+   */
+  sell_volume: number;
+
+  /**
+   * The count of trading NFTs.
+   */
+  trade_count: number;
+}
+
+/**
+ * The response data of EVM API 'getTradeWalletRanking'
+ */
+export interface TradeWalletRankingResponse {
+  /**
+   * The account address.
+   */
+  account_address: string;
+
+  /**
+   * The count of trading NFTs.
+   */
+  trade_count: number;
+
+  /**
+   * The valuation of trading(including buy and sell) NFTs.
+   */
+  trade_volume: number;
+
+  /**
+   * The USDC valuation of trading(including buy and sell) NFTs.
+   */
+  trade_volume_usdc: number;
+}
+
+/**
+ * The response data of EVM API 'getCollectionHoldingAmountDistribution | getCollectionHoldingPeriodDistribution'
+ */
+export interface CollectionHoldingDistributionResponse {
+  /**
+   * The owner holding distribution
+   */
+  distribution: Array<CollectionDistribution>;
+
+  /**
+   * The total holding amount
+   */
+  total: number;
+}
+
+/**
+ * The response data of EVM API 'getCollectionBlueChipList'
+ */
+export interface CollectionBlueChipListResponse {
+  /**
+   * The contract address
+   */
+  contract: string;
+
+  /**
+   * The logo
+   */
+  logo: string;
+
+  /**
+   * The number of wallet addresses holding this blue chip and this collection at the same time.
+   */
+  mutual_holders: number;
+
+  /**
+   * The name
+   */
+  name: string;
+
+  /**
+   * The total number of all NFTs held by mutual holders.
+   */
+  nft_count: number;
+
+  /**
+   * Whether the collection is verified on OpenSea
+   */
+  opensea_verified: boolean;
+
+  /**
+   * Whether the collection is verified on NFTScan
+   */
+  verified: boolean;
+}
+
+/**
+ * The response data of EVM API 'getAccountHoldingDistribution'
+ */
+export interface AccountHoldingDistributionResponse {
+  /**
+   * The NFT holding distribution
+   */
+  distribution: Array<AccountDistribution>;
+
+  /**
+   * The total volume or amount
+   */
+  total: number;
 }

@@ -27,9 +27,6 @@ export default class NftscanEvmOther extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get NFT amount by account
    * - This endpoint returns information for ERC721 and ERC1155 NFT amount owned by an account address according to the search list in the request body.
    * - details: {@link https://docs.nftscan.com/reference/evm/get-nft-amount-by-account}
@@ -53,9 +50,6 @@ export default class NftscanEvmOther extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get NFT owners by contract
    * - This endpoint returns a list of owners for  ERC721 NFT asset.
    * - details: {@link https://docs.nftscan.com/reference/evm/get-nft-owners-by-contract}
@@ -81,9 +75,6 @@ export default class NftscanEvmOther extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Asset owner amount for an asset
    * - This endpoint returns information for owner amount of NFTs that belong to an NFT contract address. The NFTs are sorted by token_id with ascending direction.
    * - details: {@link https://docs.nftscan.com/reference/evm/get-owners-by-an-nft}

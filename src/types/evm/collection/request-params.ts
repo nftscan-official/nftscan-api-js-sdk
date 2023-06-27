@@ -7,7 +7,17 @@ export interface QueryCollectionsByRankingParams {
   /**
    * Can be volume_total or floor_price. volume_total for default
    */
-  sort_field?: 'volume_total' | 'floor_price';
+  sort_field?:
+    | 'volume_total'
+    | 'sales_total'
+    | 'average_price'
+    | 'floor_price'
+    | 'volume_1d'
+    | 'volume_7d'
+    | 'volume_change_1d'
+    | 'volume_change_7d'
+    | 'average_price_change_1d'
+    | 'average_price_change_7d';
 
   /**
    * Can be asc or desc. desc for default

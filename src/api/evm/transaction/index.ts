@@ -21,9 +21,6 @@ import BaseApi from '../../base-api';
  */
 export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get transactions by account
    * - This endpoint returns a list of NFT transactions for an account address. The transactions are sorted by timestamp with descending direction.
    * - details: {@link https://docs.nftscan.com/reference/evm/get-transactions-by-account}
@@ -56,9 +53,6 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get transactions by contract
    * - This endpoint returns a list of NFT transactions for an NFT contract address. The transactions are sorted by timestamp with descending direction.
    * - details: {@link https://docs.nftscan.com/reference/evm/get-transactions-by-contract}
@@ -89,9 +83,6 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get transactions by NFT
    * - This endpoint returns a list of NFT transactions for a single NFT. The transactions are sorted by timestamp with descending direction.
    * - details: {@link https://docs.nftscan.com/reference/evm/get-transactions-by-nft}
@@ -128,9 +119,6 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get transactions by to address.
    * - This endpoint returns a list of NFT transactions filtered by the param `to` of the transaction. The transactions are sorted by timestamp with descending direction.
    * - details: {@link https://docs.nftscan.com/reference/evm/get-transactions-by-to-address}
@@ -158,9 +146,6 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Search transactions.
    * - This endpoint returns a list of NFT transactions by applying search filters in the request body. The transactions are sorted by timestamp with descending direction.
    * - details: {@link https://docs.nftscan.com/reference/evm/search-transactions}
@@ -197,9 +182,6 @@ export default class NftscanEvmTransaction extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get transactions by hash
    * - This endpoint returns the transaction records queried based on the list of transaction hash.
    * - details: {@link https://docs.nftscan.com/reference/evm/get-transactions-by-hash}

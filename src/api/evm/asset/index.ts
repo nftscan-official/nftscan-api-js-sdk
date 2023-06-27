@@ -2,6 +2,7 @@ import { nftscanGet, nftscanPost } from '../../../http/nftscan.http';
 import {
   AccountMintParams,
   AssetParams,
+  AssetsByContractParams,
   BatchQueryAssetsListItemParams,
   BatchQueryAssetsParams,
   CommonAssetParams,
@@ -9,8 +10,8 @@ import {
   QueryAssetsByFiltersParams,
 } from '../../../types/evm/asset/request-params';
 import {
-  QueryAllAssetsResponse,
   Asset,
+  CollectionAssets,
   CommonAssetResponse,
   QueryMultiChainAssets,
 } from '../../../types/evm/asset/response-data';
@@ -65,13 +66,9 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
    * @param accountAddress The address of the owner of the assets
    * @param ercType Can be erc721 or erc1155.
    * @param showAttribute Whether to load attribute data of the asset. Default is false
-   * @returns Promise<Array<{@link QueryAllAssetsResponse}>>
+   * @returns Promise<Array<{@link CollectionAssets}>>
    */
-  getAllAssets(
-    accountAddress: string,
-    ercType?: ErcType,
-    showAttribute?: boolean,
-  ): Promise<Array<QueryAllAssetsResponse>> {
+  getAllAssets(accountAddress: string, ercType?: ErcType, showAttribute?: boolean): Promise<Array<CollectionAssets>> {
     if (isEmpty(accountAddress)) {
       return missingParamError('accountAddress');
     }
@@ -81,7 +78,7 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
       show_attribute: showAttribute,
     };
 
-    return nftscanGet<NsObject, Array<QueryAllAssetsResponse>>(
+    return nftscanGet<NsObject, Array<CollectionAssets>>(
       this.config,
       `${NftscanConst.API.evm.assets.getAllAssets}${accountAddress}`,
       params,
@@ -116,29 +113,26 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get NFTs by contract
    * - This endpoint returns a set of NFTs that belong to an NFT contract address. The NFTs are sorted by token_id with ascending direction.
    * - details: {@link https://docs.nftscan.com/reference/evm/get-nfts-by-contract}
    * @param contractAddress The NFT contract address for the assets
-   * @param params The query params {@link CommonAssetParams}
+   * @param params The query params {@link AssetsByContractParams}
    * @returns Promise<{@link CommonAssetResponse}>
    */
-  getAssetsByContract(contractAddress: string, params?: CommonAssetParams): Promise<CommonAssetResponse> {
+  getAssetsByContract(contractAddress: string, params?: AssetsByContractParams): Promise<CommonAssetResponse> {
     if (isEmpty(contractAddress)) {
       return missingParamError('contractAddress');
     }
 
     if (params) {
       const { limit } = params;
-      if (limit && limit > 1000) {
-        return invalidLimitError(1000);
+      if (limit && limit > 100) {
+        return invalidLimitError(100);
       }
     }
 
-    return nftscanGet<CommonAssetParams, CommonAssetResponse>(
+    return nftscanGet<AssetsByContractParams, CommonAssetResponse>(
       this.config,
       `${NftscanConst.API.evm.assets.getAssets}${contractAddress}`,
       params,
@@ -173,9 +167,6 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get multiple NFTs
    * - This endpoint returns a set of NFTs according to the search list in the request body.
    * - details: {@link https://docs.nftscan.com/reference/evm/get-multiple-nfts}
@@ -204,9 +195,6 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Search NFTs
    * - This endpoint returns a list of NFT assets by applying search filters in the request body. The assets are sorted by nftscan_id with ascending direction.
    * - details: {@link https://docs.nftscan.com/reference/evm/search-nfts}
@@ -234,9 +222,6 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get NFTs by attributes
    * - This endpoint returns a set of NFTs those belong to an NFT contract address with attributes. The NFTs are sorted by token_id with ascending direction.
    * - details: {@link https://docs.nftscan.com/reference/evm/get-nfts-by-attributes}
@@ -266,9 +251,6 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get all multi-chain NFTs by account
    * - This endpoint returns all multi-chain NFTs owned by an account address. And the NFTs are grouped according to contract address.
    * - details: {@link https://docs.nftscan.com/reference/evm/get-all-multi-chain-nfts-by-account}

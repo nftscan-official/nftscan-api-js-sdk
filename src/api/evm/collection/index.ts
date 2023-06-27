@@ -16,9 +16,6 @@ import BaseApi from '../../base-api';
  */
 export default class NftscanEvmCollection extends BaseApi<NftscanConfig> {
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get an NFT collection
    * - This endpoint returns information for a collection with the given NFT contract address.
    * - details: {@link https://docs.nftscan.com/reference/evm/get-an-nft-collection}
@@ -39,9 +36,6 @@ export default class NftscanEvmCollection extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get NFT collections by ranking.
    * - This endpoint returns information for a list of collections with the given ranking field. The collections are sorted by the given ranking field with the given sort direction.
    * - details: {@link https://docs.nftscan.com/reference/evm/get-nft-collections-by-ranking}
@@ -65,9 +59,6 @@ export default class NftscanEvmCollection extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Search NFT collections.
    * - This endpoint returns information for a list of collections by applying search filters in the request body. The collections are sorted by deploy_block_number with ascending direction.
    * - details: {@link https://docs.nftscan.com/reference/evm/search-nft-collections}
@@ -95,9 +86,6 @@ export default class NftscanEvmCollection extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get NFT collections by account
    * - This endpoint returns information for a list of collections by the account address. The collections are sorted by floor_price with descending direction.
    * - details: {@link https://docs.nftscan.com/reference/evm/get-nft-collections-by-account}
