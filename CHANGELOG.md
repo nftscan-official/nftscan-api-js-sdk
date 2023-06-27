@@ -1,4 +1,19 @@
 # Changelog
+### [1.8.1](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.8.0...v1.8.1) (2023-06-27)
+
+
+### ✨ Features | 新功能
+
+- added endpoint:
+  - `getWalletRanking`,
+  - `getTradeWalletRanking`,
+  - `getCollectionHoldingAmountDistribution`,
+  - `getCollectionHoldingPeriodDistribution`,
+  - `getCollectionBlueChipList`,
+  - `getAccountHoldingDistribution`
+- Update the input and output parameters of EVM-related interfaces
+- Remove the PRO tag and start using Compute Unit Pricing for all interfaces ([340db9c](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/340db9caf281cd919e721055d49f92da9d5e2c28))
+
 ## [1.8.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v2.0.0...v1.8.0) (2023-03-06)
 
 

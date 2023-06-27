@@ -10,9 +10,6 @@ import BaseApi from '../../base-api';
  */
 export default class NftscanSolanaRefresh extends BaseApi<NftscanConfig> {
   /**
-   * *****
-   * [PRO]
-   * *****
    * Refresh NFT metadata
    * - This endpoint enables you to submit a background task. The task will refresh the metadata of a specified NFT asset.
    * - details: {@link https://docs.nftscan.com/reference/solana/refresh-nft-metadata}

@@ -20,3 +20,5 @@ dist
 
 #rollup
 .rpt2_cache
+
+toTsEntity.js
