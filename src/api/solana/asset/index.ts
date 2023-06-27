@@ -86,9 +86,6 @@ export default class NftscanSolanaAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get NFTs by collection
    * - This endpoint returns a set of NFTs that belong to an NFT collection. The NFTs are sorted by token address with ascending direction.
    * - details: {@link https://docs.nftscan.com/reference/solana/get-nfts-by-collection}
@@ -135,9 +132,6 @@ export default class NftscanSolanaAsset extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Get multiple NFTs
    * - This endpoint returns a single NFT.
    * - details: {@link https://docs.nftscan.com/reference/solana/get-single-nft}

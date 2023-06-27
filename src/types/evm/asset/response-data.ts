@@ -58,6 +58,11 @@ export interface Asset {
   contract_token_id: string;
 
   /**
+   * The description to display
+   */
+  description: string;
+
+  /**
    * The erc type of the NFT (erc721 or erc1155)
    */
   erc_type: string;
@@ -86,6 +91,11 @@ export interface Asset {
    * The latest trade timestamp in milliseconds for the item
    */
   latest_trade_timestamp: number;
+
+  /**
+   * The latest trade token for the item
+   */
+  latest_trade_token: string;
 
   /**
    * The metadata in JSON format
@@ -128,14 +138,14 @@ export interface Asset {
   nftscan_uri: string;
 
   /**
-   * The user address who owns the item now (null if the item is an ERC-1155 NFT)
-   */
-  owner: string;
-
-  /**
    * The timestamp in milliseconds when the item was owned (null if the item is an ERC-1155 NFT)
    */
   own_timestamp: number;
+
+  /**
+   * The user address who owns the item now (null if the item is an ERC-1155 NFT)
+   */
+  owner: string;
 
   /**
    * The rarity rank for the item
@@ -164,16 +174,9 @@ export interface Asset {
 }
 
 /**
- * The common response data of EVM asset related API
+ * The common response data of EVM Collection and asset
  */
-export interface CommonAssetResponse extends BaseNsPaginationResData {
-  content: Array<Asset>;
-}
-
-/**
- * The response data of EVM API 'getAllAssets'
- */
-export interface QueryAllAssetsResponse {
+export interface CollectionAssets {
   /**
    * List of Asset Model
    */
@@ -210,6 +213,11 @@ export interface QueryAllAssetsResponse {
   logo_url: string;
 
   /**
+   * Whether the collection is verified on OpenSea
+   */
+  opensea_verified: boolean;
+
+  /**
    * How many items the account address owns
    */
   owns_total: number;
@@ -218,6 +226,18 @@ export interface QueryAllAssetsResponse {
    * The symbol
    */
   symbol: string;
+
+  /**
+   * Whether the collection is verified on NFTScan
+   */
+  verified: boolean;
+}
+
+/**
+ * The common response data of EVM asset related API
+ */
+export interface CommonAssetResponse extends BaseNsPaginationResData {
+  content: Array<Asset>;
 }
 
 /**
@@ -232,5 +252,10 @@ export interface QueryMultiChainAssets {
   /**
    * List of Collection Asset Model
    */
-  collection_assets: Array<Asset>;
+  collection_assets: Array<CollectionAssets>;
+
+  /**
+   * Whether the `collection_assets` result exceeds max items. Note: If the account address owns more than 2000 NFTs in total, the NFTs returned will be restricted to less than 2000. In this case, you can request `getAssetsByAccount` for all NFTs the account address owns by paging query.
+   */
+  exceed_max_items: boolean;
 }

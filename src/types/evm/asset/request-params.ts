@@ -27,7 +27,7 @@ export interface AssetParams extends CommonAssetParams {
   /**
    * Can be mint_time or own_time
    */
-  sort_field?: 'mint_time' | 'own_time';
+  sort_field?: 'mint_time' | 'own_time' | 'latest_trade_price';
 
   /**
    * Can be asc or desc
@@ -48,6 +48,21 @@ export interface AccountMintParams extends CommonAssetParams {
    * Can be erc721 or erc1155. Default is erc721
    */
   erc_type?: ErcType;
+}
+
+/**
+ * The request parameters of EVM API 'getAssetsByContract'
+ */
+export interface AssetsByContractParams extends CommonAssetParams {
+  /**
+   * Note: rarity_rank only serve for erc721 NFTs
+   */
+  sort_field?: 'latest_trade_price' | 'latest_trade_time' | 'rarity_rank';
+
+  /**
+   * Can be asc or desc
+   */
+  sort_direction?: SortDirection;
 }
 
 /**

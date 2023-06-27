@@ -10,9 +10,6 @@ import BaseApi from '../../base-api';
  */
 export default class NftscanEvmRefresh extends BaseApi<NftscanConfig> {
   /**
-   * *****
-   * [PRO]
-   * *****
    * Refresh an asset
    * - This endpoint enables you to submit a background task. The task will refresh the metadata of a specified NFT asset.
    * - details: {@link https://docs.nftscan.com/reference/evm/refresh-nft-metadata}
@@ -36,9 +33,6 @@ export default class NftscanEvmRefresh extends BaseApi<NftscanConfig> {
   }
 
   /**
-   * *****
-   * [PRO]
-   * *****
    * Refresh a contract
    * - This endpoint enables you to submit a background task. The task will refresh the metadata of the entire contract after review.
    * - details: {@link https://docs.nftscan.com/reference/evm/refresh-nft-metadata-by-contract}

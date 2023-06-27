@@ -18,9 +18,9 @@ export interface QueryTradeRankingParams {
     | RangeType.D30;
 
   /**
-   * Can be volume or sales. volume for default
+   * Can be 'volume' | 'sales' | 'floor_price' | 'average_price'. volume for default
    */
-  sort_field?: 'volume' | 'sales';
+  sort_field?: 'volume' | 'sales' | 'floor_price' | 'average_price';
 
   /**
    * Can be asc or desc. desc for default
@@ -87,4 +87,61 @@ export interface QueryMarketplaceRankingParams {
    * Can be asc or desc. desc for default
    */
   sort_direction?: SortDirection;
+}
+
+/**
+ * The request parameters of EVM API 'getWalletRanking'
+ */
+export interface QueryWalletRankingParams {
+  /**
+   * holding_volume for default
+   */
+  sort_field:
+    | 'holding_volume'
+    | 'buy_volume'
+    | 'sell_volume'
+    | 'realized_gains_volume'
+    | 'holding_collections'
+    | 'holding_nfts'
+    | 'trade_count';
+
+  /**
+   * Can be asc or desc. desc for default
+   */
+  sort_direction: SortDirection;
+
+  /**
+   * Result size. Defaults to 20, capped at 100
+   */
+  limit?: number;
+
+  /**
+   * The offset for pagination
+   */
+  offset?: number;
+}
+
+/**
+ * The request parameters of EVM API 'getTradeWalletRanking'
+ */
+export interface QueryTradeWalletRankingParams {
+  /**
+   * trade_volume for default
+   */
+  sort_field?: 'trade_volume' | 'trade_count';
+
+  /**
+   * Can be asc or desc. desc for default
+   */
+  sort_direction?: SortDirection;
+
+  /**
+   * Result size. Defaults to 20, capped at 100
+   */
+  limit?: number;
+
+  /**
+   * The offset for pagination
+   */
+  offset?: number;
 }
