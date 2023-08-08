@@ -443,6 +443,11 @@ export interface QueryAccountOverviewResponse {
   burn_count: number;
 
   /**
+   * The number of collections for NFT
+   */
+  collection_count: number;
+
+  /**
    * The value of operating NFTs gas fee
    */
   gas_value: number;
