@@ -1,4 +1,19 @@
 # Changelog
+## [1.9.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.8.1...v1.9.0) (2023-08-08)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* Modify the return data type of `getMultiChainAssets` interface to array ([d86aa9b](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/d86aa9b553c7345bbfe4f7fc3d9541920b036181))
+
+
+### ✨ Features | 新功能
+
+* add input params `sort_direction`, `sort_field` to `queryAssetsByAttributes` interface ([eec8456](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/eec845629536f5bb8ef306e58be35acc32290981))
+* add interface `getCollectionTopHolder` ([a4e66fc](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/a4e66fc9a5bc72eec5b587a6cb9078f0b75fc6df))
+* The response data of the interface `getAccountOverview` adds a new attribute `collection_count` ([6ccbc92](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/6ccbc920602794a2562e88246df8b170d61a970d))
+* added support the EVM-like chain `zkSync Era` & `Linea` ([0a3d1df](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/0a3d1df8b5558e12ab8738392260ef59db209232))
+
 ### [1.8.1](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.8.0...v1.8.1) (2023-06-27)
 
 
