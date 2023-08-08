@@ -5,7 +5,6 @@ import {
   AssetsByContractParams,
   BatchQueryAssetsListItemParams,
   BatchQueryAssetsParams,
-  CommonAssetParams,
   QueryAssetsByAttributesParams,
   QueryAssetsByFiltersParams,
 } from '../../../types/evm/asset/request-params';
@@ -257,13 +256,14 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
    * @param accountAddress The address of the owner of the assets
    * @param chain The short name of chain(eth, bnb, polygon, moonbeam, arbitrum, optimism, platon, avalanche). Using ';' to separate multiple chains
    * @param ercType Can be erc721 or erc1155.
-   * @returns Promise<{@link QueryMultiChainAssets}>
+   * @returns Promise<Array<{@link QueryMultiChainAssets}>>
+   *
    */
   getMultiChainAssets(
     accountAddress: string,
     chain: Array<EvmChain>,
     ercType?: ErcType,
-  ): Promise<QueryMultiChainAssets> {
+  ): Promise<Array<QueryMultiChainAssets>> {
     if (isEmpty(accountAddress)) {
       return missingParamError('accountAddress');
     }
@@ -274,7 +274,7 @@ export default class NftscanEvmAsset extends BaseApi<NftscanConfig> {
 
     const params: NsObject = { chain: chain.join(';'), erc_type: ercType };
 
-    return nftscanGet<NsObject, QueryMultiChainAssets>(
+    return nftscanGet<NsObject, Array<QueryMultiChainAssets>>(
       this.config,
       `${NftscanConst.API.evm.assets.getMultiChainAssets}${accountAddress}`,
       params,

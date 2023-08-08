@@ -15,6 +15,8 @@ export default class NftscanConst {
     cronos: 'https://cronosapi.nftscan.com/api',
     fantom: 'https://fantomapi.nftscan.com/api',
     gnosis: 'https://gnosisapi.nftscan.com/api',
+    zksync: 'https://zksyncapi.nftscan.com/api',
+    linea: 'https://lineaapi.nftscan.com/api',
   };
 
   /**
@@ -50,6 +52,7 @@ export default class NftscanConst {
         getCollectionRanking: '/v2/statistics/ranking/collection',
         getCollectionTrade: '/v2/statistics/collection/trade/',
         getCollectionTrending: '/v2/statistics/collection/trending/',
+        getCollectionTopHolder: '/v2/statistics/collection/holder/',
         getAccountOverview: '/v2/statistics/overview/',
         getBlueChipStatistics: '/v2/statistics/blue/chip/',
         getMarketplaceRanking: '/v2/statistics/ranking/marketplace',

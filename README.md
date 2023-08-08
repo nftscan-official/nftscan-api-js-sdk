@@ -5,20 +5,22 @@ To use our APIs, You need to register an account on NFTScan open platform [OpenA
 
 The SDK currently supports the following chains:
 
-| Blockchain | Domain name             | Short name |
-| ---------- | ----------------------- | ---------- |
-| Ethereum   | restapi.nftscan.com     | eth        |
-| BNB chain  | bnbapi.nftscan.com      | bnb        |
-| Polygon    | polygonapi.nftscan.com  | polygon    |
-| Moonbeam   | moonbeamapi.nftscan.com | moonbeam   |
-| Arbitrum   | arbitrumapi.nftscan.com | arbitrum   |
-| Optimism   | optimismapi.nftscan.com | optimism   |
-| PlatON     | platonapi.nftscan.com   | platon     |
-| Avalanche  | avaxapi.nftscan.com     | avalanche  |
-| Cronos     | cronosapi.nftscan.com   | cronos     |
-| Fantom     | fantomapi.nftscan.com   | fantom     |
-| Gnosis     | gnosisapi.nftscan.com   | gnosis     |
-| Solana     | solanaapi.nftscan.com   | solana     |
+| Blockchain   | Domain name             | Short name |
+| ------------ | ----------------------- | ---------- |
+| Ethereum     | restapi.nftscan.com     | eth        |
+| BNB chain    | bnbapi.nftscan.com      | bnb        |
+| Polygon      | polygonapi.nftscan.com  | polygon    |
+| Moonbeam     | moonbeamapi.nftscan.com | moonbeam   |
+| Arbitrum One | arbitrumapi.nftscan.com | arbitrum   |
+| OP Mainnet   | optimismapi.nftscan.com | optimism   |
+| zkSync Era   | zksyncapi.nftscan.com   | zksync     |
+| Linea        | lineaapi.nftscan.com    | linea      |
+| PlatON       | platonapi.nftscan.com   | platon     |
+| Avalanche-C  | avaxapi.nftscan.com     | avalanche  |
+| Cronos       | cronosapi.nftscan.com   | cronos     |
+| Fantom       | fantomapi.nftscan.com   | fantom     |
+| Gnosis       | gnosisapi.nftscan.com   | gnosis     |
+| Solana       | solanaapi.nftscan.com   | solana     |
 
 *The value of **Short name** is used in the SDK as an initialization configuration parameter.*
 
@@ -55,15 +57,17 @@ The complete enumeration value of `EvmChain` includes the following:
 export enum EvmChain {
   ETH = 'eth',
   BNB = 'bnb',
-  ARBITRUM = 'arbitrum',
-  MOONBEAM = 'moonbeam',
   POLYGON = 'polygon',
+  ARBITRUM = 'arbitrum',
   OPTIMISM = 'optimism',
-  PLATON = 'platon',
+  ZKSYNC = 'zksync',
+  LINEA = 'linea',
   AVALANCHE = 'avalanche',
+  MOONBEAM = 'moonbeam',
+  PLATON = 'platon',
   CRONOS = 'cronos',
   FANTOM = 'fantom',
-  Gnosis = 'gnosis',
+  GNOSIS = 'gnosis',
 }
 ```
 
@@ -167,6 +171,7 @@ As follows:
     - `getCollectionHoldingPeriodDistribution()`: [Collection Holding Period Distribution](https://docs.nftscan.com/reference/evm/collection-holding-period-distribution)
     - `getCollectionBlueChipList()`: [Collection Blue Chip List](https://docs.nftscan.com/reference/evm/collection-blue-chip-list)
     - `getAccountHoldingDistribution()`: [Account Holding Distribution](https://docs.nftscan.com/reference/evm/account-holding-distribution)
+    - `getCollectionTopHolder()`: [Collection Top Holder](https://docs.nftscan.com/reference/evm/collection-top-holder)
   - ##### Refresh (`new NftscanEvm().refresh.*`)
      - `refreshAsset()`: [Refresh an asset](https://docs.nftscan.com/reference/evm/refresh-nft-metadata)
      - `refreshContract()`:[Refresh a contract](https://docs.nftscan.com/reference/evm/refresh-nft-metadata-by-contract)
