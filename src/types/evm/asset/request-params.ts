@@ -140,4 +140,14 @@ export interface QueryAssetsByAttributesParams extends CommonAssetParams {
    * The NFT contract address for the assets
    */
   contract_address: string;
+
+  /**
+   * Can be asc or desc
+   */
+  sort_direction?: SortDirection;
+
+  /**
+   * Note: `rarity_rank` only serve for erc721 NFTs
+   */
+  sort_field: string;
 }
