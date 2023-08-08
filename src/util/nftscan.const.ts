@@ -15,6 +15,8 @@ export default class NftscanConst {
     cronos: 'https://cronosapi.nftscan.com/api',
     fantom: 'https://fantomapi.nftscan.com/api',
     gnosis: 'https://gnosisapi.nftscan.com/api',
+    zksync: 'https://zksyncapi.nftscan.com/api',
+    linea: 'https://lineaapi.nftscan.com/api',
   };
 
   /**
