@@ -7,10 +7,15 @@ import {
   QueryWalletRankingParams,
 } from '../../../types/evm/statistic/request-params';
 import {
+  AccountHoldingDistributionResponse,
+  CollectionBlueChipListResponse,
+  CollectionHoldingDistributionResponse,
+  CollectionOverviewResponse,
   QueryAccountOverviewResponse,
   QueryBlueChipStatisticsResponse,
   QueryCollectionRankingResponse,
   QueryCollectionStatisticsResponse,
+  QueryCollectionTopHolderResponse,
   QueryCollectionTradeResponse,
   QueryCollectionTrendingResponse,
   QueryGasRankingResponse,
@@ -20,12 +25,8 @@ import {
   QueryMintRankingResponse,
   QueryTradeRankingResponse,
   QueryTradersRankingResponse,
-  CollectionOverviewResponse,
-  WalletRankingResponse,
   TradeWalletRankingResponse,
-  CollectionHoldingDistributionResponse,
-  CollectionBlueChipListResponse,
-  AccountHoldingDistributionResponse,
+  WalletRankingResponse,
 } from '../../../types/evm/statistic/response-data';
 import { invalidLimitError, missingParamError } from '../../../types/nftscan-error';
 import { NftscanConfig, NsObject, RangeType, SortDirection, TradeType } from '../../../types/nftscan-type';
@@ -136,6 +137,30 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
       this.config,
       `${NftscanConst.API.evm.statistic.getCollectionTrending}${contractAddress}`,
       { time: time || RangeType.D1 },
+    );
+  }
+
+  /**
+   * Collection Top Holder
+   * - This endpoint returns top holder statistics referring to NFTScan Holders({@link https://www.nftscan.com/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d?module=Holders}).
+   * - details: {@link https://docs.nftscan.com/reference/evm/collection-top-holder}
+   * @param contractAddress The NFT contract address
+   * @param limit Result size. Defaults to 20, capped at 100
+   * @returns Promise<Array<{@link QueryCollectionTopHolderResponse}>>
+   */
+  getCollectionTopHolder(contractAddress: string, limit?: number): Promise<Array<QueryCollectionTopHolderResponse>> {
+    if (isEmpty(contractAddress)) {
+      return missingParamError('contractAddress');
+    }
+
+    if (limit && limit > 100) {
+      return invalidLimitError(100);
+    }
+
+    return nftscanGet<NsObject, Array<QueryCollectionTopHolderResponse>>(
+      this.config,
+      `${NftscanConst.API.evm.statistic.getCollectionTopHolder}${contractAddress}`,
+      { limit: limit || 20 },
     );
   }
 

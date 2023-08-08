@@ -419,6 +419,26 @@ export interface QueryCollectionTrendingResponse {
 }
 
 /**
+ * The response data of EVM API 'getCollectionTopHolder'
+ */
+export interface QueryCollectionTopHolderResponse {
+  /**
+   * The holder
+   */
+  address: string;
+
+  /**
+   * The percentage of the project held by the holder
+   */
+  proportion: string;
+
+  /**
+   * The total number of NFTs held by the holder
+   */
+  value: number;
+}
+
+/**
  * The response data of EVM API 'getAccountOverview'
  */
 export interface QueryAccountOverviewResponse {
