@@ -103,6 +103,11 @@ export interface Collection {
   instagram: string;
 
   /**
+   * Whether the collection is spam contract marked by NFTScan
+   */
+  is_spam: boolean;
+
+  /**
    * How many items for the collection
    */
   items_total: number;
