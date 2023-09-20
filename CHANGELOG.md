@@ -1,4 +1,13 @@
 # Changelog
+## [1.10.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.9.0...v1.10.0) (2023-09-20)
+
+
+### ✨ Features | 新功能
+
+* Added `is_spam` attribute to Collection-related interface return parameters ([e378db9](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/e378db9da98a33c6826226a44bd8684e033ed016))
+* added support the EVM-like chain `Base` ([b8a2ae8](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/b8a2ae8334153f4f3b1da623a38000309d989013))
+* Update the return parameters of interface `getCollectionStatistics` ([ffe82b0](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/ffe82b0ed119694d7a19cbb5fac460769fb6ea36))
+
 ## [1.9.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.8.1...v1.9.0) (2023-08-08)
 
 
