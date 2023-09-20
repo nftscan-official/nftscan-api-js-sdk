@@ -10,6 +10,7 @@ export enum EvmChain {
   OPTIMISM = 'optimism',
   ZKSYNC = 'zksync',
   LINEA = 'linea',
+  BASE = 'base',
   AVALANCHE = 'avalanche',
   MOONBEAM = 'moonbeam',
   PLATON = 'platon',

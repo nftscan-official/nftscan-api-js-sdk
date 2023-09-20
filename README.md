@@ -15,6 +15,7 @@ The SDK currently supports the following chains:
 | OP Mainnet   | optimismapi.nftscan.com | optimism   |
 | zkSync Era   | zksyncapi.nftscan.com   | zksync     |
 | Linea        | lineaapi.nftscan.com    | linea      |
+| Base         | baseapi.nftscan.com     | base       |
 | PlatON       | platonapi.nftscan.com   | platon     |
 | Avalanche-C  | avaxapi.nftscan.com     | avalanche  |
 | Cronos       | cronosapi.nftscan.com   | cronos     |
@@ -62,6 +63,7 @@ export enum EvmChain {
   OPTIMISM = 'optimism',
   ZKSYNC = 'zksync',
   LINEA = 'linea',
+  Base = 'base',
   AVALANCHE = 'avalanche',
   MOONBEAM = 'moonbeam',
   PLATON = 'platon',
