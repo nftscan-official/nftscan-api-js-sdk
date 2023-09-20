@@ -703,9 +703,34 @@ export interface QueryCollectionStatisticsResponse {
   sales: number;
 
   /**
+   * The sale for 1 day
+   */
+  sales_1d: number;
+
+  /**
+   * The sale for 1 hour
+   */
+  sales_1h: number;
+
+  /**
    * The 24h sales
    */
   sales_24h: number;
+
+  /**
+   * The sale for 30 days
+   */
+  sales_30d: number;
+
+  /**
+   * The sale for 6 hours
+   */
+  sales_6h: number;
+
+  /**
+   * The sale for 7 days
+   */
+  sales_7d: number;
 
   /**
    * The total volume
@@ -718,6 +743,11 @@ export interface QueryCollectionStatisticsResponse {
   volume_1d: number;
 
   /**
+   * The volume for 1 hour
+   */
+  volume_1h: number;
+
+  /**
    * The 24h volume
    */
   volume_24h: number;
@@ -726,6 +756,11 @@ export interface QueryCollectionStatisticsResponse {
    * The volume for 30 days
    */
   volume_30d: number;
+
+  /**
+   * The volume for 6 hours
+   */
+  volume_6h: number;
 
   /**
    * The volume for 7 days
@@ -738,9 +773,19 @@ export interface QueryCollectionStatisticsResponse {
   volume_change_1d: string;
 
   /**
+   * The volume growth rate for 1 hour
+   */
+  volume_change_1h: string;
+
+  /**
    * The volume growth rate for 30 days
    */
   volume_change_30d: string;
+
+  /**
+   * The volume growth rate for 6 hours
+   */
+  volume_change_6h: string;
 
   /**
    * The volume growth rate for 7 days
