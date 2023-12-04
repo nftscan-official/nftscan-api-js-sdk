@@ -138,6 +138,11 @@ export interface Collection {
   opensea_floor_price: number;
 
   /**
+   * The slug of the collection on opensea
+   */
+  opensea_slug: string;
+
+  /**
    * Whether the collection is verified on OpenSea
    */
   opensea_verified: boolean;
