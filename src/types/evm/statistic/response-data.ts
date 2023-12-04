@@ -1087,3 +1087,18 @@ export interface AccountHoldingDistributionResponse {
    */
   total: number;
 }
+
+/**
+ * The response data of EVM API 'getAccountHoldingTrending'
+ */
+export interface AccountHoldingTrendingResponse {
+  /**
+   * The timestamp held
+   */
+  timestamp: number;
+
+  /**
+   * The quantity(or volume) held
+   */
+  value: number;
+}

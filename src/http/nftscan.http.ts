@@ -8,8 +8,9 @@ import NftscanConst from '../util/nftscan.const';
 function apiKeyError() {
   const error = new NftscanError(NsError.API_KEY_ERROR, 'The property "apiKey" cannot be empty.');
   console.error(error.msg);
-  console.error('To use our APIs, You need to register an account on NFTScan open platform');
-  console.error('NFTScan open platform ->', 'https://developer.nftscan.com/');
+  console.error(
+    'To use our APIs, You need to register an account on NFTScan open platform: https://developer.nftscan.com/',
+  );
   return Promise.reject(error);
 }
 
@@ -17,7 +18,7 @@ function apiChainError(chain: string) {
   const error = new NftscanError(NsError.API_CHAIN_ERROR, `The property "chain" is invalid, current is ---> ${chain}`);
   console.error(error.msg);
   console.error(
-    '"chian" must be one of the following strings: [eth, bnb, arbitrum, moonbeam, polygon, optimism, platon, avalanche]',
+    `"chian" must be one of the following strings: \n${JSON.stringify(Object.keys(NftscanConst.BASE_URL), null, 2)}`,
   );
   return Promise.reject(error);
 }

@@ -48,6 +48,11 @@ export interface Collection {
   collection: string;
 
   /**
+   * The token address for the collection
+   */
+  collection_token_address: string;
+
+  /**
    * The first block number for the occurrence of the collection
    */
   create_block_number: number;

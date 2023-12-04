@@ -18,6 +18,8 @@ export default class NftscanConst {
     zksync: 'https://zksyncapi.nftscan.com/api',
     linea: 'https://lineaapi.nftscan.com/api',
     base: 'https://baseapi.nftscan.com/api',
+    viction: 'https://victionapi.nftscan.com/api',
+    starknet: 'https://starknetapi.nftscan.com/api',
   };
 
   /**
@@ -70,6 +72,7 @@ export default class NftscanConst {
         getCollectionHoldingPeriodDistribution: '/v2/statistics/period/distribution/',
         getCollectionBlueChipList: '/v2/statistics/blue/chip/list',
         getAccountHoldingDistribution: '/v2/statistics/distribution/',
+        getAccountHoldingTrending: '/v2/statistics/holding/trending/',
       },
       refresh: {
         refreshAsset: '/v2/refresh/metadata',

@@ -8,6 +8,7 @@ import {
 } from '../../../types/evm/statistic/request-params';
 import {
   AccountHoldingDistributionResponse,
+  AccountHoldingTrendingResponse,
   CollectionBlueChipListResponse,
   CollectionHoldingDistributionResponse,
   CollectionOverviewResponse,
@@ -443,13 +444,36 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
     distributionType?: 'volume' | 'amount',
   ): Promise<AccountHoldingDistributionResponse> {
     if (isEmpty(accountAddress)) {
-      return missingParamError('contractAddress');
+      return missingParamError('accountAddress');
     }
 
     return nftscanGet<NsObject, AccountHoldingDistributionResponse>(
       this.config,
       `${NftscanConst.API.evm.statistic.getAccountHoldingDistribution}${accountAddress}`,
       { distribution_type: distributionType },
+    );
+  }
+
+  /**
+   * Account Holding NFT Trending
+   * - This endpoint returns NFT holding amount(or volume) statistics for an account address referring to NFTScan Portfolio({@link https://portfolio.nftscan.com/account/0xca1257ade6f4fa6c6834fdc42e030be6c0f5a813}).
+   * - details: {@link https://docs.nftscan.com/reference/evm/account-holding-nft-trending}
+   * @param accountAddress The account address
+   * @param trendingType Can be volume or amount
+   * @returns Promise<{@link AccountHoldingTrendingResponse}>
+   */
+  getAccountHoldingTrending(
+    accountAddress: string,
+    trendingType?: 'volume' | 'amount',
+  ): Promise<AccountHoldingTrendingResponse> {
+    if (isEmpty(accountAddress)) {
+      return missingParamError('accountAddress');
+    }
+
+    return nftscanGet<NsObject, AccountHoldingTrendingResponse>(
+      this.config,
+      `${NftscanConst.API.evm.statistic.getAccountHoldingTrending}${accountAddress}`,
+      { distribution_type: trendingType },
     );
   }
 }

@@ -1,4 +1,14 @@
 # Changelog
+## [1.11.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.10.0...v1.11.0) (2023-12-04)
+
+
+### ✨ Features | 新功能
+
+* added support the EVM-like chain `Viction` & `Starknet` ([fd2f15d](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/fd2f15d9d899e2abe2cf5fb6279b1303bb41af04))
+* add interface `getAccountHoldingTrending` ([0d70b59](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/0d70b591a6207b9742a04baab0a313f933806a87))
+* Added `collection_token_address` attribute to Collection-related interface return parameters of Solana chain ([8e1ebc6](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/8e1ebc6c5876736ed83a25ec30f60942dcf60cd7))
+* Added `opensea_slug` attribute to Collection-related interface return parameters of Evm chain ([d43b103](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/d43b1035425b573607490d201353dc589e01d3db))
+
 ## [1.10.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.9.0...v1.10.0) (2023-09-20)
 
 
