@@ -21,6 +21,8 @@ The SDK currently supports the following chains:
 | Cronos       | cronosapi.nftscan.com   | cronos     |
 | Fantom       | fantomapi.nftscan.com   | fantom     |
 | Gnosis       | gnosisapi.nftscan.com   | gnosis     |
+| Viction      | victionapi.nftscan.com  | viction    |
+| Starknet     | starknetapi.nftscan.com | starknet   |
 | Solana       | solanaapi.nftscan.com   | solana     |
 
 *The value of **Short name** is used in the SDK as an initialization configuration parameter.*
@@ -70,6 +72,8 @@ export enum EvmChain {
   CRONOS = 'cronos',
   FANTOM = 'fantom',
   GNOSIS = 'gnosis',
+  VICTION = 'viction',
+  STARKNET = 'starknet',
 }
 ```
 

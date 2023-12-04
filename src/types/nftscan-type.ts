@@ -17,6 +17,8 @@ export enum EvmChain {
   CRONOS = 'cronos',
   FANTOM = 'fantom',
   GNOSIS = 'gnosis',
+  VICTION = 'viction',
+  STARKNET = 'starknet',
 }
 
 /**

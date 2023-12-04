@@ -18,6 +18,8 @@ export default class NftscanConst {
     zksync: 'https://zksyncapi.nftscan.com/api',
     linea: 'https://lineaapi.nftscan.com/api',
     base: 'https://baseapi.nftscan.com/api',
+    viction: 'https://victionapi.nftscan.com/api',
+    starknet: 'https://starknetapi.nftscan.com/api',
   };
 
   /**
