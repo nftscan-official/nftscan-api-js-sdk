@@ -1,4 +1,11 @@
 # Changelog
+## [1.12.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.11.0...v1.12.0) (2023-12-18)
+
+
+### ✨ Features | 新功能
+
+* add interface `getChainOverview` ([913e81d](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/913e81df178c0319978f24b100d71a5760d8ddf0))
+
 ## [1.11.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.10.0...v1.11.0) (2023-12-04)
 
 
