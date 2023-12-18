@@ -73,6 +73,7 @@ export default class NftscanConst {
         getCollectionBlueChipList: '/v2/statistics/blue/chip/list',
         getAccountHoldingDistribution: '/v2/statistics/distribution/',
         getAccountHoldingTrending: '/v2/statistics/holding/trending/',
+        getChainOverview: '/v2/statistics/chain/overview',
       },
       refresh: {
         refreshAsset: '/v2/refresh/metadata',

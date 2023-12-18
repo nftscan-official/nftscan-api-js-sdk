@@ -1102,3 +1102,58 @@ export interface AccountHoldingTrendingResponse {
    */
   value: number;
 }
+
+/**
+ * The response data of EVM API 'getChainOverview'
+ */
+export interface ChainOverviewResponse {
+  /**
+   * The 24-hour total number of assets
+   */
+  asset_24h: number;
+
+  /**
+   * The total number of assets
+   */
+  asset_total: number;
+
+  /**
+   * The 24-hour total number of contracts
+   */
+  contract_24h: number;
+
+  /**
+   * The total number of contracts
+   */
+  contract_total: number;
+
+  /**
+   * The 24-hour total number of transactions
+   */
+  transfer_24h: number;
+
+  /**
+   * The total number of transactions
+   */
+  transfer_total: number;
+
+  /**
+   * The 24-hour total volume on the NFT Marketplaces
+   */
+  volume_24h: number;
+
+  /**
+   * The total volume on the NFT Marketplaces
+   */
+  volume_total: number;
+
+  /**
+   * The 1-day total number of wallet addresses
+   */
+  wallet_address_1d: number;
+
+  /**
+   * The total number of wallet addresses
+   */
+  wallet_address_total: number;
+}

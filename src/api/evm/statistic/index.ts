@@ -9,6 +9,7 @@ import {
 import {
   AccountHoldingDistributionResponse,
   AccountHoldingTrendingResponse,
+  ChainOverviewResponse,
   CollectionBlueChipListResponse,
   CollectionHoldingDistributionResponse,
   CollectionOverviewResponse,
@@ -474,6 +475,19 @@ export default class NftscanEvmStatistic extends BaseApi<NftscanConfig> {
       this.config,
       `${NftscanConst.API.evm.statistic.getAccountHoldingTrending}${accountAddress}`,
       { distribution_type: trendingType },
+    );
+  }
+
+  /**
+   * Chain Overview
+   * - This endpoint returns the current chain overview data referring to NFTScan Overview({@link https://eth.nftscan.com/}).
+   * - details: {@link https://docs.nftscan.com/reference/evm/chain-overview}
+   * @returns Promise<{@link ChainOverviewResponse}>
+   */
+  getChainOverview(): Promise<ChainOverviewResponse> {
+    return nftscanGet<NsObject, ChainOverviewResponse>(
+      this.config,
+      `${NftscanConst.API.evm.statistic.getChainOverview}`,
     );
   }
 }
