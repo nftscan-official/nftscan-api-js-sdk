@@ -23,6 +23,8 @@ The SDK currently supports the following chains:
 | Gnosis       | gnosisapi.nftscan.com   | gnosis     |
 | Viction      | victionapi.nftscan.com  | viction    |
 | Starknet     | starknetapi.nftscan.com | starknet   |
+| Mantle       | mantleapi.nftscan.com   | mantle     |
+| Blast        | blastapi.nftscan.com    | blast      |
 | Solana       | solanaapi.nftscan.com   | solana     |
 
 *The value of **Short name** is used in the SDK as an initialization configuration parameter.*
@@ -53,7 +55,19 @@ const config = {
 
 const evm = new NftscanEvm(config);
 ```
-The `new NftscanEvm()` returns an object that can query the EVM-like chain, for here it is `EvmChain.ETH`, which stand for the Ethereum blockchain. 
+or
+```ts
+import { ErcType, NftscanEvm } from "nftscan-api";
+
+const config = {
+  apiKey: "<YOUR_API_KEY>", // Replace with your NFTScan API key.
+  baseUrl: "<HTTPS_URL>" + "/api", // Or replace with a valid https URL.
+};
+
+const evm = new NftscanEvm(config);
+```
+
+The `new NftscanEvm()` returns an object that can query the EVM-like chain, for here it is `EvmChain.ETH`, which stand for the Ethereum blockchain. It must be ensured that one of the `chain` or `baseUrl` attribute is valid. A valid `baseUrl` supported by NFTSCAN can be found here: [EVM chains](https://docs.nftscan.com/guides/Overview/1#evm_chains).
 
 The complete enumeration value of `EvmChain` includes the following:
 ```ts

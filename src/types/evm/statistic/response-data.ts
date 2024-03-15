@@ -328,6 +328,11 @@ export interface QueryCollectionRankingResponse {
   sales_total: number;
 
   /**
+   * symbol
+   */
+  symbol: string;
+
+  /**
    * Whether the collection is verified on NFTScan
    */
   verified: boolean;

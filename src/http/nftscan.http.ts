@@ -15,11 +15,17 @@ function apiKeyError() {
 }
 
 function apiChainError(chain: string) {
-  const error = new NftscanError(NsError.API_CHAIN_ERROR, `The property "chain" is invalid, current is ---> ${chain}`);
+  const error = new NftscanError(NsError.API_CHAIN_ERROR, `The property 'chain' is invalid, current is ---> ${chain}`);
   console.error(error.msg);
   console.error(
     `"chian" must be one of the following strings: \n${JSON.stringify(Object.keys(NftscanConst.BASE_URL), null, 2)}`,
   );
+  return Promise.reject(error);
+}
+
+function apiBaseUrlError() {
+  const error = new NftscanError(NsError.API_BASE_URL_ERROR, `Both the 'chain' and 'baseUrl' properties are invalid`);
+  console.error(error.msg);
   return Promise.reject(error);
 }
 
@@ -66,14 +72,19 @@ export function initHttpConfig() {
  * @returns Promise
  */
 export function nftscanGet<T, V>(nftscanConfig: NftscanConfig, url: string, params?: T): Promise<V> {
-  const { apiKey, chain } = nftscanConfig;
+  const { apiKey, chain, baseUrl } = nftscanConfig;
   if (isEmpty(apiKey)) {
     return apiKeyError();
   }
 
-  const baseURL = NftscanConst.BASE_URL[chain];
+  if (isEmpty(chain) && isEmpty(baseUrl)) {
+    return apiBaseUrlError();
+  }
+
+  const baseURL = chain ? NftscanConst.BASE_URL[chain] : baseUrl;
+
   if (isEmpty(baseURL)) {
-    return apiChainError(chain);
+    return apiChainError(chain || '');
   }
 
   return axios.get(`${baseURL}${url}`, {
@@ -90,14 +101,19 @@ export function nftscanGet<T, V>(nftscanConfig: NftscanConfig, url: string, para
  * @returns Promise
  */
 export function nftscanPost<T, V>(nftscanConfig: NftscanConfig, url: string, data?: T): Promise<V> {
-  const { apiKey, chain } = nftscanConfig;
+  const { apiKey, chain, baseUrl } = nftscanConfig;
   if (isEmpty(apiKey)) {
     return apiKeyError();
   }
 
-  const baseURL = NftscanConst.BASE_URL[chain];
+  if (isEmpty(chain) && isEmpty(baseUrl)) {
+    return apiBaseUrlError();
+  }
+
+  const baseURL = chain ? NftscanConst.BASE_URL[chain] : baseUrl;
+
   if (isEmpty(baseURL)) {
-    return apiChainError(chain);
+    return apiChainError(chain || '');
   }
 
   return axios.post(`${baseURL}${url}`, data, { headers: { 'X-API-KEY': apiKey, 'X-FROM': 'js_sdk' } });
