@@ -55,7 +55,19 @@ const config = {
 
 const evm = new NftscanEvm(config);
 ```
-The `new NftscanEvm()` returns an object that can query the EVM-like chain, for here it is `EvmChain.ETH`, which stand for the Ethereum blockchain. 
+or
+```ts
+import { ErcType, NftscanEvm } from "nftscan-api";
+
+const config = {
+  apiKey: "<YOUR_API_KEY>", // Replace with your NFTScan API key.
+  baseUrl: "<HTTPS_URL>" + "/api", // Or replace with a valid https URL.
+};
+
+const evm = new NftscanEvm(config);
+```
+
+The `new NftscanEvm()` returns an object that can query the EVM-like chain, for here it is `EvmChain.ETH`, which stand for the Ethereum blockchain. It must be ensured that one of the `chain` or `baseUrl` attribute is valid. A valid `baseUrl` supported by NFTSCAN can be found here: [EVM chains](https://docs.nftscan.com/guides/Overview/1#evm_chains).
 
 The complete enumeration value of `EvmChain` includes the following:
 ```ts
