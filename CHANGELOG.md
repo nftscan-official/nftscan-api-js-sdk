@@ -1,4 +1,13 @@
 # Changelog
+## [1.13.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.12.0...v1.13.0) (2024-03-15)
+
+
+### ✨ Features | 新功能
+
+* add support custom baseUrl ([5e9b3f7](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/5e9b3f7e1e88d4343f69dedcd239139fcadb9552))
+* added support the EVM-like chain `Mantle` & `Blast` ([6178516](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/61785161bbcc06c255af6ada6bfc967d225b9edf))
+* Update the return parameters of interface `getCollectionRanking` ([09fc317](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/09fc317635ddf9a0c2e22a72bdb05c23d024d885))
+
 ## [1.12.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.11.0...v1.12.0) (2023-12-18)
 
 
