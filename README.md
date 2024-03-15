@@ -23,8 +23,8 @@ The SDK currently supports the following chains:
 | Gnosis       | gnosisapi.nftscan.com   | gnosis     |
 | Viction      | victionapi.nftscan.com  | viction    |
 | Starknet     | starknetapi.nftscan.com | starknet   |
-| Mantle       | mantleapi.nftscan.com   | starknet   |
-| Blast        | blastapi.nftscan.com    | starknet   |
+| Mantle       | mantleapi.nftscan.com   | mantle     |
+| Blast        | blastapi.nftscan.com    | blast      |
 | Solana       | solanaapi.nftscan.com   | solana     |
 
 *The value of **Short name** is used in the SDK as an initialization configuration parameter.*
