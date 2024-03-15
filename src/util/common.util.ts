@@ -1,14 +1,25 @@
-export function isEmpty(obj: unknown): boolean {
-  if (typeof obj === 'number') {
-    return false;
-  }
-
-  if (obj === undefined || obj == null || obj === 'null' || obj === 'undefined') {
+export function isEmpty(value: unknown): value is undefined | null {
+  if (value === undefined || value == null || value === 'null' || value === 'undefined') {
     return true;
   }
 
-  const contentStr = typeof obj === 'string' ? obj : JSON.stringify(obj);
-  return contentStr.length === 0 || contentStr === '{}' || contentStr === '[]';
+  if (typeof value === 'number' || typeof value === 'function') {
+    return false;
+  }
+
+  if (Array.isArray(value)) {
+    return value.length === 0;
+  }
+
+  if (typeof value === 'object') {
+    return Object.keys(value).length === 0;
+  }
+
+  if (typeof value === 'string') {
+    return value.length === 0;
+  }
+
+  return false;
 }
 
 export function isJson(str: string): boolean {

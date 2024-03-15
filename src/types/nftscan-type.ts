@@ -19,6 +19,8 @@ export enum EvmChain {
   GNOSIS = 'gnosis',
   VICTION = 'viction',
   STARKNET = 'starknet',
+  MANTLE = 'mantle',
+  BLAST = 'blast',
 }
 
 /**
@@ -69,6 +71,7 @@ export enum RangeType {
 export enum NsError {
   API_KEY_ERROR = 'api_key_error',
   API_CHAIN_ERROR = 'api_chain_error',
+  API_BASE_URL_ERROR = 'api_base_url_error',
   REQUEST_ERROR = 'request_error',
   RESPONSE_DATA_EMPTY = 'response_data_empty',
   NFTSCAN_DATA_EMPTY = 'nftscan_data_empty',
@@ -105,7 +108,12 @@ export interface NftscanConfig {
   /**
    * The name of the chain you will be requesting
    */
-  chain: EvmChain;
+  chain?: EvmChain;
+
+  /**
+   * The base url of NFTScan API
+   */
+  baseUrl?: string;
 }
 
 /**

@@ -20,6 +20,8 @@ export default class NftscanConst {
     base: 'https://baseapi.nftscan.com/api',
     viction: 'https://victionapi.nftscan.com/api',
     starknet: 'https://starknetapi.nftscan.com/api',
+    mantle: 'https://mantleapi.nftscan.com/api',
+    blast: 'https://blastapi.nftscan.com/api',
   };
 
   /**
