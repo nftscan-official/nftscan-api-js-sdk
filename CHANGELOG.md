@@ -1,4 +1,11 @@
 # Changelog
+### [1.13.1](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.13.0...v1.13.1) (2024-04-15)
+
+
+### ✨ Features | 新功能
+
+* Modify the `limit` of the `getCollectionRanking` interface ([02c5234](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/02c523470cf7aebf8a4a81db1497ec9716912e84))
+
 ## [1.13.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.12.0...v1.13.0) (2024-03-15)
 
 
