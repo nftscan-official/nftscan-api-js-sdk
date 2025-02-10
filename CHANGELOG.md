@@ -1,4 +1,12 @@
 # Changelog
+## [1.14.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.13.1...v1.14.0) (2025-02-10)
+
+
+### ✨ Features | 新功能
+
+* added support the EVM-like chain `Mint`, `Sei`, `Gravity`, `Berachain` ([f7f2f32](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/f7f2f32e37d96d19d5734423e16d5714300b9873))
+* Remove support the EVM-like chain `Moonbeam`, `PlatON`, `Gnosis`, `Blast` ([f7f2f32](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/f7f2f32e37d96d19d5734423e16d5714300b9873))
+
 ### [1.13.1](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.13.0...v1.13.1) (2024-04-15)
 
 
