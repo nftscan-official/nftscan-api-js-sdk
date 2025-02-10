@@ -10,21 +10,20 @@ The SDK currently supports the following chains:
 | Ethereum     | restapi.nftscan.com     | eth        |
 | BNB chain    | bnbapi.nftscan.com      | bnb        |
 | Polygon      | polygonapi.nftscan.com  | polygon    |
-| Moonbeam     | moonbeamapi.nftscan.com | moonbeam   |
-| Arbitrum One | arbitrumapi.nftscan.com | arbitrum   |
 | OP Mainnet   | optimismapi.nftscan.com | optimism   |
+| Mint         | mintapi.nftscan.com     | mint       |
+| Arbitrum One | arbitrumapi.nftscan.com | arbitrum   |
 | zkSync Era   | zksyncapi.nftscan.com   | zksync     |
 | Linea        | lineaapi.nftscan.com    | linea      |
-| Base         | baseapi.nftscan.com     | base       |
-| PlatON       | platonapi.nftscan.com   | platon     |
-| Avalanche-C  | avaxapi.nftscan.com     | avalanche  |
-| Cronos       | cronosapi.nftscan.com   | cronos     |
-| Fantom       | fantomapi.nftscan.com   | fantom     |
-| Gnosis       | gnosisapi.nftscan.com   | gnosis     |
-| Viction      | victionapi.nftscan.com  | viction    |
-| Starknet     | starknetapi.nftscan.com | starknet   |
 | Mantle       | mantleapi.nftscan.com   | mantle     |
-| Blast        | blastapi.nftscan.com    | blast      |
+| Starknet     | starknetapi.nftscan.com | starknet   |
+| Base         | baseapi.nftscan.com     | base       |
+| Sei          | seiapi.nftscan.com      | sei        |
+| Gravity      | gravityapi.nftscan.com  | gravity    |
+| Berachain    | beraapi.nftscan.com     | bera       |
+| Avalanche-C  | avaxapi.nftscan.com     | avalanche  |
+| Viction      | victionapi.nftscan.com  | viction    |
+| Cronos       | cronosapi.nftscan.com   | cronos     |
 | Solana       | solanaapi.nftscan.com   | solana     |
 
 *The value of **Short name** is used in the SDK as an initialization configuration parameter.*
