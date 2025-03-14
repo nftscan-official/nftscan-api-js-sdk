@@ -12,18 +12,12 @@ The SDK currently supports the following chains:
 | Polygon      | polygonapi.nftscan.com  | polygon    |
 | OP Mainnet   | optimismapi.nftscan.com | optimism   |
 | Mint         | mintapi.nftscan.com     | mint       |
-| Arbitrum One | arbitrumapi.nftscan.com | arbitrum   |
-| zkSync Era   | zksyncapi.nftscan.com   | zksync     |
-| Linea        | lineaapi.nftscan.com    | linea      |
 | Mantle       | mantleapi.nftscan.com   | mantle     |
-| Starknet     | starknetapi.nftscan.com | starknet   |
 | Base         | baseapi.nftscan.com     | base       |
 | Sei          | seiapi.nftscan.com      | sei        |
 | Gravity      | gravityapi.nftscan.com  | gravity    |
 | Berachain    | beraapi.nftscan.com     | bera       |
-| Avalanche-C  | avaxapi.nftscan.com     | avalanche  |
 | Viction      | victionapi.nftscan.com  | viction    |
-| Cronos       | cronosapi.nftscan.com   | cronos     |
 | Solana       | solanaapi.nftscan.com   | solana     |
 
 *The value of **Short name** is used in the SDK as an initialization configuration parameter.*
@@ -76,18 +70,12 @@ export enum EvmChain {
   POLYGON = 'polygon',
   OPTIMISM = 'optimism',
   MINT = 'mint',
-  ARBITRUM = 'arbitrum',
-  ZKSYNC = 'zksync',
-  LINEA = 'linea',
   MANTLE = 'mantle',
-  STARKNET = 'starknet',
   BASE = 'base',
   SEI = 'sei',
   GRAVITY = 'gravity',
   BERA = 'bera',
-  AVALANCHE = 'avalanche',
   VICTION = 'viction',
-  CRONOS = 'cronos',
 }
 ```
 

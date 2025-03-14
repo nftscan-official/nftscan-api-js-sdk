@@ -8,18 +8,12 @@ export enum EvmChain {
   POLYGON = 'polygon',
   OPTIMISM = 'optimism',
   MINT = 'mint',
-  ARBITRUM = 'arbitrum',
-  ZKSYNC = 'zksync',
-  LINEA = 'linea',
   MANTLE = 'mantle',
-  STARKNET = 'starknet',
   BASE = 'base',
   SEI = 'sei',
   GRAVITY = 'gravity',
   BERA = 'bera',
-  AVALANCHE = 'avalanche',
   VICTION = 'viction',
-  CRONOS = 'cronos',
 }
 
 /**

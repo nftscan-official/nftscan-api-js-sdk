@@ -8,18 +8,12 @@ export default class NftscanConst {
     polygon: 'https://polygonapi.nftscan.com/api',
     optimism: 'https://optimismapi.nftscan.com/api',
     mint: 'https://mintapi.nftscan.com/api',
-    arbitrum: 'https://arbitrumapi.nftscan.com/api',
-    zksync: 'https://zksyncapi.nftscan.com/api',
-    linea: 'https://lineaapi.nftscan.com/api',
     mantle: 'https://mantleapi.nftscan.com/api',
-    starknet: 'https://starknetapi.nftscan.com/api',
     base: 'https://baseapi.nftscan.com/api',
     sei: 'https://seiapi.nftscan.com/api',
     gravity: 'https://gravityapi.nftscan.com/api',
     bera: 'https://beraapi.nftscan.com/api',
-    avalanche: 'https://avaxapi.nftscan.com/api',
     viction: 'https://victionapi.nftscan.com/api',
-    cronos: 'https://cronosapi.nftscan.com/api',
     solana: 'https://solanaapi.nftscan.com/api',
   };
 

@@ -1,4 +1,11 @@
 # Changelog
+## [1.15.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.14.1...v1.15.0) (2025-03-14)
+
+
+### ✨ Features | 新功能
+
+* Remove support for the EVM-like chains `arbitrum`, `zksync`, `linea`, `starknet`, `avalanche`, `cronos` ([4305a71](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/4305a71d55e987d2935bb0ed432a4cf023fcfa39))
+
 ### [1.14.1](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.14.0...v1.14.1) (2025-02-10)
 
 
@@ -11,8 +18,8 @@
 
 ### ✨ Features | 新功能
 
-* added support the EVM-like chain `Mint`, `Sei`, `Gravity`, `Berachain` ([f7f2f32](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/f7f2f32e37d96d19d5734423e16d5714300b9873))
-* Remove support the EVM-like chain `Moonbeam`, `PlatON`, `Gnosis`, `Blast` ([f7f2f32](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/f7f2f32e37d96d19d5734423e16d5714300b9873))
+* added support for the EVM-like chains `Mint`, `Sei`, `Gravity`, `Berachain` ([f7f2f32](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/f7f2f32e37d96d19d5734423e16d5714300b9873))
+* Remove support for the EVM-like chains `Moonbeam`, `PlatON`, `Gnosis`, `Blast` ([f7f2f32](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/f7f2f32e37d96d19d5734423e16d5714300b9873))
 
 ### [1.13.1](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.13.0...v1.13.1) (2024-04-15)
 
@@ -26,8 +33,8 @@
 
 ### ✨ Features | 新功能
 
-* add support custom baseUrl ([5e9b3f7](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/5e9b3f7e1e88d4343f69dedcd239139fcadb9552))
-* added support the EVM-like chain `Mantle` & `Blast` ([6178516](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/61785161bbcc06c255af6ada6bfc967d225b9edf))
+* added support for custom baseUrl ([5e9b3f7](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/5e9b3f7e1e88d4343f69dedcd239139fcadb9552))
+* added support for the EVM-like chain `Mantle` & `Blast` ([6178516](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/61785161bbcc06c255af6ada6bfc967d225b9edf))
 * Update the return parameters of interface `getCollectionRanking` ([09fc317](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/09fc317635ddf9a0c2e22a72bdb05c23d024d885))
 
 ## [1.12.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.11.0...v1.12.0) (2023-12-18)
@@ -42,7 +49,7 @@
 
 ### ✨ Features | 新功能
 
-* added support the EVM-like chain `Viction` & `Starknet` ([fd2f15d](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/fd2f15d9d899e2abe2cf5fb6279b1303bb41af04))
+* added support for the EVM-like chain `Viction` & `Starknet` ([fd2f15d](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/fd2f15d9d899e2abe2cf5fb6279b1303bb41af04))
 * add interface `getAccountHoldingTrending` ([0d70b59](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/0d70b591a6207b9742a04baab0a313f933806a87))
 * Added `collection_token_address` attribute to Collection-related interface return parameters of Solana chain ([8e1ebc6](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/8e1ebc6c5876736ed83a25ec30f60942dcf60cd7))
 * Added `opensea_slug` attribute to Collection-related interface return parameters of Evm chain ([d43b103](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/d43b1035425b573607490d201353dc589e01d3db))
@@ -53,7 +60,7 @@
 ### ✨ Features | 新功能
 
 * Added `is_spam` attribute to Collection-related interface return parameters ([e378db9](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/e378db9da98a33c6826226a44bd8684e033ed016))
-* added support the EVM-like chain `Base` ([b8a2ae8](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/b8a2ae8334153f4f3b1da623a38000309d989013))
+* added support for the EVM-like chain `Base` ([b8a2ae8](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/b8a2ae8334153f4f3b1da623a38000309d989013))
 * Update the return parameters of interface `getCollectionStatistics` ([ffe82b0](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/ffe82b0ed119694d7a19cbb5fac460769fb6ea36))
 
 ## [1.9.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.8.1...v1.9.0) (2023-08-08)
@@ -69,7 +76,7 @@
 * add input params `sort_direction`, `sort_field` to `queryAssetsByAttributes` interface ([eec8456](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/eec845629536f5bb8ef306e58be35acc32290981))
 * add interface `getCollectionTopHolder` ([a4e66fc](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/a4e66fc9a5bc72eec5b587a6cb9078f0b75fc6df))
 * The response data of the interface `getAccountOverview` adds a new attribute `collection_count` ([6ccbc92](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/6ccbc920602794a2562e88246df8b170d61a970d))
-* added support the EVM-like chain `zkSync Era` & `Linea` ([0a3d1df](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/0a3d1df8b5558e12ab8738392260ef59db209232))
+* added support for the EVM-like chain `zkSync Era` & `Linea` ([0a3d1df](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/0a3d1df8b5558e12ab8738392260ef59db209232))
 
 ### [1.8.1](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.8.0...v1.8.1) (2023-06-27)
 
@@ -91,7 +98,7 @@
 
 ### ✨ Features | 新功能
 
-* added support the EVM-like chain `Gnosis` ([a811260](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/a811260ac436e9f59cc282e34d0c7e1a95aaca33))
+* added support for the EVM-like chain `Gnosis` ([a811260](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/a811260ac436e9f59cc282e34d0c7e1a95aaca33))
 * change the text in comments, update the input and output param, add API `queryAssetsInBatches`, `getCollectionStatistics` of Solana ([23da908](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/23da9088614cf2b0ce28d13890e1885c78ffcfe2))
 
 ## [1.7.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v2.0.0...v1.7.0) (2023-02-08)
@@ -100,7 +107,7 @@
 ### ✨ Features | 新功能
 
 * feat: delete API `getVolumeIn24h` `refreshMetadata` of EVM, add API `getCollectionOverview` `getCollectionOverview` `refreshAsset` `refreshContract` of EVM, add API `refreshAsset` of Solana.([56d28cb](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/56d28cb11565971868e96650f84a825c958861e6))
-* feat: added support the EVM-like chain Fantom.([57b0f5d](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/57b0f5dacc5202708cafa00cd86840f5129b9932))
+* feat: added support for the EVM-like chain Fantom.([57b0f5d](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/57b0f5dacc5202708cafa00cd86840f5129b9932))
 
 ### [1.6.1](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.6.0...v1.6.1) (2022-12-27)
 
