@@ -1,4 +1,11 @@
 # Changelog
+## [1.15.0](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.14.1...v1.15.0) (2025-03-14)
+
+
+### ✨ Features | 新功能
+
+* Remove support for the EVM-like chains `arbitrum`, `zksync`, `linea`, `starknet`, `avalanche`, `cronos` ([4305a71](https://github.com/nftscan-official/nftscan-api-js-sdk/commit/4305a71d55e987d2935bb0ed432a4cf023fcfa39))
+
 ### [1.14.1](https://github.com/nftscan-official/nftscan-api-js-sdk/compare/v1.14.0...v1.14.1) (2025-02-10)
 
 
